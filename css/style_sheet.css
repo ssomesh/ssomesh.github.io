@@ -1,0 +1,213 @@
+#page-wrap {
+  text-align: left;
+  max-width: 95%;
+  max-height: 90vh;
+  margin: 0 auto;
+ 
+/*height: calc(690px * (90/150)); # for simple calcultions in css */
+
+}
+
+/*
+h1, h2 {
+display: inline;
+color:#2C5C90
+}
+
+h4 {
+margin-top: 0px;
+color: #2C5C90
+}
+
+h3 {
+color: #551111
+}
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	color: #222222;
+	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-bottom: 0.5rem;
+	margin-top: 0.2rem;
+	text-rendering: optimizeLegibility;
+     }
+
+h3{
+
+    margin-bottom: -0.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+}
+
+h1{
+    font-size: 2.75rem;
+}
+
+h4{
+    font-size: 1.2rem;
+}
+
+.container {	
+	margin: 0 0 20px 0;
+	width:800;
+	margin-left:auto;
+	margin-right:auto;
+	background: #fff;
+	}
+
+#minitabs { }
+
+#minitabs ul { 
+       margin-left: auto;
+       margin-right:auto;
+#       list-style: circle;
+       text-align:left; 
+       border-top: 1px solid #2C5C89;
+       border-bottom: 1px solid #2C5C89; 
+       padding:10px 0; 
+    }
+
+
+#minitabs ul li { 
+       display:inline-block; 
+       text-transform: uppercase; 
+       padding:0 20px; 
+       letter-spacing:1px; 
+       line-height: 14px;
+       font-weight: bold;
+#      font-size: 15px;
+    }
+
+#minitabs ul li a {
+       text-decoration:none; 
+       color: #2C5C89; 
+    }
+
+#minitabs ul li a:hover  {
+	border-bottom: 2px solid #2C5C89;
+	padding-bottom: 2px;
+    }
+
+
+#footer {
+	padding: 0 10px 0;
+	clear:both;
+	background:#fff;
+	}
+
+#leftcol {
+	display: flex;
+        position: relative;
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
+        float: left; 
+	background: #fff;
+#       width: 25%;
+	height: 30vw; # 100% of the viewport width
+	border-color: #d8d8d8;
+	margin-bottom: 1.25rem;
+	color: #333333;
+#	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+         }
+
+#content {
+	background: #fff;
+	float: left;
+	width: 90%;
+#	height: 100vw; #100% of the viewport width
+#        height: device-height;
+	 }
+
+
+#contact p {
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: normal;
+	line-height: 1.6;
+	margin-bottom: 1.25rem;
+	text-rendering: optimizeLegibility;
+      }
+
+
+#about-me {
+       text-align:justify;
+   }
+
+/* 
+#about-me p {
+       width: 75%;
+       position: relative;
+       float: left;
+  }
+*/
+
+a {
+     text-decoration: none;
+     color: #0078a0; 
+   }
+
+hr {
+    border-color:#d8d8d8;
+   }
+
+/*
+img {
+  border-style: solid;
+  display: inline-block;
+  vertical-align: middle;
+  border-color:#d8d8d8;
+  max-width: 100%;
+  height: auto;
+  }
+*/
+
+.large-3 {
+    width: 25%; 
+  }
+
+.columns {
+    position: relative;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    float: left;
+  }
+
+#my-photo {
+    position: relative;
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+    border-style: solid;
+    border-color: #d8d8d8;
+    max-width: 25%;
+    max-height: auto ;
+    border-radius: 1px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 5%;
+ } 
+
+
+<!-- taken from bootstrap.css -->
+/*
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.img-rounded {
+  border-radius: 6px;
+}
+
+*/

@@ -1,0 +1,69 @@
+
+    body {
+        padding-top: 2%;
+        margin: 0 auto;
+        clear: both;
+        /*max-width: 85%;*/
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+  
+ 
+    a:hover, a:link, a:visited {
+       text-decoration: none;
+     } 
+    .navbar {
+	border-radius: 5px;
+        background: #003262; /*berkeely blue*/
+    }
+
+   .navbar-inverse .navbar-brand {
+       color: #fff;
+    }
+  .navbar-inverse .navbar-nav > li > a {
+      font-size: 16px;
+      color: #fff;
+    }
+
+
+   .navbar-inverse .navbar-text {
+       color: #fff;
+   }
+
+   .navbar-inverse .navbar-nav > li > a:hover,
+   .navbar-inverse .navbar-nav > li > a:focus { 
+      color: #FDB515;
+   }
+
+  .navbar-inverse .navbar-brand:hover,
+  .navbar-inverse .navbar-brand:focus {
+      color: #FDB515;
+  }
+
+   .navbar-brand {
+	font-size: 16px;
+    }
+
+   .container  .img-responsive {
+	display: block;
+	max-width: 90%;
+	max-height: 100%;
+       /* border: 0.5px solid transparent;*/
+        border-color: #d8d8d8;
+	border-radius: 6px;
+    }
+
+   p {
+	font-size: 1.25em
+   }
+
+/*
+   h1,h2,h3,h4,h5,h6 {
+	color: #222222;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-bottom: 0.5rem;
+	margin-top: 0.2rem;
+	text-rendering: optimizeLegibility;
+   }
+*/
