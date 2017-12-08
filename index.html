@@ -150,13 +150,13 @@ in 2014 with a B.Tech. in Computer Science and Engineering.
     <script language="Javascript">
     var dLM = new Date(Date.parse(document.lastModified));
 
-        var day = new Array("Sonntag","Montag","Dienstag",
-            "Mittwoch","Donnerstag","Freitag","Samstag");
-        var month = new Array("Januar","Februar","März","April","Mai","Juni",
-            "Juli","August","September","Oktober","November","Dezember");
+       // var day = new Array("Sunday","Monday","Tuesday",
+        //    "Wednesday","Thursday","Friday","Saturday");
+        var month = new Array("January","February","March","April","May","June",
+            "July","August","September","October","November","December");
 
         var date = dLM.getDate();
-        var day = day[dLM.getDay()];
+       // var day = day[dLM.getDay()];
         var year = dLM.getFullYear();
   var month = month[dLM.getMonth()];
         var hours = dLM.getHours();
@@ -170,7 +170,7 @@ in 2014 with a B.Tech. in Computer Science and Engineering.
         if (seconds<10) seconds = "0"+seconds;
 
         document.write("Last Modified: "
-            +day+", "+date+". "+month+" "+year+"."); 
+            + month+" "+date+", "+year+"."); 
         //document.write("Last Modified: "
         //    +day+", "+date+". "+month+" "+year+", um "+hours+":"+minutes+":"+seconds); 
     </script>  
