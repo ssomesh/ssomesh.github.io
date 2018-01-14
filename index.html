@@ -52,7 +52,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                  </button> 
+                  <!--jQuery is required for the toggle button to work -->
                 <a class="navbar-brand initialism" href="index.html"> about me</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,7 +96,7 @@
                 </ul>
  -->
         <p>
-	Welcome! I am a third year Ph.D. student at the department of 
+	Welcome! I am a fourth year Ph.D. student at the department of 
 <a href="http://www.cse.iitm.ac.in/" target="_blnk">
 Computer Science and Engineering 
 </a>
@@ -123,7 +124,7 @@ in 2014 with a B.Tech. in Computer Science and Engineering.
 	  Dept. of CSE<br/>
 	  IIT Madras - 600 036.<br/>
 	  Ph: +91 9791264972<br/>
-	  Email: somesh&#46;singh1992&#64;gmail&#46;com<br/>
+    Email: {firstname} (dot) {lastname}1992 (at) gmail (dot) com<br/>
 	</p>
 
         </div>
@@ -141,8 +142,43 @@ in 2014 with a B.Tech. in Computer Science and Engineering.
           width="160" height="25"  border="0" alt="View Somesh Singh's profile on LinkedIn">
 
     </a>
+<hr>
 
-</div>
+  <div align="left">
+
+  <p id="P1">
+    <script language="Javascript">
+    var dLM = new Date(Date.parse(document.lastModified));
+
+       // var day = new Array("Sunday","Monday","Tuesday",
+        //    "Wednesday","Thursday","Friday","Saturday");
+        var month = new Array("January","February","March","April","May","June",
+            "July","August","September","October","November","December");
+
+        var date = dLM.getDate();
+       // var day = day[dLM.getDay()];
+        var year = dLM.getFullYear();
+  var month = month[dLM.getMonth()];
+        var hours = dLM.getHours();
+        var minutes = dLM.getMinutes();
+        var seconds = dLM.getSeconds();
+
+        if (date<10) date = "0"+date;
+        if (month<10) month = "0"+month;
+        if (hours<10) hours = "0"+hours;
+        if (minutes<10) minutes = "0"+minutes;
+        if (seconds<10) seconds = "0"+seconds;
+
+        document.write("Last updated: "
+            + month+" "+date+", "+year+"."); 
+        //document.write("Last Modified: "
+        //    +day+", "+date+". "+month+" "+year+", um "+hours+":"+minutes+":"+seconds); 
+    </script>  
+  </p>
+  </div>
+
+
+  </div>
 
     </div>
     <!-- /.container -->
