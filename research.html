@@ -125,7 +125,7 @@ Scalable and Performant Graph Processing on GPUs using Approximate Computing
    (abstract) 
   </a>
 
-  <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8264799" target="_blank">(pdf)</a>
+  <a href="docs/papers/tmscs" target="_blank">(pdf)</a>
 </p>
 <p class="collapse" id="tmscs" style="font-size: 11pt">
 Graph algorithms are widely used in several application domains. It has been established that parallelizing graph
@@ -169,6 +169,29 @@ SixTrackLib is a new library aimed at providing a portable and flexible tracking
 The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
 This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
  </p>
+
+<h3 style="font-size: 16pt">
+Optimizing Graph Processing on GPUs using Approximate Computing: Poster
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in PPoPP 2019.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
+   (abstract) 
+  </a>
+
+  <a href="docs/papers/ppopp19.pdf" target="_blank">(pdf)</a>
+
+</p>
+
+<p class="collapse" id="ppopp19" style="font-size: 11pt">
+Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses and control-flow involved in
+graph traversals. In this work, we tame these challenges by injecting approximations. In particular, we improve memory
+coalescing by renumbering and replicating nodes, memory latency by adding edges among specific nodes brought into
+shared memory, and thread-divergence by normalizing degrees across nodes assigned to a warp. Using a suite of graphs
+with varied characteristics and five popular algorithms, we demonstrate the effectiveness of our proposed techniques.
+Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of 1.3&times;, 1.41&times; and 1.06&times; achieving accuracies of 83&percnt;, 78&percnt; and 84&percnt;, respectively.
+</p>
 
         </div>
       
