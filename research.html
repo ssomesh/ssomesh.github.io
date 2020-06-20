@@ -248,12 +248,10 @@ Graffix: Efficient Graph Processing with a Tinge of GPU-Specific Approximations
 <p class="collapse" id="icpp20" style="font-size: 11pt">
 Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses involved in graph traversals. In particular,
 three important GPU-specific aspects affect performance: memory coalescing, memory latency, and thread divergence. In this work,
-we attempt to tame these challenges using approximate computing. We target graph applications on GPUs that can tolerate some degra-
-dation in the quality of the output for obtaining the result in short order. We propose three techniques for boosting the performance
+we attempt to tame these challenges using approximate computing. We target graph applications on GPUs that can tolerate some degradation in the quality of the output for obtaining the result in short order. We propose three techniques for boosting the performance
 of graph processing on the GPU by injecting approximations in a controlled manner. The first one creates a graph isomorph that
-brings relevant nodes nearby in memory and adds controlled replica of nodes to improve coalescing. The second reduces memory la-
-tency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing
-well-connected subgraphs iteratively inside shared-memory. The third technique normalizes degrees across nodes assigned to a warp
+brings relevant nodes nearby in memory and adds controlled replica of nodes to improve coalescing. The second reduces memory latency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing
+well-connected subgraphs iteratively inside shared memory. The third technique normalizes degrees across nodes assigned to a warp
 to reduce thread divergence. Each of the techniques offers notable performance benefits, and provides a knob to control the amount of
 inaccuracy added to an execution. We demonstrate the effectiveness of the proposed techniques using a suite of five large graphs with
 varied characteristics and five popular graph algorithms.
