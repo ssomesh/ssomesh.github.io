@@ -255,37 +255,6 @@ benefits. We also study the effects of the approximations on GPU-based processin
 <h3><u>Publications</u>
 </p>
 
-<h3 style="font-size: 16pt">
- SixTrack Project: Status, Runtime Environment, and New Developments
- </h3>
- <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P. D. Hermes, N. H&#248imyr,
- S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
- T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
- <h4 style="font-size: 13pt">in International Computational Accelerator Physics Conference 2018.</h4>
- <p style="font-size: 11pt">
-   <a data-toggle="collapse" href="#icap" aria-expanded="false" aria-controls="icap">
-    (abstract) 
-   </a>
- 
-   <a href="docs/papers/icap18.pdf" target="_blank">(pdf)</a> 
-   <a href="https://doi.org/10.18429/JACoW-ICAP2018-TUPAF02" target="_blank">(doi)</a>
- </p>
- 
- <p class="collapse" id="icap" style="font-size: 11pt">
-SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations. 
-The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms. 
-It also includes multiple scattering engines for beam-matter interaction studies, as well as facilities to run integrated simulations with FLUKA and GEANT4.
-These features differentiate SixTrack from general-purpose, optics-design software like MAD-X. 
-The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5). 
-This restructuring also removed a large number of build flags, instead enabling/disabling the functionality at run-time. 
-In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.  
-Physics models (beam-beam effects, RF-multipoles, current carrying wires, solenoid, and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.  
-The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture.
-SixDesk supports CERN LSF and HTCondor batch systems, as well as the BOINC infrastructure in the framework of the LHC@Home volunteering computing project.
-SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. 
-The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
-This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
- </p>
 
 
 
@@ -317,6 +286,38 @@ Physics models (beam–beam effects, Radio-Frequency (RF) multipoles, current ca
 The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture. SixDesk supports several cluster environments available at CERN as well as submitting jobs to the LHC@Home volunteering computing project, which enables volunteers contributing with their hardware to CERN simulation. 
 SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. The library is able to run in CPUs as well as graphical processing units (GPUs). 
 This contribution presents the status of the code, summarizes the main existing features and provides details about the main development lines SixTrack, SixDesk and SixTrackLib.
+ </p>
+
+<h3 style="font-size: 16pt">
+ SixTrack Project: Status, Runtime Environment, and New Developments
+ </h3>
+ <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P. D. Hermes, N. H&#248imyr,
+ S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
+ T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
+ <h4 style="font-size: 13pt">in International Computational Accelerator Physics Conference 2018.</h4>
+ <p style="font-size: 11pt">
+   <a data-toggle="collapse" href="#icap" aria-expanded="false" aria-controls="icap">
+    (abstract) 
+   </a>
+ 
+   <a href="docs/papers/icap18.pdf" target="_blank">(pdf)</a> 
+   <a href="https://doi.org/10.18429/JACoW-ICAP2018-TUPAF02" target="_blank">(doi)</a>
+ </p>
+ 
+ <p class="collapse" id="icap" style="font-size: 11pt">
+SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations. 
+The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms. 
+It also includes multiple scattering engines for beam-matter interaction studies, as well as facilities to run integrated simulations with FLUKA and GEANT4.
+These features differentiate SixTrack from general-purpose, optics-design software like MAD-X. 
+The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5). 
+This restructuring also removed a large number of build flags, instead enabling/disabling the functionality at run-time. 
+In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.  
+Physics models (beam-beam effects, RF-multipoles, current carrying wires, solenoid, and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.  
+The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture.
+SixDesk supports CERN LSF and HTCondor batch systems, as well as the BOINC infrastructure in the framework of the LHC@Home volunteering computing project.
+SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. 
+The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
+This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
  </p>
         </div>
       
