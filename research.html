@@ -99,7 +99,7 @@
 	<i> &#34;Although this may seem a paradox, all exact
 	science is dominated by the idea of approximation.&#34; </i>
       </p>
-	<footer>Bertrand Russell (1872–1970)</footer>
+	<footer>Bertrand Russell</footer>
 </blockquote>
 <blockquote class="blockquote" style="background:#eff">
       <p>
@@ -118,22 +118,80 @@ I work on designing approximation techniques for parallel graph algorithms on GP
 
 <p>
 <!-- Scaling graph analytics is challenging. -->
-My dissertation research focuses on accelerating parallel graph processing using approximate computing. I design techniques for improving the efficiency of graph analytics on Graphics Processing Units (GPUs) by trading-off computational accuracy.
+My dissertation research focused on accelerating parallel graph processing using approximate computing. I designed techniques for improving the efficiency of graph analytics on Graphics Processing Units (GPUs) by trading-off computational accuracy.
 When the graph sizes are huge (e.g., billion-scale networks), or the underlying processing is expensive, it is not always feasible to compute the exact solution in time. A practical question to ask in such scenarios is: "given an infrastructure, how to make the best use of resources to obtain an acceptable, inexact solution in a reasonable time?"
-I seek to answer this question by bringing parallelism and approximate computing into a convergent trajectory to make heavy-weight graph computation practical and scalable.
-</p>
-
-<p style="font-size:16px;">
+I sought to answer this question by bringing parallelism and approximate computing into a convergent trajectory to make heavy-weight graph computation practical and scalable.
 [<a href="docs/thesis/thesis.pdf" target="_blank">PhD thesis</a>]
-
-<!-- [<a href="docs/thesis/phd_defense_slides.pdf" target="_blank">PhD defense slides</a>] -->
 </p>
+<!-- [<a href="docs/thesis/phd_defense_slides.pdf" target="_blank">PhD defense slides</a>] -->
 
 <p>
 The tag-cloud provides an accurate representation of my Ph.D. research focus.
 </p>
 
      <p style="text-align:center; "><img style="max-width: 40%; margin-top: 1rem;" src="./img/tag_cloud_phd.png" alt="dissertation_tag_cloud" border="1" /></p>
+
+
+<hr />
+
+<h3 style="border-bottom: 1px solid black;padding-bottom:4px"> Other Projects </h3>
+</br>
+
+<div style="font-size:18px;">
+<ul>
+
+<li>
+<dl>
+  Awarded 
+  <a href= "https://edu.google.com/programs/?modal_active=none" target="_blank"> 
+     <em>Google Cloud Platform </em></a>
+  research credits.
+  <span style="float:right;font-weight:normal; font-style:italic">
+    2020
+  </span>
+</dl>
+</li>
+
+<li>
+ <dl>
+      Google Summer of Code 2018 : <a href= "https://summerofcode.withgoogle.com/archive/2018/projects/5152248673861632/" target="_blank"> 
+      <em>Optimize and Integrate Standalone Tracking Library (SixTrackLib)
+ </em></a>
+ <span style="float:right;font-weight:normal; font-style:italic">
+ <a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank"><em>SixTrack, CERN-HSF</em> </a>
+ </span>
+ <p style="font-size:16px; display:list-item; list-style-type: circle; list-style-position:inside;">  <!-- color:#00A598"-->
+ Developed a standalone parallel implementation of (a part of) SixTrackLib.
+ The contributed code is available
+ <a href="https://github.com/ssomesh/sixtracklib_gsoc18/tree/master/" target="_blank"> 
+     here</a>.
+ </p>
+ </dl>
+ </li> 
+
+
+	
+<li>
+<dl>
+        Google Summer of Code 2017 : <a href= "https://summerofcode.withgoogle.com/archive/2017/projects/6549039684255744/" target="_blank"> 
+        <em>Smart Data Structures in CUDA</em> </a>
+<span style="float:right;font-weight:normal; font-style:italic">
+<a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank"> 
+       <em>CMS, CERN-HSF</em> </a>
+</span>
+<p style="font-size:16px; display:list-item; list-style-type: circle; list-         style-position:inside;">
+ Developed 
+<a href= "https://github.com/ssomesh/SALLOC/tree/master" target="_blank"> 
+        <em>SALLOC</em> </a>
+-- An arena based memory allocator for SIMT architectures. 
+ </p>
+
+</dl>
+</li>
+
+</div>
+
+<hr />
 
 <p style="color:black">
 <h3><u>Publications</u>
@@ -199,119 +257,6 @@ varied characteristics and five popular graph algorithms.
 </p>
 
 <h3 style="font-size: 16pt">
-Optimizing Graph Processing on GPUs using Approximate Computing: Poster
-</h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
-<h4 style="font-size: 13pt">in PPoPP 2019.</h4>
-<p style="font-size: 11pt">
-  <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
-   (abstract) 
-  </a>
-
-  <a href="docs/papers/ppopp19.pdf" target="_blank">(pdf)</a>
-  <a href="https://doi.org/10.1145/3293883.3295736" target="_blank">(doi)</a>
-</p>
-
-<p class="collapse" id="ppopp19" style="font-size: 11pt">
-Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses and control-flow involved in
-graph traversals. In this work, we tame these challenges by injecting approximations. In particular, we improve memory
-coalescing by renumbering and replicating nodes, memory latency by adding edges among specific nodes brought into
-shared memory, and thread-divergence by normalizing degrees across nodes assigned to a warp. Using a suite of graphs
-with varied characteristics and five popular algorithms, we demonstrate the effectiveness of our proposed techniques.
-Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of 1.3&times;, 1.41&times; and 1.06&times; achieving accuracies of 83&percnt;, 78&percnt; and 84&percnt;, respectively.
-</p>
-
-
-<h3 style="font-size: 16pt">
-Scalable and Performant Graph Processing on GPUs using Approximate Computing
-</h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
-<h4 style="font-size: 13pt">in IEEE TMSCS 2018. </h4>
-<p style="font-size: 11pt">
-  <a data-toggle="collapse" href="#tmscs" aria-expanded="false" aria-controls="tmscs">
-   (abstract) 
-  </a>
-
-  <a href="docs/papers/tmscs.pdf" target="_blank">(pdf)</a>
-  <a href="https://doi.org/10.1109/TMSCS.2018.2795543" target="_blank">(doi)</a>
-</p>
-<p class="collapse" id="tmscs" style="font-size: 11pt">
-Graph algorithms are widely used in several application domains. It has been established that parallelizing graph
-algorithms is challenging. The parallelization issues get exacerbated when graphics processing units (GPUs) are used to execute
-graph algorithms. While the prior art has shown effective parallelization of several graph algorithms on GPUs, a few algorithms are still
-expensive. In this work, we address the scalability issues in graph parallelization. In particular, we aim to improve the execution time by
-tolerating a little approximation in the computation. We study the effects of four heuristic approximations on six graph algorithms with
-five graphs and show that if an application allows for small inaccuracy, this can be leveraged to achieve considerable performance
-benefits. We also study the effects of the approximations on GPU-based processing and provide interesting takeaways.
-</p>
-
-<hr />
-
-<h3 style="border-bottom: 1px solid black;padding-bottom:4px"> Other Projects </h3>
-</br>
-
-<div style="font-size:18px;">
-<ul>
-
-<li>
-<dl>
-  Awarded 
-  <a href= "https://edu.google.com/programs/?modal_active=none" target="_blank"> 
-     <em>Google Cloud Platform </em></a>
-  research credits.
-  <span style="float:right;font-weight:normal; font-style:italic">
-    2020
-  </span>
-</dl>
-</li>
-
-<li>
- <dl>
-      Google Summer of Code 2018 : <a href= "https://summerofcode.withgoogle.com/archive/2018/projects/5152248673861632/" target="_blank"> 
-      <em>Optimize and Integrate Standalone Tracking Library (SixTrackLib)
- </em></a>
- <span style="float:right;font-weight:normal; font-style:italic">
- <a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank">         <em>SixTrack, CERN-HSF</em> </a>
- </span>
- <p style="font-size:16px; display:list-item; list-style-type: circle; list-style-  position:inside;">  <!-- color:#00A598"-->
- Developed a standalone parallel implementation of (a part of) SixTrackLib.
- The contributed code is available
- <a href="https://github.com/ssomesh/sixtracklib_gsoc18/tree/master/"               target="_blank"> 
-     here</a>.
- </p>
- </dl>
- </li> 
-
-
-	
-<li>
-<dl>
-        Google Summer of Code 2017 : <a href= "https://summerofcode.withgoogle.com/archive/2017/projects/6549039684255744/" target="_blank"> 
-        <em>Smart Data Structures in CUDA</em> </a>
-<span style="float:right;font-weight:normal; font-style:italic">
-<a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank"> 
-       <em>CMS, CERN-HSF</em> </a>
-</span>
-<p style="font-size:16px; display:list-item; list-style-type: circle; list-         style-position:inside;">
- Developed 
-<a href= "https://github.com/ssomesh/SALLOC/tree/master" target="_blank"> 
-        <em>SALLOC</em> </a>
--- An arena based memory allocator for SIMT architectures. 
- </p>
-
-</dl>
-</li>
-
-</div>
-
-<p style="color:black">
-<h3><u>Publications</u>
-</p>
-
-
-
-
-<h3 style="font-size: 16pt">
  SixTrack V and runtime environment
  </h3>
  <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
@@ -340,6 +285,29 @@ The SixDesk runtime environment allows the user to manage the large batches of s
 SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. The library is able to run in CPUs as well as graphical processing units (GPUs). 
 This contribution presents the status of the code, summarizes the main existing features and provides details about the main development lines SixTrack, SixDesk and SixTrackLib.
  </p>
+
+<h3 style="font-size: 16pt">
+Optimizing Graph Processing on GPUs using Approximate Computing: Poster
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in PPoPP 2019.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
+   (abstract) 
+  </a>
+
+  <a href="docs/papers/ppopp19.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1145/3293883.3295736" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="ppopp19" style="font-size: 11pt">
+Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses and control-flow involved in
+graph traversals. In this work, we tame these challenges by injecting approximations. In particular, we improve memory
+coalescing by renumbering and replicating nodes, memory latency by adding edges among specific nodes brought into
+shared memory, and thread-divergence by normalizing degrees across nodes assigned to a warp. Using a suite of graphs
+with varied characteristics and five popular algorithms, we demonstrate the effectiveness of our proposed techniques.
+Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of 1.3&times;, 1.41&times; and 1.06&times; achieving accuracies of 83&percnt;, 78&percnt; and 84&percnt;, respectively.
+</p>
 
 <h3 style="font-size: 16pt">
  SixTrack Project: Status, Runtime Environment, and New Developments
@@ -372,6 +340,32 @@ SixTrackLib is a new library aimed at providing a portable and flexible tracking
 The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
 This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
  </p>
+
+
+<h3 style="font-size: 16pt">
+Scalable and Performant Graph Processing on GPUs using Approximate Computing
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in IEEE TMSCS 2018. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#tmscs" aria-expanded="false" aria-controls="tmscs">
+   (abstract) 
+  </a>
+
+  <a href="docs/papers/tmscs.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1109/TMSCS.2018.2795543" target="_blank">(doi)</a>
+</p>
+<p class="collapse" id="tmscs" style="font-size: 11pt">
+Graph algorithms are widely used in several application domains. It has been established that parallelizing graph
+algorithms is challenging. The parallelization issues get exacerbated when graphics processing units (GPUs) are used to execute
+graph algorithms. While the prior art has shown effective parallelization of several graph algorithms on GPUs, a few algorithms are still
+expensive. In this work, we address the scalability issues in graph parallelization. In particular, we aim to improve the execution time by
+tolerating a little approximation in the computation. We study the effects of four heuristic approximations on six graph algorithms with
+five graphs and show that if an application allows for small inaccuracy, this can be leveraged to achieve considerable performance
+benefits. We also study the effects of the approximations on GPU-based processing and provide interesting takeaways.
+</p>
+
+
         </div>
       
 
