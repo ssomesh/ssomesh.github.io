@@ -209,6 +209,30 @@ The tag-cloud provides an accurate representation of my Ph.D. research focus.
 
 </p>
 
+<h3 style="font-size: 16pt">
+An Efficient Parallel Implementation of a Perfect Hashing Method for Hypergraphs
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&ccedil;ar,</i></h4>
+<h4 style="font-size: 13pt">in GrAPL: Workshop on Graphs, Architectures, Programming, and Learning (IPDPSW), 2022 [<i>to appear</i>]. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#grapl22" aria-expanded="false" aria-controls="grapl22">
+   (abstract) 
+  </a>
+
+  <a href="https://hal.inria.fr/hal-03612360/document" target="_blank">(HAL)</a>
+  <a href="#">(doi)</a>
+</p>
+
+<p class="collapse" id="grapl22" style="font-size: 11pt">
+Querying the existence of an edge in a given graph or hypergraph is a building block in several algorithms. 
+Hashing-based methods can be used for this purpose, where the given edges are stored in a hash table in a preprocessing step, and then the queries are answered using the lookup operations.
+While the general hashing methods have fast lookup times in the average case, the worst case run time is much higher. 
+Perfect hashing methods take advantage of the fact that the items to be stored are all available and construct a collision free hash function for the given input, resulting in an optimal lookup time
+even in the worst case. 
+We investigate an efficient shared-memory parallel implementation of a recently proposed perfect hashing method for hypergraphs.
+We experimentally compare the resulting parallel algorithms with the state-of-the-art and demonstrate better run time and scalability on a set of hypergraphs corresponding to real-life sparse tensors.
+</p>
+
 
 <h3 style="font-size: 16pt">
 ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on GPU
