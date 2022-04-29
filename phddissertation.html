@@ -114,6 +114,7 @@ I work on designing approximation techniques for parallel graph algorithms on GP
 
 <p>
 <h4> <b>Abstract</b> </h4>
+</p>
 <!-- Scaling graph analytics is challenging. -->
 <!-- 
 My dissertation research focused on accelerating parallel graph processing using approximate computing. I designed techniques for improving the efficiency of graph analytics on Graphics Processing Units (GPUs) by trading-off computational accuracy.
@@ -122,6 +123,7 @@ I sought to answer this question by bringing parallelism and approximate computi
 [<a href="docs/thesis/thesis.pdf" target="_blank">PhD thesis</a>]
 -->
 
+<p>
 A multitude of real-world problems is modeled as graphs where nodes represent entities
 of interest, and edges capture the relationships among them. In recent years, Graphics
 Processing Units (GPUs) have gained popularity as accelerators for compute-intensive
@@ -136,7 +138,7 @@ emergence of very effective techniques to represent graphs compactly, tame irreg
 computations, and efficiently map those to the underlying hardware. However, when
 the graph sizes are huge (e.g., billion-scale networks), or the underlying processing is
 expensive, it is not practically viable to compute the exact solution in time.
-</br>
+
 The focus of this thesis is on making graph processing more scalable. We look
 to achieve this by enhancing the performance of parallel graph algorithms on GPU by
 trading off computational accuracy, using approximate computing. We propose several
@@ -144,7 +146,7 @@ i) algorithm- and architecture-independent, ii) algorithm-independent but archit
 Graprox, a set of four algorithm- and architecture-independent approximate computing
 techniques that improve the performance of parallel graph analytics by exploiting the
 general structure of the graph kernel and the flow of information in graph algorithms.
-</br>
+
 Graph analytics on GPU suffers from low coalesced accesses, high memory latency,
 and high workload imbalance. To alleviate these issues, we present Graffix, a framework with three novel graph transformation techniques that alter the graph structure to
 enable faster processing in exchange for small inaccuracies in the final results. Graffix’s
@@ -153,20 +155,20 @@ nodes nearby in memory and adds a controlled replica of nodes. The second techni
 reduces memory latency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing well-connected subgraphs
 iteratively inside shared-memory. The third normalizes degrees across nodes assigned
 to a warp to reduce thread divergence.
-</br>
+
 Third, we focus on algorithm-specific but architecture-independent approximate
 computing techniques for improved parallel execution. Specifically, we propose
 ParTBC, an ensemble of techniques targeted at speeding up the computation of topk betweenness centrality vertices on GPU. The proposals restrict the computation of
 shortest paths from only a fraction of the vertices in parallel betweenness centrality
 computation, using online stopping criteria to terminate the computation faster.
-</br>
+
 All the proposals provide <i>tunable knobs</i> to change the degree of approximation injected and control the performance-accuracy trade-off in graph applications. Further,
 the approximate computing techniques complement (and do not compete with) the existing optimization techniques, and could be applied on top of these optimizations to
 enhance the execution performance further.
-</br>
+
 We illustrate the efficacy of the proposed techniques on graphs of varying characteristics and sizes and popular graph algorithms through extensive experimental evaluation. Overall, we show that approximate computation of graph algorithms is a robust
 way of dealing with irregularities. Approximate computing combined with parallelization promises to make heavy-weight graph computation practical, as well as, scalable.
-</br>
+
 [<a href="docs/thesis/thesis.pdf" target="_blank">Download thesis</a>]
 </p>
 
