@@ -1,2 +1,1 @@
-# ssomesh.github.io
-Personal webpage
+Somesh's personal webpage
