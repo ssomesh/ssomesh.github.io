@@ -130,6 +130,67 @@ Currently, my focus is on optimizing and enhancing the performance of sparse mat
 <b>*</b> : The authors are listed in alphabetical order by lastname.
 
 <h3 style="font-size: 16pt">
+Engineering Fast Algorithms for the Bottleneck Matching Problem*
+</h3>
+<h4 style="font-size: 13pt"><i>Ioannis Panagiotas,&#32;Gre&eacute;goire Pichon,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">in ESA 2023.</h4> 
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#esa23" aria-expanded="false" aria-controls="esa23">
+   (abstract) 
+  </a>
+
+  <a href="#" target="_blank">(pdf)</a>
+  <a href="#" target="_blank">(doi)</a>
+  <a href="#" target="_blank">(code)</a>
+</p>
+
+<p class="collapse" id="esa23" style="font-size: 11pt">
+We investigate the maximum bottleneck matching problem in bipartite graphs. Given a bipartite 
+graph with nonnegative edge weights, the problem is to determine a maximum cardinality matching
+in which the minimum weight of an edge is the maximum. To the best of our knowledge, there are
+two widely used solvers for this problem based on two different approaches. There exists a third
+known approach in the literature, which seems inferior to those two which is presumably why there
+is no implementation of it. We take this third approach, make theoretical observations to improve
+its behavior, and implement the improved method. Experiments with the existing two solvers show
+that their run time can be too high to be useful in many interesting cases. Furthermore, their
+performance is not predictable, and slight perturbations of the input graph lead to considerable
+changes in the run time. On the other hand, the proposed solver’s performance is much more stable;
+it is almost always faster than or comparable to the two existing solvers, and its run time always
+remains low.
+</p>
+
+
+<h3 style="font-size: 16pt">
+Effective Parallelization of the Vehicle Routing Problem
+</h3>
+<h4 style="font-size: 13pt"><i>Rajesh Pandian M,&#32;Somesh Singh,&#32;Rupesh Nasre,&#32;N.S. Narayanaswamy,</i></h4>
+<h4 style="font-size: 13pt">in ACM GECCO 2023.</h4> 
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#gecco23" aria-expanded="false" aria-controls="gecco23">
+   (abstract) 
+  </a>
+
+  <a href="docs/papers/gecco23.pdf" target="_blank">(pdf)</a>
+  <a href="#" target="_blank">(doi)</a>
+  <a href="#" target="_blank">(code)</a>
+</p>
+
+<p class="collapse" id="gecco23" style="font-size: 11pt">
+Capacitated Vehicle Routing Problem (CVRP) is an important combinatorial optimization problem, which is also NP-hard. A wide array
+of heuristics have been proposed in the literature to obtain an approximate solution to CVRP. To improve the execution time, parallel
+methods have been developed for accelerating metaheuristics-based algorithms, genetic algorithms, and evolutionary algorithms for
+CVRP. Despite these advances, our experiments with the state-of-the-art parallel solutions indicate that their run times are too high
+to be practically useful. The combinatorial explosion is so high that the execution time is prohibitively large even on mid-sized CVRP instances having a few hundred customers. 
+In this work, we propose a novel technique which combines <em>local search</em> and <em>randomization</em> for solving CVRP faster with reasonable accuracy, even on large
+problem instances. Our usage of randomization enables searching a large space of candidate solutions.
+We experimentally compare our proposed method with the state-of-the-art GPU implementations on diverse input instances and demonstrate the efficacy of our
+approach. Our sequential and shared-memory parallel implementations are on an average 36-1189x faster than the state-of-the-art GPU-parallel genetic algorithms while also achieving a superior
+solution quality. Furthermore, our reported solutions are close to the current best-known solutions from CVRPLIB.
+</p>
+
+
+
+<h3 style="font-size: 16pt">
 Algorithms and Data Structures for Hyperedge Queries*
 </h3>
 <h4 style="font-size: 13pt"><i>Jules Bertrand,&#32;Fanny Dufoss&eacute;,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
