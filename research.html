@@ -130,22 +130,22 @@ Currently, my focus is on optimizing and enhancing the performance of sparse mat
 <b>*</b> : The authors are listed in alphabetical order by lastname.
 
 <h3 style="font-size: 16pt">
-BANG: Billion-Scale Approximate Nearest Neighbor Search using a Single GPU
+BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
 </h3>
 <h4 style="font-size: 13pt"><i>Karthik V, Saim Khan, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
 <h4 style="font-size: 13pt">arXiv preprint <em>arXiv:2401.11324</em>, 2024.</h4> 
 <p style="font-size: 11pt">
-  <a data-toggle="collapse" href="#vldb24" aria-expanded="false" aria-controls="vldb24">
+  <a data-toggle="collapse" href="#tbd24" aria-expanded="false" aria-controls="tbd24">
    (abstract) 
   </a>
 
-  <a href="docs/papers/arxiv24a.pdf" target="_blank">(pdf)</a>
+  <a href="docs/papers/arxiv24b.pdf" target="_blank">(pdf)</a>
   <a href="https://arxiv.org/abs/2401.11324" target="_blank">(preprint)</a>
   <a href="https://doi.org/10.48550/arXiv.2401.11324" target="_blank">(doi)</a>
 </p>
 
-<p class="collapse" id="vldb24" style="font-size: 11pt">
-Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature, on large datasets. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU leveraging its high computational power and energy efficiency. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the index-graph and the data to reside entirely in the GPU memory, or (ii) they partition the data into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe bus. In this paper, we introduce BANG, a first-of-its-kind GPU-based ANNS method which works efficiently on billion-scale datasets that cannot entirely fit in the GPU memory. BANG stands out by harnessing compressed data on the GPU to perform distance computations while maintaining the graph on the CPU, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimized GPU kernels and proceeds in stages that run concurrently on the GPU and CPU, taking advantage of their architectural specificities. Furthermore, it enables overlapping communication with computation while reducing the data transfer between the CPU and GPU over the PCIe bus. We evaluate BANG using a single NVIDIA Ampere A100 GPU on ten popular ANN benchmark datasets. BANG outperforms the state-of-the-art in the majority of instances. Notably, on the billion-size datasets, we are significantly faster than our competitors, achieving throughput 40&times;-200&times; more than the competing methods at high recall.
+<p class="collapse" id="tbd24" style="font-size: 11pt">
+Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) they partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe bus. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimized GPU kernels and proceeds in phases that run concurrently on the GPU and CPU. Notably, on the billion-size datasets, we achieve throughputs 40&times;-200&times; more than the competing methods for a high recall value of 0.9. Additionally, BANG is the best in cost- and power-efficiency among the competing methods from the recent Billion-Scale Approximate Nearest Neighbour Search Challenge.
 </p>
 
 
