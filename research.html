@@ -11,7 +11,7 @@
 
     <title>Somesh Singh</title>
 
-    <!-- Reseting CSS       -->    
+    <!-- Reseting CSS       -->
     <link href="css/normalize.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
@@ -31,9 +31,9 @@
     <![endif]-->
 
       <!-- Adding a favicon -->
-<!--	<link rel="shortcut icon" href="img/favicon_IIT-M.png" type="image/x-icon" /> 
+<!--	<link rel="shortcut icon" href="img/favicon_IIT-M.png" type="image/x-icon" />
 	<link rel="shortcut icon" href="img/favicon_s_blue.png" type="image/x-icon" /> -->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
 </head>
 
@@ -42,12 +42,12 @@
     <!-- Navigation -->
 
     <div class="container">
-	<h1 style="font-size:5rem; margin-bottom: 0.3em;">Somesh Singh</h1>				
+	<h1 style="font-size:5rem; margin-bottom: 0.3em;">Somesh Singh</h1>
 <!--
 	<h4 style="margin-top: 0.3rem; margin-left: 0.5rem; margin-bottom:1em;">PhD Candidate,
-	 <a href = "http://www.cse.iitm.ac.in/" target="_blank">CSE</a>, 
+	 <a href = "http://www.cse.iitm.ac.in/" target="_blank">CSE</a>,
 	 <a href = "https://www.iitm.ac.in/" target="_blank">IITM</a>
-	</h4> 
+	</h4>
 -->
     	   <nav class="navbar navbar-inverse navbar-static-top" >
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                  </button> 
+                  </button>
                   <!--jQuery is required for the toggle button to work -->
                 <a class="navbar-brand initialism" href="index.html"> about me</a>
             </div>
@@ -91,7 +91,7 @@
         <div class="row">
 <!--
 	<div class="col-sm-3 col-lg-4">
-	<img src="img/me.jpg"  class="img-responsive" alt="Somesh's pic"> 
+	<img src="img/me.jpg"  class="img-responsive" alt="Somesh's pic">
         </div>
 -->
             <div class="col-lg-12">
@@ -117,11 +117,11 @@ Currently, my focus is on optimizing and enhancing the performance of sparse mat
 <p style="color:black">
 <h3><u>Publications</u>
  <span style="position:relative; left: 2%; top: 4px">
-<!-- 
+<!--
 <button type="button" class="btn btn-primary btn-sm" style="font-size:15px;">
  <a href="https://dblp.uni-trier.de/pers/hd/s/Singh_0001:Somesh" target="_blank" style="color:inherit">DBLP</a>
  </button>
- 
+
  <button type="button" class="btn btn-primary btn-sm " style="font-size:15px;">
  <a href="https://scholar.google.co.in/citations?user=nwsoib8AAAAJ&hl=en&oi=ao" target="_blank" style="color:inherit">Google Scholar</a>
  </button>
@@ -136,13 +136,31 @@ Currently, my focus is on optimizing and enhancing the performance of sparse mat
 <b>*</b> : The authors are listed in alphabetical order by lastname.
 
 <h3 style="font-size: 16pt">
+Efficient parallel sparse tensor contraction
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">as a Technical Report on HAL, 2024.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#tr-hal" aria-expanded="false" aria-controls="tr-hal">
+   (abstract)
+  </a>
+
+  <a href="https://hal.science/hal-04659658" target="_blank">(preprint)</a>
+</p>
+
+<p class="collapse" id="tr-hal" style="font-size: 11pt">
+We investigate the performance of algorithms for sparse tensor-sparse tensor multiplication (SpGETT). This operation, also called sparse tensor contraction, is a higher order analogue of the sparse matrix-sparse matrix multiplication (SpGEMM) operation. Therefore, SpGETT can be performed by first converting the input tensors into matrices, then invoking high performance variants of SpGEMM, and finally reconverting the resultant matrix into a tensor. Alternatively, one can carry out the scalar operations underlying SpGETT in the realm of tensors without matrix formulation. We discuss the building blocks in both the approaches and formulate a <i>hashing-based method</i> to avoid costly search or redirection operations. We present performance results with the current state-of-the-art SpGEMM-based approaches, existing SpGETT approaches, and a carefully implemented SpGETT approach with a new fine-tuned hashing method, proposed in this paper. We evaluate the methods on real world tensors, contracting a tensor with itself along various dimensions. Our proposed hashing-based method for SpGETT consistently outperforms the state-of-the-art method, achieving a 25% reduction in sequential execution time on average and a 21% reduction in parallel execution time on average across a variety of input instances.
+</p>
+
+
+<h3 style="font-size: 16pt">
 BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
 </h3>
 <h4 style="font-size: 13pt"><i>Karthik V, Saim Khan, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
-<h4 style="font-size: 13pt">arXiv preprint <em>arXiv:2401.11324</em>, 2024.</h4> 
+<h4 style="font-size: 13pt">arXiv preprint <em>arXiv:2401.11324</em>, 2024.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#tbd24" aria-expanded="false" aria-controls="tbd24">
-   (abstract) 
+   (abstract)
   </a>
 
   <!-- <a href="docs/papers/arxiv24b.pdf" target="_blank">(pdf)</a> -->
@@ -159,10 +177,10 @@ Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routin
 Engineering Fast Algorithms for the Bottleneck Matching Problem*
 </h3>
 <h4 style="font-size: 13pt"><i>Ioannis Panagiotas,&#32;Gr&eacute;goire Pichon,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
-<h4 style="font-size: 13pt">in European Symposium on Algorithms (ESA), 2023.</h4> 
+<h4 style="font-size: 13pt">in European Symposium on Algorithms (ESA), 2023.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#esa23" aria-expanded="false" aria-controls="esa23">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/esa23.pdf" target="_blank">(pdf)</a>
@@ -172,7 +190,7 @@ Engineering Fast Algorithms for the Bottleneck Matching Problem*
 </p>
 
 <p class="collapse" id="esa23" style="font-size: 11pt">
-We investigate the maximum bottleneck matching problem in bipartite graphs. Given a bipartite 
+We investigate the maximum bottleneck matching problem in bipartite graphs. Given a bipartite
 graph with nonnegative edge weights, the problem is to determine a maximum cardinality matching
 in which the minimum weight of an edge is the maximum. To the best of our knowledge, there are
 two widely used solvers for this problem based on two different approaches. There exists a third
@@ -191,10 +209,10 @@ remains low.
 Effective Parallelization of the Vehicle Routing Problem
 </h3>
 <h4 style="font-size: 13pt"><i>Rajesh Pandian M,&#32;Somesh Singh,&#32;Rupesh Nasre,&#32;N.S. Narayanaswamy,</i></h4>
-<h4 style="font-size: 13pt">in Genetic and Evolutionary Computation Conference (GECCO), 2023.</h4> 
+<h4 style="font-size: 13pt">in Genetic and Evolutionary Computation Conference (GECCO), 2023.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#gecco23" aria-expanded="false" aria-controls="gecco23">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/gecco23.pdf" target="_blank">(pdf)</a>
@@ -206,7 +224,7 @@ Capacitated Vehicle Routing Problem (CVRP) is an important combinatorial optimiz
 of heuristics have been proposed in the literature to obtain an approximate solution to CVRP. To improve the execution time, parallel
 methods have been developed for accelerating metaheuristics-based algorithms, genetic algorithms, and evolutionary algorithms for
 CVRP. Despite these advances, our experiments with the state-of-the-art parallel solutions indicate that their run times are too high
-to be practically useful. The combinatorial explosion is so high that the execution time is prohibitively large even on mid-sized CVRP instances having a few hundred customers. 
+to be practically useful. The combinatorial explosion is so high that the execution time is prohibitively large even on mid-sized CVRP instances having a few hundred customers.
 In this work, we propose a novel technique which combines <em>local search</em> and <em>randomization</em> for solving CVRP faster with reasonable accuracy, even on large
 problem instances. Our usage of randomization enables searching a large space of candidate solutions.
 We experimentally compare our proposed method with the state-of-the-art GPU implementations on diverse input instances and demonstrate the efficacy of our
@@ -220,10 +238,10 @@ solution quality. Furthermore, our reported solutions are close to the current b
 Algorithms and Data Structures for Hyperedge Queries*
 </h3>
 <h4 style="font-size: 13pt"><i>Jules Bertrand,&#32;Fanny Dufoss&eacute;,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
-<h4 style="font-size: 13pt">in ACM Journal of Experimental Algorithmics (JEA), 2022.</h4> 
+<h4 style="font-size: 13pt">in ACM Journal of Experimental Algorithmics (JEA), 2022.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#jea22" aria-expanded="false" aria-controls="jea22">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/jea22.pdf" target="_blank">(pdf)</a>
@@ -243,7 +261,7 @@ An Efficient Parallel Implementation of a Perfect Hashing Method for Hypergraphs
 <h4 style="font-size: 13pt">in GrAPL: Workshop on Graphs, Architectures, Programming, and Learning, IPDPSW 2022. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#grapl22" aria-expanded="false" aria-controls="grapl22">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/grapl22.pdf" target="_blank">(pdf)</a>
@@ -252,11 +270,11 @@ An Efficient Parallel Implementation of a Perfect Hashing Method for Hypergraphs
 </p>
 
 <p class="collapse" id="grapl22" style="font-size: 11pt">
-Querying the existence of an edge in a given graph or hypergraph is a building block in several algorithms. 
+Querying the existence of an edge in a given graph or hypergraph is a building block in several algorithms.
 Hashing-based methods can be used for this purpose, where the given edges are stored in a hash table in a preprocessing step, and then the queries are answered using the lookup operations.
-While the general hashing methods have fast lookup times in the average case, the worst case run time is much higher. 
+While the general hashing methods have fast lookup times in the average case, the worst case run time is much higher.
 Perfect hashing methods take advantage of the fact that the items to be stored are all available and construct a collision free hash function for the given input, resulting in an optimal lookup time
-even in the worst case. 
+even in the worst case.
 We investigate an efficient shared-memory parallel implementation of a recently proposed perfect hashing method for hypergraphs.
 We experimentally compare the resulting parallel algorithms with the state-of-the-art and demonstrate better run time and scalability on a set of hypergraphs corresponding to real-life sparse tensors.
 </p>
@@ -269,7 +287,7 @@ ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on G
 <h4 style="font-size: 13pt">in ACM Transactions on Design Automation of Electronic Systems (TODAES), 2021. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#todaes21" aria-expanded="false" aria-controls="todaes21">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/todaes21.pdf" target="_blank">(pdf)</a>
@@ -288,7 +306,7 @@ Graffix: Efficient Graph Processing with a Tinge of GPU-Specific Approximations
 <h4 style="font-size: 13pt">in International Conference on Parallel Processing (ICPP), 2020. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#icpp20" aria-expanded="false" aria-controls="icpp20">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/icpp20.pdf" target="_blank">(pdf)</a>
@@ -317,24 +335,24 @@ varied characteristics and five popular graph algorithms.
  <h4 style="font-size: 13pt">in International Journal of Modern Physics A, 2019. (Invited Paper)</h4>
  <p style="font-size: 11pt">
    <a data-toggle="collapse" href="#ijmpa" aria-expanded="false" aria-controls="ijmpa">
-    (abstract) 
+    (abstract)
    </a>
- 
-   <a href="docs/papers/ijmpa19.pdf" target="_blank">(pdf)</a> 
+
+   <a href="docs/papers/ijmpa19.pdf" target="_blank">(pdf)</a>
    <a href="https://doi.org/10.1142/S0217751X19420351" target="_blank">(doi)</a>
  </p>
- 
+
  <p class="collapse" id="ijmpa" style="font-size: 11pt">
-SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC) and the Super Proton Synchrotron (SPS) simulations. 
-The code is based on a 6D symplectic tracking engine, which is optimized for long-term tracking simulations and delivers fully reproducible results on several platforms. 
+SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC) and the Super Proton Synchrotron (SPS) simulations.
+The code is based on a 6D symplectic tracking engine, which is optimized for long-term tracking simulations and delivers fully reproducible results on several platforms.
 It also includes multiple scattering engines for beam–matter interaction studies, as well as facilities to run the integrated simulations with external particle matter interaction codes.
-These features differentiate SixTrack from general-purpose, optics-design software. 
-The code recently underwent a major restructuring to merge the advanced features into a single branch, such as multiple ion species, interface with external codes and high-performance input/output. 
-This restructuring also removed a large number of compilation flags, instead enabling/disabling the functionality with runtime options. 
-In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization. 
-Physics models (beam–beam effects, Radio-Frequency (RF) multipoles, current carrying wires, solenoid and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results. 
-The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture. SixDesk supports several cluster environments available at CERN as well as submitting jobs to the LHC@Home volunteering computing project, which enables volunteers contributing with their hardware to CERN simulation. 
-SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. The library is able to run in CPUs as well as graphical processing units (GPUs). 
+These features differentiate SixTrack from general-purpose, optics-design software.
+The code recently underwent a major restructuring to merge the advanced features into a single branch, such as multiple ion species, interface with external codes and high-performance input/output.
+This restructuring also removed a large number of compilation flags, instead enabling/disabling the functionality with runtime options.
+In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.
+Physics models (beam–beam effects, Radio-Frequency (RF) multipoles, current carrying wires, solenoid and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.
+The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture. SixDesk supports several cluster environments available at CERN as well as submitting jobs to the LHC@Home volunteering computing project, which enables volunteers contributing with their hardware to CERN simulation.
+SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. The library is able to run in CPUs as well as graphical processing units (GPUs).
 This contribution presents the status of the code, summarizes the main existing features and provides details about the main development lines SixTrack, SixDesk and SixTrackLib.
  </p>
 
@@ -345,7 +363,7 @@ Optimizing Graph Processing on GPUs using Approximate Computing: Poster
 <h4 style="font-size: 13pt">in ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP), 2019.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/ppopp19.pdf" target="_blank">(pdf)</a>
@@ -370,25 +388,25 @@ Our approximations for coalescing, memory latency and thread-divergence lead to 
  <h4 style="font-size: 13pt">in International Computational Accelerator Physics Conference (ICAP), 2018.</h4>
  <p style="font-size: 11pt">
    <a data-toggle="collapse" href="#icap" aria-expanded="false" aria-controls="icap">
-    (abstract) 
+    (abstract)
    </a>
- 
-   <a href="docs/papers/icap18.pdf" target="_blank">(pdf)</a> 
+
+   <a href="docs/papers/icap18.pdf" target="_blank">(pdf)</a>
    <a href="https://doi.org/10.18429/JACoW-ICAP2018-TUPAF02" target="_blank">(doi)</a>
  </p>
- 
+
  <p class="collapse" id="icap" style="font-size: 11pt">
-SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations. 
-The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms. 
+SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations.
+The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms.
 It also includes multiple scattering engines for beam-matter interaction studies, as well as facilities to run integrated simulations with FLUKA and GEANT4.
-These features differentiate SixTrack from general-purpose, optics-design software like MAD-X. 
-The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5). 
-This restructuring also removed a large number of build flags, instead enabling/disabling the functionality at run-time. 
-In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.  
-Physics models (beam-beam effects, RF-multipoles, current carrying wires, solenoid, and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.  
+These features differentiate SixTrack from general-purpose, optics-design software like MAD-X.
+The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5).
+This restructuring also removed a large number of build flags, instead enabling/disabling the functionality at run-time.
+In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.
+Physics models (beam-beam effects, RF-multipoles, current carrying wires, solenoid, and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.
 The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture.
 SixDesk supports CERN LSF and HTCondor batch systems, as well as the BOINC infrastructure in the framework of the LHC@Home volunteering computing project.
-SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. 
+SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack.
 The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
 This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
  </p>
@@ -401,7 +419,7 @@ Scalable and Performant Graph Processing on GPUs using Approximate Computing
 <h4 style="font-size: 13pt">in IEEE Transactions on Multi-Scale Computing Systems (TMSCS), 2018. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#tmscs" aria-expanded="false" aria-controls="tmscs">
-   (abstract) 
+   (abstract)
   </a>
 
   <a href="docs/papers/tmscs.pdf" target="_blank">(pdf)</a>
@@ -427,7 +445,7 @@ benefits. We also study the effects of the approximations on GPU-based processin
 Method and System for Performing Approximate Nearest Neighbour Search on Billion-Scale Vectors
 </h3>
 <h4 style="font-size: 13pt"><i>Karthik V, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
-<h4 style="font-size: 13pt">Indian Patent, filed 2024. (Patent Pending)</h4> 
+<h4 style="font-size: 13pt">Indian Patent, filed 2024. (Patent Pending)</h4>
 
 <hr />
 
@@ -439,8 +457,8 @@ Method and System for Performing Approximate Nearest Neighbour Search on Billion
 
 <li>
 <dl>
-  Awarded 
-  <a href= "https://edu.google.com/programs/?modal_active=none" target="_blank"> 
+  Awarded
+  <a href= "https://edu.google.com/programs/?modal_active=none" target="_blank">
      <em>Google Cloud Platform </em></a>
   research credits.
   <span style="float:right;font-weight:normal; font-style:italic">
@@ -451,7 +469,7 @@ Method and System for Performing Approximate Nearest Neighbour Search on Billion
 
 <li>
  <dl>
-      Google Summer of Code 2018 : <a href= "https://summerofcode.withgoogle.com/archive/2018/projects/5152248673861632/" target="_blank"> 
+      Google Summer of Code 2018 : <a href= "https://summerofcode.withgoogle.com/archive/2018/projects/5152248673861632/" target="_blank">
       <em>Optimize and Integrate Standalone Tracking Library (SixTrackLib)
  </em></a>
  <span style="float:right;font-weight:normal; font-style:italic">
@@ -460,27 +478,27 @@ Method and System for Performing Approximate Nearest Neighbour Search on Billion
  <p style="font-size:16px; display:list-item; list-style-type: circle; list-style-position:inside;">  <!-- color:#00A598"-->
  Developed a standalone parallel implementation of (a part of) SixTrackLib.
  The contributed code is available
- <a href="https://github.com/ssomesh/sixtracklib_gsoc18/tree/master/" target="_blank"> 
+ <a href="https://github.com/ssomesh/sixtracklib_gsoc18/tree/master/" target="_blank">
      here</a>.
  </p>
  </dl>
- </li> 
+ </li>
 
 
-	
+
 <li>
 <dl>
-        Google Summer of Code 2017 : <a href= "https://summerofcode.withgoogle.com/archive/2017/projects/6549039684255744/" target="_blank"> 
+        Google Summer of Code 2017 : <a href= "https://summerofcode.withgoogle.com/archive/2017/projects/6549039684255744/" target="_blank">
         <em>Smart Data Structures in CUDA</em> </a>
 <span style="float:right;font-weight:normal; font-style:italic">
-<a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank"> 
+<a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank">
        <em>CMS, CERN-HSF</em> </a>
 </span>
 <p style="font-size:16px; display:list-item; list-style-type: circle; list-style-position:inside;">
- Developed 
-<a href= "https://github.com/ssomesh/SALLOC/tree/master" target="_blank"> 
+ Developed
+<a href= "https://github.com/ssomesh/SALLOC/tree/master" target="_blank">
         <em>SALLOC</em> </a>
--- An arena based memory allocator for SIMT architectures. 
+-- An arena based memory allocator for SIMT architectures.
  </p>
 </dl>
 </li>
@@ -491,7 +509,7 @@ Method and System for Performing Approximate Nearest Neighbour Search on Billion
 
 
         </div>
-      
+
 
         </div>
         <!-- /.row -->
