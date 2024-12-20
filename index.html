@@ -148,6 +148,438 @@ Indian Institute of Technology Madras</a> under the supervision of
         <!-- /.row -->
 <hr />
 
+        <div class="row">
+<!--
+	<div class="col-sm-3 col-lg-4">
+	<img src="img/me.jpg"  class="img-responsive" alt="Somesh's pic">
+        </div>
+-->
+            <div class="col-lg-12">
+<h3 style="border-bottom: 1px solid black;padding-bottom:4px"> Research </h3>
+
+<p>
+<!--
+My research interests span the broad areas of high-performance computing and parallel computing, with an emphasis on making the processing of irregular-workloads on parallel platforms more efficient.
+-->
+My research centers around high-performance parallel computing with an emphasis on sparse irregular computations.
+
+The focus of my Ph.D. research was on accelerating parallel graph processing using approximate computing. Details about my Ph.D. dissertation can be found <a href="phddissertation.html">here</a>.
+
+During postdoc, my focus was on designing and developing methods and techniques for high-performance sparse tensor computations.
+
+<!--
+Currently, my focus is on optimizing and enhancing the performance of sparse matrix and tensor computations on parallel architectures.
+-->
+</p>
+
+<hr />
+
+<p style="color:black">
+<h3><u>Publications</u>
+ <span style="position:relative; left: 2%; top: 4px">
+<!--
+<button type="button" class="btn btn-primary btn-sm" style="font-size:15px;">
+ <a href="https://dblp.uni-trier.de/pers/hd/s/Singh_0001:Somesh" target="_blank" style="color:inherit">DBLP</a>
+ </button>
+
+ <button type="button" class="btn btn-primary btn-sm " style="font-size:15px;">
+ <a href="https://scholar.google.co.in/citations?user=nwsoib8AAAAJ&hl=en&oi=ao" target="_blank" style="color:inherit">Google Scholar</a>
+ </button>
+-->
+<a href="https://dblp.uni-trier.de/pid/226/7327-1.html" target="_blank" title="dblp"><i class="ai ai-dblp-square ai-1x"></i></a>
+<a href="https://scholar.google.co.in/citations?user=nwsoib8AAAAJ" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar-square ai-1x"></i></a>
+ </span>
+ </h3>
+
+</p>
+
+<b>*</b> : The authors are listed in alphabetical order by lastname.
+
+<h3 style="font-size: 16pt">
+Efficient Parallel Sparse Tensor Contraction*
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">as a Technical Report on HAL, 2024.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#tr-hal" aria-expanded="false" aria-controls="tr-hal">
+   (abstract)
+  </a>
+
+  <a href="https://hal.science/hal-04659658" target="_blank">(preprint)</a>
+</p>
+
+<p class="collapse" id="tr-hal" style="font-size: 11pt">
+We investigate the performance of algorithms for sparse tensor-sparse tensor multiplication (SpGETT). This operation, also called sparse tensor contraction, is a higher order analogue of the sparse matrix-sparse matrix multiplication (SpGEMM) operation. Therefore, SpGETT can be performed by first converting the input tensors into matrices, then invoking high performance variants of SpGEMM, and finally reconverting the resultant matrix into a tensor. Alternatively, one can carry out the scalar operations underlying SpGETT in the realm of tensors without matrix formulation. We discuss the building blocks in both approaches and formulate a <em>hashing-based method</em> to avoid costly search or redirection operations. We present performance results with the current state-of-the-art SpGEMM-based approaches, existing SpGETT approaches, and a carefully implemented SpGETT approach with a new fine-tuned hashing method, proposed in this paper. We evaluate the methods on real world tensors by contracting a tensor with itself along varying dimensions. Our proposed hashing-based method for SpGETT consistently outperforms the state-of-the-art method, achieving a 25% reduction in sequential execution time on average and a 21% reduction in parallel execution time on average across a variety of input instances.
+</p>
+
+
+<h3 style="font-size: 16pt">
+BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
+</h3>
+<h4 style="font-size: 13pt"><i>Karthik V, Saim Khan, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
+<h4 style="font-size: 13pt">as arXiv preprint <em>arXiv:2401.11324</em>, 2024.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#tbd24" aria-expanded="false" aria-controls="tbd24">
+   (abstract)
+  </a>
+
+  <!-- <a href="docs/papers/arxiv24b.pdf" target="_blank">(pdf)</a> -->
+  <a href="https://arxiv.org/abs/2401.11324" target="_blank">(preprint)</a>
+  <a href="https://doi.org/10.48550/arXiv.2401.11324" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="tbd24" style="font-size: 11pt">
+Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) they partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe bus. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimized GPU kernels and proceeds in phases that run concurrently on the GPU and CPU. Notably, on the billion-size datasets, we achieve throughputs 40&times;-200&times; more than the competing methods for a high recall value of 0.9. Additionally, BANG is the best in cost- and power-efficiency among the competing methods from the recent Billion-Scale Approximate Nearest Neighbour Search Challenge.
+</p>
+
+
+<h3 style="font-size: 16pt">
+Engineering Fast Algorithms for the Bottleneck Matching Problem*
+</h3>
+<h4 style="font-size: 13pt"><i>Ioannis Panagiotas,&#32;Gr&eacute;goire Pichon,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">in European Symposium on Algorithms (ESA), 2023.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#esa23" aria-expanded="false" aria-controls="esa23">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/esa23.pdf" target="_blank">(pdf)</a>
+  <a href="https://inria.hal.science/hal-04146298" target="_blank">(preprint)</a>
+  <a href="https://doi.org/10.4230/LIPIcs.ESA.2023.87" target="_blank">(doi)</a>
+  <a href="https://gitlab.inria.fr/bora-ucar/bottled" target="_blank">(code)</a>
+</p>
+
+<p class="collapse" id="esa23" style="font-size: 11pt">
+We investigate the maximum bottleneck matching problem in bipartite graphs. Given a bipartite
+graph with nonnegative edge weights, the problem is to determine a maximum cardinality matching
+in which the minimum weight of an edge is the maximum. To the best of our knowledge, there are
+two widely used solvers for this problem based on two different approaches. There exists a third
+known approach in the literature, which seems inferior to those two which is presumably why there
+is no implementation of it. We take this third approach, make theoretical observations to improve
+its behavior, and implement the improved method. Experiments with the existing two solvers show
+that their run time can be too high to be useful in many interesting cases. Furthermore, their
+performance is not predictable, and slight perturbations of the input graph lead to considerable
+changes in the run time. On the other hand, the proposed solver’s performance is much more stable;
+it is almost always faster than or comparable to the two existing solvers, and its run time always
+remains low.
+</p>
+
+
+<h3 style="font-size: 16pt">
+Effective Parallelization of the Vehicle Routing Problem
+</h3>
+<h4 style="font-size: 13pt"><i>Rajesh Pandian M,&#32;Somesh Singh,&#32;Rupesh Nasre,&#32;N.S. Narayanaswamy,</i></h4>
+<h4 style="font-size: 13pt">in Genetic and Evolutionary Computation Conference (GECCO), 2023.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#gecco23" aria-expanded="false" aria-controls="gecco23">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/gecco23.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1145/3583131.3590458" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="gecco23" style="font-size: 11pt">
+Capacitated Vehicle Routing Problem (CVRP) is an important combinatorial optimization problem, which is also NP-hard. A wide array
+of heuristics have been proposed in the literature to obtain an approximate solution to CVRP. To improve the execution time, parallel
+methods have been developed for accelerating metaheuristics-based algorithms, genetic algorithms, and evolutionary algorithms for
+CVRP. Despite these advances, our experiments with the state-of-the-art parallel solutions indicate that their run times are too high
+to be practically useful. The combinatorial explosion is so high that the execution time is prohibitively large even on mid-sized CVRP instances having a few hundred customers.
+In this work, we propose a novel technique which combines <em>local search</em> and <em>randomization</em> for solving CVRP faster with reasonable accuracy, even on large
+problem instances. Our usage of randomization enables searching a large space of candidate solutions.
+We experimentally compare our proposed method with the state-of-the-art GPU implementations on diverse input instances and demonstrate the efficacy of our
+approach. Our sequential and shared-memory parallel implementations are on an average 36&times;-1189&times; faster than the state-of-the-art GPU-parallel genetic algorithms while also achieving a superior
+solution quality. Furthermore, our reported solutions are close to the current best-known solutions from CVRPLIB.
+</p>
+
+
+
+<h3 style="font-size: 16pt">
+Algorithms and Data Structures for Hyperedge Queries*
+</h3>
+<h4 style="font-size: 13pt"><i>Jules Bertrand,&#32;Fanny Dufoss&eacute;,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">in ACM Journal of Experimental Algorithmics (JEA), 2022.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#jea22" aria-expanded="false" aria-controls="jea22">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/jea22.pdf" target="_blank">(pdf)</a>
+  <a href="https://hal.inria.fr/hal-03905905" target="_blank">(preprint)</a>
+  <a href="https://doi.org/10.1145/3568421" target="_blank">(doi)</a>
+  <a href="https://gitlab.inria.fr/bora-ucar/hedge-queries" target="_blank">(code)</a>
+    <a href="https://www.acm.org/publications/policies/artifact-review-and-badging-current#reproduced" target="_blank">
+<span style="color: #23007d; font-weight:bold;">[ACM Results Reproduced Badge]</span>
+  <img src="img/acm_results_reproduced_v1_1.png" alt="" width="32" height="32" border="0">
+    </a>
+</p>
+
+<p class="collapse" id="jea22" style="font-size: 11pt">
+We consider the problem of querying the existence of hyperedges in hypergraphs. More formally, given a hypergraph, we need to answer queries of the form: "Does the following set of vertices form a hyperedge in the given hypergraph?" Our aim is to set up data structures based on hashing to answer these queries as fast as possible. We propose an adaptation of a well-known perfect hashing approach for the problem at hand. We analyze the space and runtime complexity of the proposed approach and experimentally compare it with the state-of-the-art hashing-based solutions. Experiments demonstrate the efficiency of the proposed approach with respect to the state-of-the-art.
+</p>
+
+<h3 style="font-size: 16pt">
+An Efficient Parallel Implementation of a Perfect Hashing Method for Hypergraphs*
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt">in GrAPL: Workshop on Graphs, Architectures, Programming, and Learning, IPDPSW 2022. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#grapl22" aria-expanded="false" aria-controls="grapl22">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/grapl22.pdf" target="_blank">(pdf)</a>
+  <a href="https://hal.inria.fr/hal-03612360" target="_blank">(preprint)</a>
+  <a href="https://doi.org/10.1109/IPDPSW55747.2022.00056" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="grapl22" style="font-size: 11pt">
+Querying the existence of an edge in a given graph or hypergraph is a building block in several algorithms.
+Hashing-based methods can be used for this purpose, where the given edges are stored in a hash table in a preprocessing step, and then the queries are answered using the lookup operations.
+While the general hashing methods have fast lookup times in the average case, the worst case run time is much higher.
+Perfect hashing methods take advantage of the fact that the items to be stored are all available and construct a collision free hash function for the given input, resulting in an optimal lookup time
+even in the worst case.
+We investigate an efficient shared-memory parallel implementation of a recently proposed perfect hashing method for hypergraphs.
+We experimentally compare the resulting parallel algorithms with the state-of-the-art and demonstrate better run time and scalability on a set of hypergraphs corresponding to real-life sparse tensors.
+</p>
+
+
+<h3 style="font-size: 16pt">
+ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on GPU
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Tejas Shah,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in ACM Transactions on Design Automation of Electronic Systems (TODAES), 2021. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#todaes21" aria-expanded="false" aria-controls="todaes21">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/todaes21.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1145/3486613" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="todaes21" style="font-size: 11pt">
+Betweenness centrality (BC) is a popular centrality measure, based on shortest paths, used to quantify the importance of vertices in networks. It is used in a wide array of applications including social network analysis, community detection, clustering, biological network analysis, and several others. The state-of-the-art Brandes' algorithm for computing BC has time complexities of <span style="font-size: 13pt"><b>&#x1D4DE;</b></span>( |V|&#183;|E| ) and <span style="font-size: 13pt"><b>&#x1D4DE;</b></span>( |V|&#183;|E| + |V|<sup>2</sup>&#183;log|V| ) for unweighted and weighted graphs, respectively. Brandes' algorithm has been successfully parallelized on multicore and manycore platforms. However, the computation of vertex BC continues to be time-consuming for large real-world graphs. Often, in practical applications, it suffices to identify the most important vertices in a network; that is, those having the highest BC values. Such applications demand only the top vertices in the network as per their BC values but do not demand their actual BC values. In such scenarios, not only
+is computing the BC of all the vertices unnecessary but also exact BC values need not be computed. In this work, we attempt to marry controlled approximations with parallelization to estimate the k-highest BC vertices faster, without having to compute the exact BC scores of the vertices. We present a host of techniques to determine the top-k vertices faster, with a small inaccuracy, by computing approximate BC scores of the vertices. Aiding our techniques is a novel vertex-renumbering scheme to make the graph layout more structured, which results in faster execution of parallel Brandes' algorithm on GPU. Our experimental results, on a suite of real-world and synthetic graphs, show that our best performing technique computes the top-k vertices with an average speedup of 2.5&times; compared to the exact parallel Brandes' algorithm on GPU, with an error of less than 6%. Our techniques also exhibit high precision and recall, both in excess of 94%.
+</p>
+
+<h3 style="font-size: 16pt">
+Graffix: Efficient Graph Processing with a Tinge of GPU-Specific Approximations
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in International Conference on Parallel Processing (ICPP), 2020. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#icpp20" aria-expanded="false" aria-controls="icpp20">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/icpp20.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1145/3404397.3404406" target="_blank">(doi)</a>
+  <a href="https://www.youtube.com/watch?v=KwydMszR5Bg" target="_blank">(talk)</a>
+</p>
+
+<p class="collapse" id="icpp20" style="font-size: 11pt">
+Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses involved in graph traversals. In particular,
+three important GPU-specific aspects affect performance: memory coalescing, memory latency, and thread divergence. In this work,
+we attempt to tame these challenges using approximate computing. We target graph applications on GPUs that can tolerate some degradation in the quality of the output, for obtaining the result in short order. We propose three techniques for boosting the performance
+of graph processing on the GPU by injecting approximations in a controlled manner. The first one creates a graph isomorph that
+brings relevant nodes nearby in memory and adds controlled replica of nodes to improve coalescing. The second reduces memory latency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing
+well-connected subgraphs iteratively inside shared memory. The third technique normalizes degrees across nodes assigned to a warp
+to reduce thread divergence. Each of the techniques offers notable performance benefits, and provides a knob to control the amount of
+inaccuracy added to an execution. We demonstrate the effectiveness of the proposed techniques using a suite of five large graphs with
+varied characteristics and five popular graph algorithms.
+</p>
+
+<h3 style="font-size: 16pt">
+ SixTrack V and runtime environment
+ </h3>
+ <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
+ S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
+ T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
+ <h4 style="font-size: 13pt">in International Journal of Modern Physics A, 2019. (Invited Paper)</h4>
+ <p style="font-size: 11pt">
+   <a data-toggle="collapse" href="#ijmpa" aria-expanded="false" aria-controls="ijmpa">
+    (abstract)
+   </a>
+
+   <a href="docs/papers/ijmpa19.pdf" target="_blank">(pdf)</a>
+   <a href="https://doi.org/10.1142/S0217751X19420351" target="_blank">(doi)</a>
+ </p>
+
+ <p class="collapse" id="ijmpa" style="font-size: 11pt">
+SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC) and the Super Proton Synchrotron (SPS) simulations.
+The code is based on a 6D symplectic tracking engine, which is optimized for long-term tracking simulations and delivers fully reproducible results on several platforms.
+It also includes multiple scattering engines for beam–matter interaction studies, as well as facilities to run the integrated simulations with external particle matter interaction codes.
+These features differentiate SixTrack from general-purpose, optics-design software.
+The code recently underwent a major restructuring to merge the advanced features into a single branch, such as multiple ion species, interface with external codes and high-performance input/output.
+This restructuring also removed a large number of compilation flags, instead enabling/disabling the functionality with runtime options.
+In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.
+Physics models (beam–beam effects, Radio-Frequency (RF) multipoles, current carrying wires, solenoid and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.
+The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture. SixDesk supports several cluster environments available at CERN as well as submitting jobs to the LHC@Home volunteering computing project, which enables volunteers contributing with their hardware to CERN simulation.
+SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack. The library is able to run in CPUs as well as graphical processing units (GPUs).
+This contribution presents the status of the code, summarizes the main existing features and provides details about the main development lines SixTrack, SixDesk and SixTrackLib.
+ </p>
+
+<h3 style="font-size: 16pt">
+Optimizing Graph Processing on GPUs using Approximate Computing: Poster
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP), 2019.</h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/ppopp19.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1145/3293883.3295736" target="_blank">(doi)</a>
+</p>
+
+<p class="collapse" id="ppopp19" style="font-size: 11pt">
+Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses and control-flow involved in
+graph traversals. In this work, we tame these challenges by injecting approximations. In particular, we improve memory
+coalescing by renumbering and replicating nodes, memory latency by adding edges among specific nodes brought into
+shared memory, and thread-divergence by normalizing degrees across nodes assigned to a warp. Using a suite of graphs
+with varied characteristics and five popular algorithms, we demonstrate the effectiveness of our proposed techniques.
+Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of 1.3&times;, 1.41&times; and 1.06&times; achieving accuracies of 83&percnt;, 78&percnt; and 84&percnt;, respectively.
+</p>
+
+<h3 style="font-size: 16pt">
+ SixTrack Project: Status, Runtime Environment, and New Developments
+ </h3>
+ <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
+ S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
+ T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
+ <h4 style="font-size: 13pt">in International Computational Accelerator Physics Conference (ICAP), 2018.</h4>
+ <p style="font-size: 11pt">
+   <a data-toggle="collapse" href="#icap" aria-expanded="false" aria-controls="icap">
+    (abstract)
+   </a>
+
+   <a href="docs/papers/icap18.pdf" target="_blank">(pdf)</a>
+   <a href="https://doi.org/10.18429/JACoW-ICAP2018-TUPAF02" target="_blank">(doi)</a>
+ </p>
+
+ <p class="collapse" id="icap" style="font-size: 11pt">
+SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations.
+The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms.
+It also includes multiple scattering engines for beam-matter interaction studies, as well as facilities to run integrated simulations with FLUKA and GEANT4.
+These features differentiate SixTrack from general-purpose, optics-design software like MAD-X.
+The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5).
+This restructuring also removed a large number of build flags, instead enabling/disabling the functionality at run-time.
+In the process, the code was moved from Fortran 77 to Fortran 2018 standard, also allowing and achieving a better modularization.
+Physics models (beam-beam effects, RF-multipoles, current carrying wires, solenoid, and electron lenses) and methods (symplecticity check) have also been reviewed and refined to offer more accurate results.
+The SixDesk runtime environment allows the user to manage the large batches of simulations required for accurate predictions of the dynamic aperture.
+SixDesk supports CERN LSF and HTCondor batch systems, as well as the BOINC infrastructure in the framework of the LHC@Home volunteering computing project.
+SixTrackLib is a new library aimed at providing a portable and flexible tracking engine for single- and multi-particle problems using the models and formalism of SixTrack.
+The tracking routines are implemented in a parametrized C code that is specialised to run vectorized in CPUs and GPUs, by using SIMD intrinsics, OpenCL 1.2, and CUDA technologies.
+This contribution presents the status of the code and an outlook on future developments of SixTrack, SixDesk, and SixTrackLib.
+ </p>
+
+
+<h3 style="font-size: 16pt">
+Scalable and Performant Graph Processing on GPUs using Approximate Computing
+</h3>
+<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt">in IEEE Transactions on Multi-Scale Computing Systems (TMSCS), 2018. </h4>
+<p style="font-size: 11pt">
+  <a data-toggle="collapse" href="#tmscs" aria-expanded="false" aria-controls="tmscs">
+   (abstract)
+  </a>
+
+  <a href="docs/papers/tmscs.pdf" target="_blank">(pdf)</a>
+  <a href="https://doi.org/10.1109/TMSCS.2018.2795543" target="_blank">(doi)</a>
+</p>
+<p class="collapse" id="tmscs" style="font-size: 11pt">
+Graph algorithms are widely used in several application domains. It has been established that parallelizing graph
+algorithms is challenging. The parallelization issues get exacerbated when graphics processing units (GPUs) are used to execute
+graph algorithms. While the prior art has shown effective parallelization of several graph algorithms on GPUs, a few algorithms are still
+expensive. In this work, we address the scalability issues in graph parallelization. In particular, we aim to improve the execution time by
+tolerating a little approximation in the computation. We study the effects of four heuristic approximations on six graph algorithms with
+five graphs and show that if an application allows for small inaccuracy, this can be leveraged to achieve considerable performance
+benefits. We also study the effects of the approximations on GPU-based processing and provide interesting takeaways.
+</p>
+
+<hr />
+
+<p style="color:black">
+<h3><u>Patents</u></h3>
+</p>
+
+<h3 style="font-size: 16pt">
+Method and System for Performing Approximate Nearest Neighbour Search on Billion-Scale Vectors
+</h3>
+<h4 style="font-size: 13pt"><i>Karthik V, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
+<h4 style="font-size: 13pt">Indian Patent, filed 2024. (Patent Pending)</h4>
+
+<hr />
+
+<h3 style="border-bottom: 1px solid black;padding-bottom:4px"> Other Projects </h3>
+</br>
+
+<div style="font-size:18px;">
+<ul>
+
+<li>
+<dl>
+  Awarded
+  $1000 in
+  <a href= "https://edu.google.com/programs/?modal_active=none" target="_blank">
+     Google Cloud Platform</a>
+  credits for research on <em>parallel subgraph isomorphism</em>
+  <span style="float:right;font-weight:normal; font-style:italic">
+    2020
+  </span>
+</dl>
+</li>
+
+<li>
+ <dl>
+      Google Summer of Code 2018 : <a href= "https://summerofcode.withgoogle.com/archive/2018/projects/5152248673861632/" target="_blank">
+      <em>Optimize and Integrate Standalone Tracking Library (SixTrackLib)
+ </em></a>
+ <span style="float:right;font-weight:normal; font-style:italic">
+ <a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank"><em>SixTrack, CERN-HSF</em> </a>
+ </span>
+ <p style="font-size:16px; display:list-item; list-style-type: circle; list-style-position:inside;">  <!-- color:#00A598"-->
+ Developed a standalone parallel implementation of (a part of) SixTrackLib.
+ The contributed code is available
+ <a href="https://github.com/ssomesh/sixtracklib_gsoc18/tree/master/" target="_blank">
+     here</a>.
+ </p>
+ </dl>
+ </li>
+
+
+
+<li>
+<dl>
+        Google Summer of Code 2017 : <a href= "https://summerofcode.withgoogle.com/archive/2017/projects/6549039684255744/" target="_blank">
+        <em>Smart Data Structures in CUDA</em> </a>
+<span style="float:right;font-weight:normal; font-style:italic">
+<a href= "http://hepsoftwarefoundation.org/activities/gsoc.html" target="_blank">
+       <em>CMS, CERN-HSF</em> </a>
+</span>
+<p style="font-size:16px; display:list-item; list-style-type: circle; list-style-position:inside;">
+ Developed
+<a href= "https://github.com/ssomesh/SALLOC/tree/master" target="_blank">
+        <em>SALLOC</em> </a>
+-- An arena based memory allocator for SIMT architectures.
+ </p>
+</dl>
+</li>
+
+</div>
+
+
+
+
+        </div>
+
+
+        </div>
+        <!-- /.row -->
+<hr />
+
 <div>
 
 <span style="float:right">
