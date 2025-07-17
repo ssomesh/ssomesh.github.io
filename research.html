@@ -138,7 +138,7 @@ Currently, my focus is on optimizing and enhancing the performance of sparse mat
 <h3 style="font-size: 16pt">
 Efficient Parallel Sparse Tensor Contraction*
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Bora U&#231;ar,</i></h4>
 <h4 style="font-size: 13pt">in IEEE Transactions on Parallel and Distributed Systems (TPDS), 2025.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#tr-hal" aria-expanded="false" aria-controls="tr-hal">
@@ -159,7 +159,7 @@ We investigate the performance of algorithms for sparse tensor-sparse tensor mul
 <h3 style="font-size: 16pt">
 BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
 </h3>
-<h4 style="font-size: 13pt"><i>Karthik V, Saim Khan, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
+<h4 style="font-size: 13pt"><i>Karthik V, Saim Khan, <u>Somesh Singh</u>, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
 <h4 style="font-size: 13pt">in IEEE Transactions on Big Data (TBD), 2025.</h4>
 <!-- <h4 style="font-size: 13pt">as arXiv preprint <em>arXiv:2401.11324</em>, 2024.</h4> -->
 <p style="font-size: 11pt">
@@ -175,14 +175,14 @@ BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
 </p>
 
 <p class="collapse" id="tbd25" style="font-size: 11pt">
-Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU, leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) they partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe interconnect. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets, that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimised GPU kernels and proceeds in phases that run concurrently on the GPU and CPU, taking advantage of their architectural specificities. Furthermore, it enables overlapping communication with computation that results in efficient data transfer between the CPU and GPU. Using a single NVIDIA Ampere A100 GPU, BANG achieves throughputs 50&times;-400&times; higher than the competing methods for a recall of 0.9 on three popular billion-scale datasets.
+Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU, leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe interconnect. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets, that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimised GPU kernels and proceeds in phases that run concurrently on the GPU and CPU, taking advantage of their architectural specificities. Furthermore, it enables overlapping communication with computation that results in efficient data transfer between the CPU and GPU. Using a single NVIDIA Ampere A100 GPU, BANG achieves throughputs 50&times;-400&times; higher than the competing methods for a recall of 0.9 on three popular billion-scale datasets.
 </p>
 
 
 <h3 style="font-size: 16pt">
 Engineering Fast Algorithms for the Bottleneck Matching Problem*
 </h3>
-<h4 style="font-size: 13pt"><i>Ioannis Panagiotas,&#32;Gr&eacute;goire Pichon,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt"><i>Ioannis Panagiotas,&#32;Gr&eacute;goire Pichon,&#32;<u>Somesh</u> Singh,&#32;Bora U&#231;ar,</i></h4>
 <h4 style="font-size: 13pt">in European Symposium on Algorithms (ESA), 2023.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#esa23" aria-expanded="false" aria-controls="esa23">
@@ -214,7 +214,7 @@ remains low.
 <h3 style="font-size: 16pt">
 Effective Parallelization of the Vehicle Routing Problem
 </h3>
-<h4 style="font-size: 13pt"><i>Rajesh Pandian M,&#32;Somesh Singh,&#32;Rupesh Nasre,&#32;N.S. Narayanaswamy,</i></h4>
+<h4 style="font-size: 13pt"><i>Rajesh Pandian M,&#32;<u>Somesh Singh</u>,&#32;Rupesh Nasre,&#32;N.S. Narayanaswamy,</i></h4>
 <h4 style="font-size: 13pt">in Genetic and Evolutionary Computation Conference (GECCO), 2023.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#gecco23" aria-expanded="false" aria-controls="gecco23">
@@ -243,7 +243,7 @@ solution quality. Furthermore, our reported solutions are close to the current b
 <h3 style="font-size: 16pt">
 Algorithms and Data Structures for Hyperedge Queries*
 </h3>
-<h4 style="font-size: 13pt"><i>Jules Bertrand,&#32;Fanny Dufoss&eacute;,&#32;Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt"><i>Jules Bertrand,&#32;Fanny Dufoss&eacute;,&#32;<u>Somesh Singh</u>,&#32;Bora U&#231;ar,</i></h4>
 <h4 style="font-size: 13pt">in ACM Journal of Experimental Algorithmics (JEA), 2022.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#jea22" aria-expanded="false" aria-controls="jea22">
@@ -267,7 +267,7 @@ We consider the problem of querying the existence of hyperedges in hypergraphs. 
 <h3 style="font-size: 16pt">
 An Efficient Parallel Implementation of a Perfect Hashing Method for Hypergraphs*
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Bora U&#231;ar,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Bora U&#231;ar,</i></h4>
 <h4 style="font-size: 13pt">in GrAPL: Workshop on Graphs, Architectures, Programming, and Learning, IPDPSW 2022. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#grapl22" aria-expanded="false" aria-controls="grapl22">
@@ -293,7 +293,7 @@ We experimentally compare the resulting parallel algorithms with the state-of-th
 <h3 style="font-size: 16pt">
 ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on GPU
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Tejas Shah,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Tejas Shah,&#32;Rupesh Nasre,</i></h4>
 <h4 style="font-size: 13pt">in ACM Transactions on Design Automation of Electronic Systems (TODAES), 2021. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#todaes21" aria-expanded="false" aria-controls="todaes21">
@@ -312,7 +312,7 @@ is computing the BC of all the vertices unnecessary but also exact BC values nee
 <h3 style="font-size: 16pt">
 Graffix: Efficient Graph Processing with a Tinge of GPU-Specific Approximations
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Rupesh Nasre,</i></h4>
 <h4 style="font-size: 13pt">in International Conference on Parallel Processing (ICPP), 2020. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#icpp20" aria-expanded="false" aria-controls="icpp20">
@@ -341,7 +341,7 @@ varied characteristics and five popular graph algorithms.
  </h3>
  <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
  S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
- T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
+ T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, <u>S. Singh</u>, </i> <!-- <i>et al.</i>  --> </h4>
  <h4 style="font-size: 13pt">in International Journal of Modern Physics A, 2019. (Invited Paper)</h4>
  <p style="font-size: 11pt">
    <a data-toggle="collapse" href="#ijmpa" aria-expanded="false" aria-controls="ijmpa">
@@ -369,7 +369,7 @@ This contribution presents the status of the code, summarizes the main existing 
 <h3 style="font-size: 16pt">
 Optimizing Graph Processing on GPUs using Approximate Computing: Poster
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Rupesh Nasre,</i></h4>
 <h4 style="font-size: 13pt">in ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP), 2019.</h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#ppopp19" aria-expanded="false" aria-controls="ppopp19">
@@ -392,9 +392,10 @@ Our approximations for coalescing, memory latency and thread-divergence lead to 
 <h3 style="font-size: 16pt">
  SixTrack Project: Status, Runtime Environment, and New Developments
  </h3>
- <h4 style="font-size: 13pt"><font color="#696969">with</font> <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
+ <h4 style="font-size: 13pt"> <!-- <font color="#696969">with</font> --> 
+	 <i> R. De Maria, J. Andersson, V.K. Berglyd Olsen, L. Field, M. Giovannozzi, P.D. Hermes, N. H&#248imyr,
  S. Kostoglou, G. Iadarola, E. Mcintosh, A. Mereghetti, J. Molson, D. Pellegrini,
- T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, </i> <!-- <i>et al.</i>  --> </h4>
+ T. Persson, M. Schwinzerl, E.H. Maclean, K.N. Sjobak, I. Zacharov, <u>S. Singh</u>, </i> <!-- <i>et al.</i>  --> </h4>
  <h4 style="font-size: 13pt">in International Computational Accelerator Physics Conference (ICAP), 2018.</h4>
  <p style="font-size: 11pt">
    <a data-toggle="collapse" href="#icap" aria-expanded="false" aria-controls="icap">
@@ -425,7 +426,7 @@ This contribution presents the status of the code and an outlook on future devel
 <h3 style="font-size: 16pt">
 Scalable and Performant Graph Processing on GPUs using Approximate Computing
 </h3>
-<h4 style="font-size: 13pt"><i>Somesh Singh,&#32;Rupesh Nasre,</i></h4>
+<h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Rupesh Nasre,</i></h4>
 <h4 style="font-size: 13pt">in IEEE Transactions on Multi-Scale Computing Systems (TMSCS), 2018. </h4>
 <p style="font-size: 11pt">
   <a data-toggle="collapse" href="#tmscs" aria-expanded="false" aria-controls="tmscs">
@@ -454,7 +455,7 @@ benefits. We also study the effects of the approximations on GPU-based processin
 <h3 style="font-size: 16pt">
 Method and System for Performing Approximate Nearest Neighbour Search on Billion-Scale Vectors
 </h3>
-<h4 style="font-size: 13pt"><i>Karthik V, Somesh Singh, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
+<h4 style="font-size: 13pt"><i>Karthik V, <u>Somesh Singh</u>, Harsha Vardhan Simhadri, Jyothi Vedurada,</i></h4>
 <h4 style="font-size: 13pt">Indian Patent, filed 2024. (Patent Pending)</h4>
 
 <hr />
