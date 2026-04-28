@@ -1,0 +1,236 @@
+/* ================================================
+   Dark/Light Mode Toggle & Layout Fixes
+   For: ssomesh.github.io
+   ================================================ */
+
+/* --- Fix page shift caused by scrollbar appearing/disappearing --- */
+html {
+    overflow-y: scroll;
+}
+
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    background: #f5f5f5;
+    border: 2px solid #003262;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    color: #003262;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:hover {
+    background: #003262;
+    color: #FDB515;
+}
+
+.theme-toggle:focus {
+    outline: 2px solid #FDB515;
+    outline-offset: 2px;
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+.theme-toggle .icon-moon {
+    display: inline;
+}
+
+@media (max-width: 767px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+    }
+    .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* --- Smooth Transition on Body --- */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================================================
+   DARK MODE OVERRIDES
+   ================================================ */
+
+/* --- Body --- */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #d4d4d4;
+}
+
+/* --- Headings --- */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #e0e0e0;
+}
+
+/* --- Paragraphs --- */
+body.dark-mode p {
+    color: #d4d4d4;
+}
+
+/* --- Links --- */
+body.dark-mode a,
+body.dark-mode a:link,
+body.dark-mode a:visited {
+    color: #6db3f2;
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+    color: #FDB515;
+}
+
+/* --- Navbar --- */
+body.dark-mode .navbar {
+    background: #0d1b2a;
+    border-color: #1b3a5c;
+}
+
+body.dark-mode .navbar-inverse .navbar-brand,
+body.dark-mode .navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+body.dark-mode .navbar-inverse .navbar-brand:hover,
+body.dark-mode .navbar-inverse .navbar-brand:focus,
+body.dark-mode .navbar-inverse .navbar-nav > li > a:hover,
+body.dark-mode .navbar-inverse .navbar-nav > li > a:focus {
+    color: #FDB515;
+}
+
+body.dark-mode .navbar-inverse .navbar-toggle {
+    border-color: #6db3f2;
+}
+
+body.dark-mode .navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+body.dark-mode .navbar-inverse .navbar-toggle:hover,
+body.dark-mode .navbar-inverse .navbar-toggle:focus {
+    background-color: #1b3a5c;
+}
+
+body.dark-mode .navbar-inverse .navbar-collapse {
+    border-color: #1b3a5c;
+}
+
+/* --- Horizontal Rules --- */
+body.dark-mode hr {
+    border-color: #444;
+}
+
+/* --- Section headers with inline border-bottom style --- */
+body.dark-mode h3[style*="border-bottom"] {
+    border-bottom-color: #555 !important;
+}
+
+/* --- Override inline color:black --- */
+body.dark-mode [style*="color:black"],
+body.dark-mode [style*="color: black"] {
+    color: #d4d4d4 !important;
+}
+
+/* --- Blockquotes (dissertation page) --- */
+body.dark-mode blockquote {
+    background: #252540 !important;
+    border-left-color: #003262;
+    color: #d0d0d0;
+}
+
+body.dark-mode blockquote footer {
+    color: #999;
+}
+
+/* --- Images --- */
+body.dark-mode .container .img-responsive {
+    border-color: #555;
+}
+
+/* GitHub icon (dark silhouette needs inversion) */
+body.dark-mode img[src*="github.png"] {
+    filter: invert(0.85);
+}
+
+/* --- Toggle Button in Dark Mode --- */
+body.dark-mode .theme-toggle {
+    background: #252540;
+    border-color: #FDB515;
+    color: #FDB515;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #FDB515;
+    color: #1a1a2e;
+}
+
+body.dark-mode .theme-toggle .icon-sun {
+    display: inline;
+}
+
+body.dark-mode .theme-toggle .icon-moon {
+    display: none;
+}
+
+/* --- ACM badge text color --- */
+body.dark-mode span[style*="color: #23007d"] {
+    color: #8fb8ea !important;
+}
+
+/* --- Mentoring/misc topic colors (gold) --- */
+body.dark-mode dd[style*="color:#C4820E"] {
+    color: #e6a830 !important;
+}
+
+body.dark-mode a[style*="color:#C4820E"] {
+    color: #e6a830 !important;
+}
+
+/* --- Definition list terms --- */
+body.dark-mode dt {
+    color: #e0e0e0;
+}
+
+body.dark-mode dd {
+    color: #c8c8c8;
+}
+
+/* --- List items --- */
+body.dark-mode li {
+    color: #d4d4d4;
+}
+
+/* --- Tag cloud image (phd dissertation page) --- */
+body.dark-mode img[alt="dissertation_tag_cloud"] {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px;
+    border-radius: 4px;
+}
