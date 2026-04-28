@@ -1,12 +1,10 @@
-# Website Structure & Development Guide
+# Webpage Structure & Development Guide
 
 ## ssomesh.github.io — Complete Documentation
 
-This document explains every element of the personal academic website hosted at
-[ssomesh.github.io](https://ssomesh.github.io), from the ground up. It is
-written so that a person with **zero** web-development experience can read it
-front-to-back and understand how the site works, and so that an expert can use
-it as a quick, accurate reference.
+This document explains every element of my personal webpage hosted at
+[ssomesh.github.io](https://ssomesh.github.io), from the ground up.
+This document is intended to serve as a guide for me to maintain the webpage.
 
 ---
 
@@ -1139,5 +1137,3 @@ page's `<head>`.
 | **Collapse** | A Bootstrap plugin that toggles the visibility of an element with a slide animation. |
 
 ---
-
-*Document generated for ssomesh.github.io. Last updated: April 28, 2026.*
