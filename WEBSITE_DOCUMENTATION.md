@@ -272,10 +272,11 @@ p {
 }
 ```
 
-**Active-page indicator:** The `.navbar-brand` is set to gold (#FDB515)
-while the other nav links are white (#fff). Because each page sets its own
-name as the brand (see §8), the gold colour naturally shows which page you
-are currently on.
+**Active-page indicator:** The active page's nav link is styled in gold
+(#FDB515) via the `.active` class on its `<li>` element. On desktop, all
+four nav items are visible side-by-side with the current page highlighted
+in gold. The `.navbar-brand` is hidden on desktop and only serves as the
+visible label on mobile (see §8).
 
 ### 4.5 darkmode.css
 
@@ -287,15 +288,15 @@ This file does three things:
 
 | Light mode value | Dark mode override | What it affects |
 |------------------|--------------------|----------------|
-| `#fff` (white background) | `#16213e` (deep navy-blue) | Page background |
+| `#fff` (white background) | `#0d0d0d` (near-black) | Page background |
 | `#333` (dark text) | `#d4d4d4` (light gray) | Body text |
 | `#222` (heading color) | `#e8e8e8` (bright gray) | Headings |
 | Bootstrap blue links | `#79b8f8` (soft sky blue) | All links |
 | — | `#FDB515` (gold) | Link hover colour |
-| `#003262` (navbar bg) | `#0a1628` (very dark navy) | Navbar background |
-| `1px solid black` (borders) | `1px solid #3a4a65` | Section header underlines |
-| `#eff` (blockquote bg) | `#1e2d4a` (muted navy) | Blockquote backgrounds |
-| `#2a3a55` | `#2a3a55` | Horizontal rules |
+| `#003262` (navbar bg) | `#161616` (dark charcoal) | Navbar background |
+| `1px solid black` (borders) | `1px solid #444` | Section header underlines |
+| `#eff` (blockquote bg) | `#1a1a1a` (near-black) | Blockquote backgrounds |
+| `#333` | `#333` | Horizontal rules |
 
 The overrides use CSS **specificity** to beat the existing rules. For example,
 `body.dark-mode .navbar` has higher specificity than `.navbar`, so when the
@@ -480,8 +481,8 @@ items.
 ```
 <body>
   ├── [flash-prevention script]
-  ├── [dark mode toggle button]
   ├── .container  (heading + navbar)
+  │   ├── [dark mode toggle button]
   │   ├── <h1>  Somesh Singh
   │   └── <nav> navbar
   ├── .container  (page content)
@@ -578,42 +579,85 @@ TA listings using `<dl>`/`<dt>`/`<dd>`.
 
 ## 8. The Navigation Bar
 
-The navbar appears on every page but is **not** identical across pages — each
-page customises which link is the **brand** (the always-visible element) and
-which links are in the **collapsible** section.
+The navbar appears on every page. Every page has the **same four nav items
+in the same order**: about me, research, mentoring, miscellaneous. The
+current page is highlighted in gold via a `class="active"` on its `<li>`.
 
 Each HTML page contains its own copy of the navbar (not factored out into a
 shared file).
 
-### 8.1 Per-page brand (active-page indicator)
+### 8.1 How the navbar adapts to screen size
 
-In Bootstrap 3, the `.navbar-brand` is the element that remains visible when
-the navbar collapses on small screens (the hamburger-menu state). The other
-links inside `.navbar-collapse` are hidden behind the hamburger button.
+The navbar has two different behaviours depending on screen width:
 
-This site uses the **brand as the active-page indicator**:
+**Desktop (≥ 768px):**
+- The `.navbar-brand` is **hidden** via CSS (`display: none`).
+- All four nav items in the `<ul>` are visible side-by-side.
+- The active page's `<li>` has `class="active"`, styled in gold (#FDB515).
+- Order is always: about me | research | mentoring | miscellaneous.
 
-| Page | `.navbar-brand` | Items in collapsed menu |
-|------|----------------|------------------------|
-| `index.html` | about me | research, mentoring, miscellaneous |
-| `research.html` | research | about me, mentoring, miscellaneous |
-| `mentor.html` | mentoring | about me, research, miscellaneous |
-| `misc.html` | miscellaneous | about me, research, mentoring |
-| `phddissertation.html` | research (parent page) | about me, mentoring, miscellaneous |
-| `academics.html` | academics | about me, research, mentoring, miscellaneous |
+**Mobile (< 768px):**
+- The `.navbar-brand` is **visible**, showing the current page's name in gold.
+- The `<ul>` is hidden behind the hamburger (☰) button.
+- The active `<li>` is hidden from the dropdown (CSS: `display: none`) to
+  avoid duplicating the brand text.
+- The remaining three items appear in the dropdown menu.
 
-**On desktop** (wide screens), the brand and all nav items are visible
-side-by-side. The brand is styled in **gold** (#FDB515) while the other items
-are **white** — making it immediately clear which page you are on.
+This is achieved with two CSS media queries in `mystylesheet.css`:
 
-**On mobile / zoomed-in** (narrow screens), only the brand is visible. The
-brand shows the current page's name, so you always know where you are. The
-other pages are accessible via the hamburger (☰) button.
+```css
+/* On desktop: hide the brand (the full list shows all items) */
+@media (min-width: 768px) {
+    .navbar .navbar-brand {
+        display: none;
+    }
+}
 
-### 8.2 Navbar structure (example: research.html)
+/* On mobile: hide the active li (brand already shows current page) */
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav > li.active {
+        display: none;
+    }
+}
+```
+
+### 8.2 Active-page styling
+
+In `mystylesheet.css`:
+
+```css
+.navbar-inverse .navbar-nav > li.active > a,
+.navbar-inverse .navbar-nav > li.active > a:hover,
+.navbar-inverse .navbar-nav > li.active > a:focus {
+    color: #FDB515;            /* California Gold */
+    background-color: transparent;
+}
+```
+
+The gold colour matches the original `.navbar-brand` colour, so the desktop
+appearance is visually identical to having the brand visible — the active
+page is always the gold item on the left.
+
+### 8.3 Per-page configuration
+
+Each page sets two things:
+1. The `.navbar-brand` text and `href` (for mobile display).
+2. Which `<li>` gets `class="active"`.
+
+| Page | `.navbar-brand` text | Active `<li>` |
+|------|---------------------|---------------|
+| `index.html` | about me | about me |
+| `research.html` | research | research |
+| `mentor.html` | mentoring | mentoring |
+| `misc.html` | miscellaneous | miscellaneous |
+| `phddissertation.html` | research (parent page) | research |
+| `academics.html` | academics | academics |
+
+### 8.4 Navbar structure (example: research.html)
 
 ```html
 <div class="container">
+  <button id="theme-toggle" class="theme-toggle" ...>...</button>
   <h1 style="font-size:5rem; margin-bottom:0.3em;">Somesh Singh</h1>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-header">
@@ -631,6 +675,7 @@ other pages are accessible via the hamburger (☰) button.
          id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav initialism">
         <li><a href="index.html">about me</a></li>
+        <li class="active"><a href="research.html">research</a></li>
         <li><a href="mentor.html">mentoring</a></li>
         <li><a href="misc.html">miscellaneous</a></li>
       </ul>
@@ -640,20 +685,24 @@ other pages are accessible via the hamburger (☰) button.
 ```
 
 Notice that:
-- The brand's `href` points to `research.html` (the current page).
-- The brand text is "research" (the current page's name).
-- The `<ul>` contains only the *other* pages — research is not listed again.
+- All four nav items appear in the `<ul>`, always in the same order.
+- The current page ("research") has `class="active"` on its `<li>`.
+- The brand text matches the active page (used only on mobile).
+- On desktop, the brand is hidden and you see all four items with
+  "research" highlighted in gold.
 
-### 8.3 How to add a new page to the navbar
+### 8.5 How to add a new page to the navbar
 
 To add a new page (e.g., `teaching.html`):
 
-1. **On the new page itself:** set the `.navbar-brand` to "teaching" with
-   `href="teaching.html"`, and list all other pages in the `<ul>`.
-2. **On every existing page:** add `<li><a href="teaching.html">teaching</a></li>`
-   inside the `<ul class="nav navbar-nav">`.
+1. **On every existing page:** add
+   `<li><a href="teaching.html">teaching</a></li>` inside the
+   `<ul class="nav navbar-nav">`, in the desired position.
+2. **On the new page itself:** include all nav items in the `<ul>` (in the
+   same order as other pages), set the teaching `<li>` to `class="active"`,
+   and set the `.navbar-brand` to "teaching" with `href="teaching.html"`.
 
-### 8.4 Important structural rule
+### 8.6 Important structural rule
 
 The `<nav>` must close *inside* the `<div class="container">`, not the
 other way around:
@@ -671,14 +720,19 @@ Getting this wrong causes layout shifts between pages.
 
 ### 9.1 The toggle button (HTML)
 
-Placed right after `<body>` on every page:
+Placed inside the first `.container` div on every page, right before the
+`<h1>` heading:
 
 ```html
-<button id="theme-toggle" class="theme-toggle"
-        title="Toggle dark mode" aria-label="Toggle dark mode">
-  <svg class="icon-moon" ...>  <!-- crescent moon path -->  </svg>
-  <svg class="icon-sun"  ...>  <!-- sun circle + rays -->  </svg>
-</button>
+<div class="container">
+  <button id="theme-toggle" class="theme-toggle"
+          title="Toggle dark mode" aria-label="Toggle dark mode">
+    <svg class="icon-moon" ...>  <!-- crescent moon path -->  </svg>
+    <svg class="icon-sun"  ...>  <!-- sun circle + rays -->  </svg>
+  </button>
+  <h1 ...>Somesh Singh</h1>
+  ...
+</div>
 ```
 
 The button contains two inline **SVG** icons (Scalable Vector Graphics):
@@ -702,14 +756,14 @@ body.dark-mode .theme-toggle .icon-moon { display: none;   }
 
 ### 9.2 Button styling
 
-The toggle uses `rem` units so it scales naturally with browser zoom:
+The toggle uses `rem` units so it scales naturally with browser zoom, and
+`float: right` so it sits in the content flow rather than floating over it:
 
 ```css
 .theme-toggle {
-    position: fixed;     /* stays in place when you scroll */
-    top: 0.75rem;
-    right: 1rem;
-    z-index: 9999;       /* always on top of other content */
+    float: right;        /* flows with the content, doesn't occlude */
+    z-index: 100;
+    margin-top: 0.3em;
     border-radius: 50%;  /* makes it a circle */
     width: 2.4rem;
     height: 2.4rem;
@@ -717,14 +771,17 @@ The toggle uses `rem` units so it scales naturally with browser zoom:
 }
 ```
 
-The button has four responsive breakpoints via `@media` queries:
+Because the toggle is inside the `.container` and uses `float: right`, it:
+- Scrolls with the page content (not fixed to the viewport).
+- Moves when the user zooms in or resizes the window.
+- Never occludes other content since it's part of the document flow.
 
-| Screen width | Button size | Position |
-|-------------|------------|----------|
-| ≥ 992px (desktop) | 2.4rem | top: 0.75rem, right: 1rem |
-| 768–991px (tablet) | 2.2rem | top: 0.6rem, right: 0.8rem |
-| 400–767px (phone) | 2rem | top: 0.5rem, right: 0.5rem |
-| < 400px (small phone) | 1.75rem | top: 0.4rem, right: 0.35rem |
+On smaller screens (< 768px), the button shrinks slightly:
+
+| Screen width | Button size |
+|-------------|------------|
+| ≥ 768px (desktop/tablet) | 2.4rem |
+| < 768px (phone) | 2rem |
 
 Using `rem` (root-em) units means the button scales with browser zoom.
 When a user zooms in, the browser increases the root font size, and the
@@ -752,7 +809,7 @@ background, for example:
 
 ```css
 body.dark-mode {
-    background-color: #16213e;  /* ← change this value */
+    background-color: #0d0d0d;  /* ← change this value */
 }
 ```
 
@@ -832,9 +889,10 @@ In **every** HTML file, add a `<li>` inside the `<ul class="nav navbar-nav">`:
 ```
 
 Then create `newpage.html` using the same boilerplate as the other pages.
-On the **new page itself**, set the `.navbar-brand` to the new page's name
-and `href` to the new page's filename. On all **other** pages, add the new
-page as a `<li>` in the collapsible nav list (see §8 for details).
+On the **new page itself**, include all nav items in the `<ul>` (in the same
+order as other pages), set the new page's `<li>` to `class="active"`, and
+set the `.navbar-brand` to the new page's name with `href` pointing to the
+new page's filename (see §8 for details).
 
 ### Changing the profile photo
 
@@ -856,7 +914,7 @@ page's `<head>`.
 | Abstract doesn't expand when clicked | `id` mismatch between the `<a href="#...">` and the `<p id="...">` | Make them match exactly |
 | Dark mode resets on page change | `localStorage` script missing from `<body>` | Add the inline `<script>` right after `<body>` |
 | Content shifts when navigating | Missing `overflow-y: scroll` on `html`, or broken nav nesting | Check `darkmode.css` is loaded; verify `</nav>` comes before `</div>` for the container |
-| Wrong page highlighted in navbar | Brand not set to current page | Each page must set its own name as the `.navbar-brand` text and `href` (see §8) |
+| Wrong page highlighted in navbar | `class="active"` on wrong `<li>` | Each page must have `class="active"` on its own `<li>` and its name as the `.navbar-brand` text (see §8) |
 | Page looks different in different browsers | `normalize.css` not loaded | Ensure it's the first stylesheet |
 | Inline styles not overridden in dark mode | Inline styles have highest specificity | Use `!important` in `darkmode.css` with attribute selectors |
 | FOUC (white flash) in dark mode | Inline script missing or JS error | Check the `<script>` right after `<body>` |

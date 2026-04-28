@@ -67,3 +67,25 @@
 	text-rendering: optimizeLegibility;
    }
 */
+
+/* Active nav item highlighted in gold (current page) */
+.navbar-inverse .navbar-nav > li.active > a,
+.navbar-inverse .navbar-nav > li.active > a:hover,
+.navbar-inverse .navbar-nav > li.active > a:focus {
+    color: #FDB515;
+    background-color: transparent;
+}
+
+/* On desktop: hide the brand (the full list shows all items including active) */
+@media (min-width: 768px) {
+    .navbar .navbar-brand {
+        display: none;
+    }
+}
+
+/* On mobile: hide the active li from dropdown (brand already shows current page) */
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav > li.active {
+        display: none;
+    }
+}
