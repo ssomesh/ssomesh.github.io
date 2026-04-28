@@ -1,6 +1,5 @@
 # Webpage Structure & Development Guide
 
-## ssomesh.github.io — Complete Documentation
 
 This document explains every element of my personal webpage hosted at
 [ssomesh.github.io](https://ssomesh.github.io), from the ground up.
