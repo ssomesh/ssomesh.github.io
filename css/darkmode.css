@@ -147,7 +147,8 @@ body.dark-mode a:focus {
    ------------------------------------------------ */
 body.dark-mode .navbar {
     background: #e8ecf1;
-    border-color: #cbd5e1;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
@@ -262,30 +263,30 @@ body.dark-mode img[src*="github.png"],
 body.dark-mode img[src*="linkedin"],
 body.dark-mode img[src*="orcid"] {
     background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 6px;
-    padding: 3px;
+    border-radius: 4px;
+    padding: 1px;
 }
 
 /* ACM Results Reproduced badge */
 body.dark-mode img[src*="acm_results"] {
     background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 6px;
-    padding: 2px;
+    border-radius: 4px;
+    padding: 1px;
 }
 
 /* Academicons font-icons (DBLP, Google Scholar squares) */
 body.dark-mode i.ai {
     background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 4px;
-    padding: 2px 4px;
+    border-radius: 3px;
+    padding: 1px 2px;
     color: #1a1a1a;
 }
 
 /* Tag-cloud image (dissertation page) — white backdrop */
 body.dark-mode img[alt="dissertation_tag_cloud"] {
     background-color: #ffffff;
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 6px;
+    padding: 4px;
 }
 
 /* ------------------------------------------------

@@ -341,35 +341,36 @@ background.  The colours were chosen for comfort and readability:
 
 Small icons (GitHub, LinkedIn, ORCID, ACM badge) and academic font-icons
 (DBLP, Google Scholar) would be difficult to see on a black background.
-The dark mode CSS solves this by adding a **white pill-shaped backdrop**
-behind each icon using `background-color` with `border-radius` and `padding`:
+The dark mode CSS solves this by adding a **tight white backdrop** behind
+each icon using `background-color` with `border-radius` and minimal `padding`:
 
 ```css
-/* Image-based icons — white pill */
+/* Image-based icons — tight white backdrop */
 body.dark-mode img[src*="github.png"],
 body.dark-mode img[src*="linkedin"],
 body.dark-mode img[src*="orcid"] {
     background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 6px;
-    padding: 3px;
+    border-radius: 4px;
+    padding: 1px;
 }
 
-/* Font-based icons (Academicons) — white pill */
+/* Font-based icons (Academicons) — tight white backdrop */
 body.dark-mode i.ai {
     background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 4px;
-    padding: 2px 4px;
+    border-radius: 3px;
+    padding: 1px 2px;
     color: #1a1a1a;
 }
 ```
 
 The `rgba(255, 255, 255, 0.92)` is white with 92% opacity — slightly
-translucent to blend naturally. The `border-radius` rounds the corners
-to match the icon's shape, creating a clean pill effect rather than a
-harsh rectangle.
+translucent to blend naturally. The padding is kept minimal (`1px` for
+images, `1px 2px` for font-icons) so the backdrop hugs the icon tightly
+without adding visual bulk. The `border-radius` rounds the corners just
+enough to soften the shape.
 
 The tag-cloud image on the dissertation page gets a similar treatment
-with more padding since it's a larger image.
+with slightly more padding (`4px`) since it's a larger image.
 
 #### 4.5.4 How CSS specificity beats existing rules
 
@@ -395,9 +396,12 @@ external CSS rules regardless of specificity.
 #### 4.5.5 The light navbar design choice
 
 In dark mode, the navbar uses a light gray background (`#e8ecf1`) instead
-of the dark charcoal approach used by many dark themes. This creates a
-visually striking "floating card" effect — a light bar sitting on the
-black background — that:
+of the dark charcoal approach used by many dark themes. The dark mode CSS
+explicitly sets `border: 1px solid #cbd5e1` and `border-radius: 5px` —
+matching the light mode's `border-radius: 5px` from `mystylesheet.css` —
+so the rounded corners are visible against the black page background.
+This creates a visually striking "floating card" effect — a light bar
+sitting on the black background — that:
 
 - Clearly delineates the navigation area from page content.
 - Maintains high contrast for nav text (dark slate on light gray).
