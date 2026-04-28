@@ -248,9 +248,12 @@ a:hover, a:link, a:visited {
     background: #003262;       /* "Berkeley Blue" */
 }
 
-.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-brand {
+    color: #FDB515;            /* California Gold — indicates the active/current page */
+}
+
 .navbar-inverse .navbar-nav > li > a {
-    color: #fff;               /* White text on the navbar */
+    color: #fff;               /* White text for other nav items */
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
@@ -269,6 +272,11 @@ p {
 }
 ```
 
+**Active-page indicator:** The `.navbar-brand` is set to gold (#FDB515)
+while the other nav links are white (#fff). Because each page sets its own
+name as the brand (see §8), the gold colour naturally shows which page you
+are currently on.
+
 ### 4.5 darkmode.css
 
 This file does three things:
@@ -279,15 +287,15 @@ This file does three things:
 
 | Light mode value | Dark mode override | What it affects |
 |------------------|--------------------|----------------|
-| `#fff` (white background) | `#1a1a2e` (deep navy) | Page background |
+| `#fff` (white background) | `#16213e` (deep navy-blue) | Page background |
 | `#333` (dark text) | `#d4d4d4` (light gray) | Body text |
-| `#222` (heading color) | `#e0e0e0` (brighter gray) | Headings |
-| Bootstrap blue links | `#6db3f2` (soft blue) | All links |
+| `#222` (heading color) | `#e8e8e8` (bright gray) | Headings |
+| Bootstrap blue links | `#79b8f8` (soft sky blue) | All links |
 | — | `#FDB515` (gold) | Link hover colour |
-| `#003262` (navbar bg) | `#0d1b2a` (darker navy) | Navbar background |
-| `1px solid black` (borders) | `1px solid #555` | Section header underlines |
-| `#eff` (blockquote bg) | `#252540` (muted purple-navy) | Blockquote backgrounds |
-| `#444` | `#444` | Horizontal rules |
+| `#003262` (navbar bg) | `#0a1628` (very dark navy) | Navbar background |
+| `1px solid black` (borders) | `1px solid #3a4a65` | Section header underlines |
+| `#eff` (blockquote bg) | `#1e2d4a` (muted navy) | Blockquote backgrounds |
+| `#2a3a55` | `#2a3a55` | Horizontal rules |
 
 The overrides use CSS **specificity** to beat the existing rules. For example,
 `body.dark-mode .navbar` has higher specificity than `.navbar`, so when the
@@ -570,8 +578,39 @@ TA listings using `<dl>`/`<dt>`/`<dd>`.
 
 ## 8. The Navigation Bar
 
-The navbar appears identically on every page. It is **not** factored into a
-separate file — each HTML page contains its own copy.
+The navbar appears on every page but is **not** identical across pages — each
+page customises which link is the **brand** (the always-visible element) and
+which links are in the **collapsible** section.
+
+Each HTML page contains its own copy of the navbar (not factored out into a
+shared file).
+
+### 8.1 Per-page brand (active-page indicator)
+
+In Bootstrap 3, the `.navbar-brand` is the element that remains visible when
+the navbar collapses on small screens (the hamburger-menu state). The other
+links inside `.navbar-collapse` are hidden behind the hamburger button.
+
+This site uses the **brand as the active-page indicator**:
+
+| Page | `.navbar-brand` | Items in collapsed menu |
+|------|----------------|------------------------|
+| `index.html` | about me | research, mentoring, miscellaneous |
+| `research.html` | research | about me, mentoring, miscellaneous |
+| `mentor.html` | mentoring | about me, research, miscellaneous |
+| `misc.html` | miscellaneous | about me, research, mentoring |
+| `phddissertation.html` | research (parent page) | about me, mentoring, miscellaneous |
+| `academics.html` | academics | about me, research, mentoring, miscellaneous |
+
+**On desktop** (wide screens), the brand and all nav items are visible
+side-by-side. The brand is styled in **gold** (#FDB515) while the other items
+are **white** — making it immediately clear which page you are on.
+
+**On mobile / zoomed-in** (narrow screens), only the brand is visible. The
+brand shows the current page's name, so you always know where you are. The
+other pages are accessible via the hamburger (☰) button.
+
+### 8.2 Navbar structure (example: research.html)
 
 ```html
 <div class="container">
@@ -586,12 +625,12 @@ separate file — each HTML page contains its own copy.
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand initialism" href="index.html">about me</a>
+      <a class="navbar-brand initialism" href="research.html"> research</a>
     </div>
     <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav initialism">
-        <li><a href="research.html">research</a></li>
+        <li><a href="index.html">about me</a></li>
         <li><a href="mentor.html">mentoring</a></li>
         <li><a href="misc.html">miscellaneous</a></li>
       </ul>
@@ -600,19 +639,31 @@ separate file — each HTML page contains its own copy.
 </div>
 ```
 
-**Important structural rule:** The `<nav>` must close *inside* the
-`<div class="container">`, not the other way around. Closing the container
-div inside the nav creates invalid nesting and can cause layout shifts.
+Notice that:
+- The brand's `href` points to `research.html` (the current page).
+- The brand text is "research" (the current page's name).
+- The `<ul>` contains only the *other* pages — research is not listed again.
 
-Correct:
+### 8.3 How to add a new page to the navbar
+
+To add a new page (e.g., `teaching.html`):
+
+1. **On the new page itself:** set the `.navbar-brand` to "teaching" with
+   `href="teaching.html"`, and list all other pages in the `<ul>`.
+2. **On every existing page:** add `<li><a href="teaching.html">teaching</a></li>`
+   inside the `<ul class="nav navbar-nav">`.
+
+### 8.4 Important structural rule
+
+The `<nav>` must close *inside* the `<div class="container">`, not the
+other way around:
+
 ```
-container opens → nav opens → nav closes → container closes
+Correct:   container opens → nav opens → nav closes → container closes
+Wrong:     container opens → nav opens → container closes → nav closes
 ```
 
-Wrong (was the case before the fix):
-```
-container opens → nav opens → container closes → nav closes
-```
+Getting this wrong causes layout shifts between pages.
 
 ---
 
@@ -651,21 +702,37 @@ body.dark-mode .theme-toggle .icon-moon { display: none;   }
 
 ### 9.2 Button styling
 
+The toggle uses `rem` units so it scales naturally with browser zoom:
+
 ```css
 .theme-toggle {
     position: fixed;     /* stays in place when you scroll */
-    top: 15px;
-    right: 20px;
+    top: 0.75rem;
+    right: 1rem;
     z-index: 9999;       /* always on top of other content */
     border-radius: 50%;  /* makes it a circle */
-    width: 42px;
-    height: 42px;
-    ...
+    width: 2.4rem;
+    height: 2.4rem;
+    transition: ... 0.3s ease;  /* smooth colour changes */
 }
 ```
 
+The button has four responsive breakpoints via `@media` queries:
+
+| Screen width | Button size | Position |
+|-------------|------------|----------|
+| ≥ 992px (desktop) | 2.4rem | top: 0.75rem, right: 1rem |
+| 768–991px (tablet) | 2.2rem | top: 0.6rem, right: 0.8rem |
+| 400–767px (phone) | 2rem | top: 0.5rem, right: 0.5rem |
+| < 400px (small phone) | 1.75rem | top: 0.4rem, right: 0.35rem |
+
+Using `rem` (root-em) units means the button scales with browser zoom.
+When a user zooms in, the browser increases the root font size, and the
+button grows proportionally — staying usable without overlapping content.
+
 In light mode the button has a Berkeley-blue border on a light background.
 In dark mode it flips to a gold border on a dark background.
+Hovering applies a subtle `transform: scale(1.08)` for tactile feedback.
 
 ### 9.3 How it persists across pages
 
@@ -685,7 +752,7 @@ background, for example:
 
 ```css
 body.dark-mode {
-    background-color: #1a1a2e;  /* ← change this value */
+    background-color: #16213e;  /* ← change this value */
 }
 ```
 
@@ -765,6 +832,9 @@ In **every** HTML file, add a `<li>` inside the `<ul class="nav navbar-nav">`:
 ```
 
 Then create `newpage.html` using the same boilerplate as the other pages.
+On the **new page itself**, set the `.navbar-brand` to the new page's name
+and `href` to the new page's filename. On all **other** pages, add the new
+page as a `<li>` in the collapsible nav list (see §8 for details).
 
 ### Changing the profile photo
 
@@ -786,6 +856,7 @@ page's `<head>`.
 | Abstract doesn't expand when clicked | `id` mismatch between the `<a href="#...">` and the `<p id="...">` | Make them match exactly |
 | Dark mode resets on page change | `localStorage` script missing from `<body>` | Add the inline `<script>` right after `<body>` |
 | Content shifts when navigating | Missing `overflow-y: scroll` on `html`, or broken nav nesting | Check `darkmode.css` is loaded; verify `</nav>` comes before `</div>` for the container |
+| Wrong page highlighted in navbar | Brand not set to current page | Each page must set its own name as the `.navbar-brand` text and `href` (see §8) |
 | Page looks different in different browsers | `normalize.css` not loaded | Ensure it's the first stylesheet |
 | Inline styles not overridden in dark mode | Inline styles have highest specificity | Use `!important` in `darkmode.css` with attribute selectors |
 | FOUC (white flash) in dark mode | Inline script missing or JS error | Check the `<script>` right after `<body>` |
@@ -810,6 +881,7 @@ page's `<head>`.
 | **Semantic element** | An HTML element that conveys meaning (e.g., `<nav>`, `<article>`) vs. a generic one (`<div>`, `<span>`). |
 | **Void element** | An HTML element that cannot have children and has no closing tag (e.g., `<br>`, `<hr>`, `<img>`). |
 | **Attribute selector** | A CSS selector like `[style*="color:black"]` that matches elements based on their HTML attributes. |
+| **`rem`** | "Root em" — a CSS unit equal to the root element's font size (typically 16px). Unlike `px`, `rem` scales with browser zoom, making UI elements responsive to user preferences. |
 | **Bootstrap grid** | A 12-column layout system where `.col-*-N` spans N columns at a given breakpoint. |
 | **Collapse** | A Bootstrap plugin that toggles the visibility of an element with a slide animation. |
 

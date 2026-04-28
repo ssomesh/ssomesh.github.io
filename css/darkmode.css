@@ -11,20 +11,20 @@ html {
 /* --- Theme Toggle Button --- */
 .theme-toggle {
     position: fixed;
-    top: 15px;
-    right: 20px;
+    top: 0.75rem;
+    right: 1rem;
     z-index: 9999;
     background: #f5f5f5;
     border: 2px solid #003262;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 2.4rem;
+    height: 2.4rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
     color: #003262;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -32,6 +32,7 @@ html {
 .theme-toggle:hover {
     background: #003262;
     color: #FDB515;
+    transform: scale(1.08);
 }
 
 .theme-toggle:focus {
@@ -40,8 +41,8 @@ html {
 }
 
 .theme-toggle svg {
-    width: 20px;
-    height: 20px;
+    width: 1.15rem;
+    height: 1.15rem;
 }
 
 .theme-toggle .icon-sun {
@@ -52,22 +53,56 @@ html {
     display: inline;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .theme-toggle {
-        top: 10px;
-        right: 10px;
-        width: 36px;
-        height: 36px;
+        top: 0.6rem;
+        right: 0.8rem;
+        width: 2.2rem;
+        height: 2.2rem;
     }
     .theme-toggle svg {
-        width: 18px;
-        height: 18px;
+        width: 1.05rem;
+        height: 1.05rem;
     }
 }
 
-/* --- Smooth Transition on Body --- */
+@media (max-width: 767px) {
+    .theme-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .theme-toggle svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .theme-toggle {
+        top: 0.4rem;
+        right: 0.35rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    .theme-toggle svg {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+}
+
+/* --- Smooth Transitions --- */
 body {
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+.navbar {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ================================================
@@ -76,7 +111,7 @@ body {
 
 /* --- Body --- */
 body.dark-mode {
-    background-color: #1a1a2e;
+    background-color: #16213e;
     color: #d4d4d4;
 }
 
@@ -87,7 +122,7 @@ body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6 {
-    color: #e0e0e0;
+    color: #e8e8e8;
 }
 
 /* --- Paragraphs --- */
@@ -99,7 +134,7 @@ body.dark-mode p {
 body.dark-mode a,
 body.dark-mode a:link,
 body.dark-mode a:visited {
-    color: #6db3f2;
+    color: #79b8f8;
 }
 
 body.dark-mode a:hover,
@@ -109,47 +144,54 @@ body.dark-mode a:focus {
 
 /* --- Navbar --- */
 body.dark-mode .navbar {
-    background: #0d1b2a;
-    border-color: #1b3a5c;
+    background: #0a1628;
+    border-color: #1b3050;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
-body.dark-mode .navbar-inverse .navbar-brand,
+body.dark-mode .navbar-inverse .navbar-brand {
+    color: #FDB515;
+}
+
 body.dark-mode .navbar-inverse .navbar-nav > li > a {
-    color: #fff;
+    color: #cfd8e8;
 }
 
 body.dark-mode .navbar-inverse .navbar-brand:hover,
-body.dark-mode .navbar-inverse .navbar-brand:focus,
+body.dark-mode .navbar-inverse .navbar-brand:focus {
+    color: #ffe082;
+}
+
 body.dark-mode .navbar-inverse .navbar-nav > li > a:hover,
 body.dark-mode .navbar-inverse .navbar-nav > li > a:focus {
     color: #FDB515;
 }
 
 body.dark-mode .navbar-inverse .navbar-toggle {
-    border-color: #6db3f2;
+    border-color: #79b8f8;
 }
 
 body.dark-mode .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #cfd8e8;
 }
 
 body.dark-mode .navbar-inverse .navbar-toggle:hover,
 body.dark-mode .navbar-inverse .navbar-toggle:focus {
-    background-color: #1b3a5c;
+    background-color: #1b3050;
 }
 
 body.dark-mode .navbar-inverse .navbar-collapse {
-    border-color: #1b3a5c;
+    border-color: #1b3050;
 }
 
 /* --- Horizontal Rules --- */
 body.dark-mode hr {
-    border-color: #444;
+    border-color: #2a3a55;
 }
 
 /* --- Section headers with inline border-bottom style --- */
 body.dark-mode h3[style*="border-bottom"] {
-    border-bottom-color: #555 !important;
+    border-bottom-color: #3a4a65 !important;
 }
 
 /* --- Override inline color:black --- */
@@ -160,36 +202,44 @@ body.dark-mode [style*="color: black"] {
 
 /* --- Blockquotes (dissertation page) --- */
 body.dark-mode blockquote {
-    background: #252540 !important;
-    border-left-color: #003262;
+    background: #1e2d4a !important;
+    border-left-color: #3a6ea5;
     color: #d0d0d0;
 }
 
 body.dark-mode blockquote footer {
-    color: #999;
+    color: #8899aa;
 }
 
 /* --- Images --- */
 body.dark-mode .container .img-responsive {
-    border-color: #555;
+    border-color: #3a4a65;
 }
 
-/* GitHub icon (dark silhouette needs inversion) */
+/* Social icons: soften for dark backgrounds */
 body.dark-mode img[src*="github.png"] {
-    filter: invert(0.85);
+    filter: invert(0.85) brightness(1.1);
+}
+
+body.dark-mode img[src*="linkedin"] {
+    filter: brightness(1.2);
+}
+
+body.dark-mode img[src*="orcid"] {
+    filter: brightness(1.15);
 }
 
 /* --- Toggle Button in Dark Mode --- */
 body.dark-mode .theme-toggle {
-    background: #252540;
+    background: #1e2d4a;
     border-color: #FDB515;
     color: #FDB515;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 body.dark-mode .theme-toggle:hover {
     background: #FDB515;
-    color: #1a1a2e;
+    color: #16213e;
 }
 
 body.dark-mode .theme-toggle .icon-sun {

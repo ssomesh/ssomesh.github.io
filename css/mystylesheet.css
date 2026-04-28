@@ -17,7 +17,7 @@
     }
 
    .navbar-inverse .navbar-brand {
-       color: #fff;
+       color: #FDB515; /* California Gold — highlights current/active page */
     }
   .navbar-inverse .navbar-nav > li > a {
       font-size: 16px;
