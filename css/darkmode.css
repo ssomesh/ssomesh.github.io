@@ -86,26 +86,27 @@ a {
 /* ================================================
    DARK MODE OVERRIDES
    ================================================
-   Color palette (dark mode):
+   Color palette (Cyborg-inspired, true-black):
      Background   : #000000  (true black)
-     Text         : #d1d5db  (cool gray — easy on the eyes)
-     Headings     : #f0f0f0  (near-white)
-     Bold text    : #f3f4f6  (slightly brighter)
-     Links        : #60a5fa  (vibrant sky blue — pops on black)
-     Link hover   : #fbbf24  (warm amber gold)
+     Text         : #b0b0b0  (soft gray — easy on the eyes)
+     Headings     : #e0e0e0  (near-white, gentle)
+     Bold text    : #d0d0d0  (brighter for emphasis)
+     Links        : #4dd0e1  (bright cyan — pops on black, distinct)
+     Link hover   : #ffd54f  (warm gold — clear visual feedback)
      Navbar bg    : #e8ecf1  (light cool gray — floating bar)
      Navbar text  : #1e293b  (dark slate)
      Navbar active: #003262  (Berkeley Blue — brand consistency)
      Navbar hover : #2563eb  (bright blue)
-     HR / borders : #374151  (slate gray)
-     Section rule : #4b5563  (mid gray)
-     Blockquote bg: #111827  (very dark navy)
+     HR / borders : #282828  (dark gray — Cyborg-style)
+     Section rule : #3c3c3c  (mid gray)
+     Blockquote bg: #0d0d0d  (near-black, subtle depth)
+     Panel bg     : #0d0d0d  (near-black)
    ================================================ */
 
 /* --- Body --- */
 body.dark-mode {
     background-color: #000000;
-    color: #d1d5db;
+    color: #b0b0b0;
 }
 
 /* --- Headings --- */
@@ -115,30 +116,30 @@ body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6 {
-    color: #f0f0f0;
+    color: #e0e0e0;
 }
 
 /* --- Paragraphs --- */
 body.dark-mode p {
-    color: #d1d5db;
+    color: #b0b0b0;
 }
 
-/* --- Bold / strong text (slightly brighter for emphasis) --- */
+/* --- Bold / strong text (brighter for emphasis) --- */
 body.dark-mode b,
 body.dark-mode strong {
-    color: #f3f4f6;
+    color: #d0d0d0;
 }
 
 /* --- Links --- */
 body.dark-mode a,
 body.dark-mode a:link,
 body.dark-mode a:visited {
-    color: #60a5fa;
+    color: #4dd0e1;
 }
 
 body.dark-mode a:hover,
 body.dark-mode a:focus {
-    color: #fbbf24;
+    color: #ffd54f;
 }
 
 /* ------------------------------------------------
@@ -200,11 +201,11 @@ body.dark-mode .navbar-inverse .navbar-collapse {
    Horizontal Rules & Section Borders
    ------------------------------------------------ */
 body.dark-mode hr {
-    border-color: #374151;
+    border-color: #282828;
 }
 
 body.dark-mode h3[style*="border-bottom"] {
-    border-bottom-color: #4b5563 !important;
+    border-bottom-color: #3c3c3c !important;
 }
 
 /* ------------------------------------------------
@@ -214,13 +215,13 @@ body.dark-mode h3[style*="border-bottom"] {
 /* color:black  →  readable gray */
 body.dark-mode [style*="color:black"],
 body.dark-mode [style*="color: black"] {
-    color: #d1d5db !important;
+    color: #b0b0b0 !important;
 }
 
-/* ACM badge dark-purple text  →  light blue */
+/* ACM badge dark-purple text  →  light cyan */
 body.dark-mode span[style*="color: #23007d"],
 body.dark-mode span[style*="color:#23007d"] {
-    color: #93c5fd !important;
+    color: #80deea !important;
 }
 
 /* Mentor topic gold (#C4820E)  →  brighter gold for black bg */
@@ -236,20 +237,20 @@ body.dark-mode a[style*="color:#C4820E"] {
    Blockquotes (dissertation page)
    ------------------------------------------------ */
 body.dark-mode blockquote {
-    background: #111827 !important;
-    border-left-color: #4b5563;
-    color: #d1d5db;
+    background: #0d0d0d !important;
+    border-left-color: #3c3c3c;
+    color: #b0b0b0;
 }
 
 body.dark-mode blockquote footer {
-    color: #9ca3af;
+    color: #888888;
 }
 
 /* ------------------------------------------------
    Images — profile photo
    ------------------------------------------------ */
 body.dark-mode .container .img-responsive {
-    border-color: #374151;
+    border-color: #282828;
 }
 
 /* ------------------------------------------------
@@ -291,20 +292,20 @@ body.dark-mode img[alt="dissertation_tag_cloud"] {
    Toggle Button in Dark Mode
    ------------------------------------------------ */
 body.dark-mode .theme-toggle {
-    background: #111827;
-    border-color: #60a5fa;
-    color: #e0e7ff;
-    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.25);
+    background: #0d0d0d;
+    border-color: #4dd0e1;
+    color: #dce8f0;
+    box-shadow: 0 2px 8px rgba(77, 208, 225, 0.25);
 }
 
 body.dark-mode .theme-toggle:hover {
-    background: #60a5fa;
+    background: #4dd0e1;
     color: #000000;
     transform: scale(1.08);
 }
 
 body.dark-mode .theme-toggle:focus {
-    outline-color: #fbbf24;
+    outline-color: #ffd54f;
 }
 
 body.dark-mode .theme-toggle .icon-sun {
@@ -319,25 +320,25 @@ body.dark-mode .theme-toggle .icon-moon {
    Definition lists, list items
    ------------------------------------------------ */
 body.dark-mode dt {
-    color: #e5e7eb;
+    color: #d0d0d0;
 }
 
 body.dark-mode dd {
-    color: #d1d5db;
+    color: #b0b0b0;
 }
 
 body.dark-mode li {
-    color: #d1d5db;
+    color: #b0b0b0;
 }
 
 /* ------------------------------------------------
    Collapsed abstract panels (Bootstrap)
    ------------------------------------------------ */
 body.dark-mode .panel {
-    background-color: #111827;
-    border-color: #374151;
+    background-color: #0d0d0d;
+    border-color: #282828;
 }
 
 body.dark-mode .panel-body {
-    color: #d1d5db;
+    color: #b0b0b0;
 }

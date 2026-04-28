@@ -300,45 +300,46 @@ This file does five things:
 
 #### 4.5.1 Dark mode colour palette
 
-The dark mode uses a carefully chosen palette designed for comfort and
-readability on a true-black background:
+The dark mode uses a Cyborg-inspired palette (see
+[Bootswatch Cyborg](https://bootswatch.com/3/cyborg/)) adapted for a true-black
+background.  The colours were chosen for comfort and readability:
 
 | Role | Hex value | Colour name / description |
 |------|-----------|--------------------------|
 | Background | `#000000` | True black |
-| Body text | `#d1d5db` | Cool gray (Tailwind gray-300) — soft, not fatiguing |
-| Headings | `#f0f0f0` | Near-white — stands out without being harsh |
-| Bold text | `#f3f4f6` | Slightly brighter than body text |
-| Links | `#60a5fa` | Vibrant sky blue (Tailwind blue-400) — clearly distinct from black |
-| Link hover | `#fbbf24` | Warm amber gold (Tailwind amber-400) |
+| Body text | `#b0b0b0` | Soft gray — easy on the eyes, lower contrast than pure white |
+| Headings | `#e0e0e0` | Near-white, gentle |
+| Bold text | `#d0d0d0` | Brighter for emphasis |
+| Links | `#4dd0e1` | Bright cyan — pops on black, distinct from body text |
+| Link hover | `#ffd54f` | Warm gold — clear visual feedback |
 | Navbar background | `#e8ecf1` | Light cool gray — creates a "floating bar" effect |
-| Navbar text | `#1e293b` | Dark slate (Tailwind slate-800) |
+| Navbar text | `#1e293b` | Dark slate |
 | Navbar active item | `#003262` | Berkeley Blue — maintains brand identity |
-| Navbar hover | `#2563eb` | Bright blue (Tailwind blue-600) |
-| Horizontal rules | `#374151` | Slate gray (Tailwind gray-700) |
-| Section underlines | `#4b5563` | Mid gray (Tailwind gray-600) |
-| Blockquote background | `#111827` | Very dark navy (Tailwind gray-900) |
-| Blockquote attribution | `#9ca3af` | Muted gray (Tailwind gray-400) |
-| Toggle button border | `#60a5fa` | Matches link colour |
+| Navbar hover | `#2563eb` | Bright blue |
+| Horizontal rules | `#282828` | Dark gray (Cyborg-style) |
+| Section underlines | `#3c3c3c` | Mid gray |
+| Blockquote background | `#0d0d0d` | Near-black, subtle depth |
+| Blockquote attribution | `#888888` | Muted gray |
+| Toggle button border | `#4dd0e1` | Matches link colour |
 | Mentor topic labels | `#f5b942` | Brighter gold (readable on black) |
-| ACM badge text | `#93c5fd` | Light blue (replaces invisible dark purple) |
+| ACM badge text | `#80deea` | Light cyan (replaces invisible dark purple) |
 
 #### 4.5.2 Full colour mapping (light → dark)
 
 | Light mode value | Dark mode override | What it affects |
 |------------------|--------------------|----------------|
 | `#fff` (white background) | `#000000` (true black) | Page background |
-| `#333` (dark text) | `#d1d5db` (cool gray) | Body text |
-| `#222` (heading colour) | `#f0f0f0` (near-white) | Headings |
-| Bootstrap blue links | `#60a5fa` (sky blue) | All hyperlinks |
-| — | `#fbbf24` (amber gold) | Link hover colour |
+| `#333` (dark text) | `#b0b0b0` (soft gray) | Body text |
+| `#222` (heading colour) | `#e0e0e0` (near-white) | Headings |
+| Bootstrap blue links | `#4dd0e1` (bright cyan) | All hyperlinks |
+| — | `#ffd54f` (warm gold) | Link hover colour |
 | `#003262` (navbar bg) | `#e8ecf1` (light gray) | Navbar background |
 | `#fff` (navbar text) | `#1e293b` (dark slate) | Navbar link text |
 | `#FDB515` (navbar active) | `#003262` (Berkeley Blue) | Active nav item |
-| `1px solid black` (borders) | `1px solid #4b5563` | Section header underlines |
-| `#eff` (blockquote bg) | `#111827` (very dark navy) | Blockquote backgrounds |
-| `—` | `#374151` | Horizontal rules |
-| `#23007d` (ACM badge) | `#93c5fd` (light blue) | ACM badge text |
+| `1px solid black` (borders) | `1px solid #3c3c3c` | Section header underlines |
+| `#eff` (blockquote bg) | `#0d0d0d` (near-black) | Blockquote backgrounds |
+| `—` | `#282828` | Horizontal rules |
+| `#23007d` (ACM badge) | `#80deea` (light cyan) | ACM badge text |
 | `#C4820E` (mentor gold) | `#f5b942` (bright gold) | Mentor topic labels |
 
 #### 4.5.3 Icon visibility in dark mode
@@ -387,7 +388,7 @@ declaration combined with **attribute selectors**:
 
 ```css
 body.dark-mode [style*="color:black"] {
-    color: #d1d5db !important;
+    color: #b0b0b0 !important;
 }
 ```
 
@@ -718,7 +719,7 @@ without `<dt>`/`<dd>` children — a historical HTML quirk in this site).
 Features:
 - `<blockquote>` elements with `style="background:#eff"` for the Bertrand
   Russell and Aristotle quotes. In dark mode, the background is overridden
-  to `#111827` (very dark navy) via `!important`.
+  to `#0d0d0d` (near-black) via `!important`.
 - A long `<p>` with the dissertation abstract, using `<br>` tags to create
   paragraph-like spacing within the single `<p>` element.
 - A tag-cloud image (`img/tag_cloud_phd.png`). In dark mode, this image
@@ -943,10 +944,10 @@ When a user zooms in, the browser increases the root font size, and the
 button grows proportionally — staying usable without overlapping content.
 
 In light mode the button has a Berkeley-blue border on a light background.
-In dark mode it switches to a dark navy background (`#111827`) with a
-sky-blue border (`#60a5fa`) that matches the link colour, and a subtle
-blue glow (`box-shadow`). Hovering inverts this — the background becomes
-blue and the icon turns black — with a `transform: scale(1.08)` for
+In dark mode it switches to a near-black background (`#0d0d0d`) with a
+cyan border (`#4dd0e1`) that matches the link colour, and a subtle
+cyan glow (`box-shadow`). Hovering inverts this — the background becomes
+cyan and the icon turns black — with a `transform: scale(1.08)` for
 tactile feedback.
 
 ### 9.3 How it persists across pages
@@ -985,7 +986,7 @@ To change the link colour in dark mode:
 body.dark-mode a,
 body.dark-mode a:link,
 body.dark-mode a:visited {
-    color: #60a5fa;  /* ← change this value */
+    color: #4dd0e1;  /* ← change this value */
 }
 ```
 
