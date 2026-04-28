@@ -123,8 +123,15 @@ Every HTML page should begin with:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Somesh Singh</title>
     <!-- CSS links go here -->
+    <!-- Anti-flash script (before </head>) -->
+    <script>
+      if(localStorage.getItem('theme')==='dark'){
+        document.documentElement.classList.add('dark-mode');
+      }
+    </script>
 </head>
 <body>
+    <script>if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark-mode');</script>
     <!-- Visible content goes here -->
     <!-- JS scripts go here, just before </body> -->
 </body>
@@ -280,23 +287,95 @@ visible label on mobile (see §8).
 
 ### 4.5 darkmode.css
 
-This file does three things:
+This file does five things:
 
 1. **Fixes the page shift** — `html { overflow-y: scroll; }` (see §10).
-2. **Styles the toggle button** — positions it, makes it circular, colours it.
-3. **Overrides colours when `body` has class `dark-mode`**:
+2. **Prevents white flash** — `html.dark-mode { background-color: #000000; }`
+   works with the `<head>` script to set the background before first paint
+   (see §5.4).
+3. **Styles the toggle button** — positions it, makes it circular, colours it.
+4. **Overrides colours when `body` has class `dark-mode`**.
+5. **Adds light pill backgrounds behind small icons** so they remain clearly
+   visible on the black background.
+
+#### 4.5.1 Dark mode colour palette
+
+The dark mode uses a carefully chosen palette designed for comfort and
+readability on a true-black background:
+
+| Role | Hex value | Colour name / description |
+|------|-----------|--------------------------|
+| Background | `#000000` | True black |
+| Body text | `#d1d5db` | Cool gray (Tailwind gray-300) — soft, not fatiguing |
+| Headings | `#f0f0f0` | Near-white — stands out without being harsh |
+| Bold text | `#f3f4f6` | Slightly brighter than body text |
+| Links | `#60a5fa` | Vibrant sky blue (Tailwind blue-400) — clearly distinct from black |
+| Link hover | `#fbbf24` | Warm amber gold (Tailwind amber-400) |
+| Navbar background | `#e8ecf1` | Light cool gray — creates a "floating bar" effect |
+| Navbar text | `#1e293b` | Dark slate (Tailwind slate-800) |
+| Navbar active item | `#003262` | Berkeley Blue — maintains brand identity |
+| Navbar hover | `#2563eb` | Bright blue (Tailwind blue-600) |
+| Horizontal rules | `#374151` | Slate gray (Tailwind gray-700) |
+| Section underlines | `#4b5563` | Mid gray (Tailwind gray-600) |
+| Blockquote background | `#111827` | Very dark navy (Tailwind gray-900) |
+| Blockquote attribution | `#9ca3af` | Muted gray (Tailwind gray-400) |
+| Toggle button border | `#60a5fa` | Matches link colour |
+| Mentor topic labels | `#f5b942` | Brighter gold (readable on black) |
+| ACM badge text | `#93c5fd` | Light blue (replaces invisible dark purple) |
+
+#### 4.5.2 Full colour mapping (light → dark)
 
 | Light mode value | Dark mode override | What it affects |
 |------------------|--------------------|----------------|
-| `#fff` (white background) | `#0d0d0d` (near-black) | Page background |
-| `#333` (dark text) | `#d4d4d4` (light gray) | Body text |
-| `#222` (heading color) | `#e8e8e8` (bright gray) | Headings |
-| Bootstrap blue links | `#79b8f8` (soft sky blue) | All links |
-| — | `#FDB515` (gold) | Link hover colour |
-| `#003262` (navbar bg) | `#161616` (dark charcoal) | Navbar background |
-| `1px solid black` (borders) | `1px solid #444` | Section header underlines |
-| `#eff` (blockquote bg) | `#1a1a1a` (near-black) | Blockquote backgrounds |
-| `#333` | `#333` | Horizontal rules |
+| `#fff` (white background) | `#000000` (true black) | Page background |
+| `#333` (dark text) | `#d1d5db` (cool gray) | Body text |
+| `#222` (heading colour) | `#f0f0f0` (near-white) | Headings |
+| Bootstrap blue links | `#60a5fa` (sky blue) | All hyperlinks |
+| — | `#fbbf24` (amber gold) | Link hover colour |
+| `#003262` (navbar bg) | `#e8ecf1` (light gray) | Navbar background |
+| `#fff` (navbar text) | `#1e293b` (dark slate) | Navbar link text |
+| `#FDB515` (navbar active) | `#003262` (Berkeley Blue) | Active nav item |
+| `1px solid black` (borders) | `1px solid #4b5563` | Section header underlines |
+| `#eff` (blockquote bg) | `#111827` (very dark navy) | Blockquote backgrounds |
+| `—` | `#374151` | Horizontal rules |
+| `#23007d` (ACM badge) | `#93c5fd` (light blue) | ACM badge text |
+| `#C4820E` (mentor gold) | `#f5b942` (bright gold) | Mentor topic labels |
+
+#### 4.5.3 Icon visibility in dark mode
+
+Small icons (GitHub, LinkedIn, ORCID, ACM badge) and academic font-icons
+(DBLP, Google Scholar) would be difficult to see on a black background.
+The dark mode CSS solves this by adding a **white pill-shaped backdrop**
+behind each icon using `background-color` with `border-radius` and `padding`:
+
+```css
+/* Image-based icons — white pill */
+body.dark-mode img[src*="github.png"],
+body.dark-mode img[src*="linkedin"],
+body.dark-mode img[src*="orcid"] {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 6px;
+    padding: 3px;
+}
+
+/* Font-based icons (Academicons) — white pill */
+body.dark-mode i.ai {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 4px;
+    padding: 2px 4px;
+    color: #1a1a1a;
+}
+```
+
+The `rgba(255, 255, 255, 0.92)` is white with 92% opacity — slightly
+translucent to blend naturally. The `border-radius` rounds the corners
+to match the icon's shape, creating a clean pill effect rather than a
+harsh rectangle.
+
+The tag-cloud image on the dissertation page gets a similar treatment
+with more padding since it's a larger image.
+
+#### 4.5.4 How CSS specificity beats existing rules
 
 The overrides use CSS **specificity** to beat the existing rules. For example,
 `body.dark-mode .navbar` has higher specificity than `.navbar`, so when the
@@ -308,12 +387,29 @@ declaration combined with **attribute selectors**:
 
 ```css
 body.dark-mode [style*="color:black"] {
-    color: #d4d4d4 !important;
+    color: #d1d5db !important;
 }
 ```
 
 The `[style*="color:black"]` selector targets any element whose `style`
-attribute *contains* the substring `color:black`.
+attribute *contains* the substring `color:black`. The `!important` flag
+is necessary because inline `style` attributes normally outrank all
+external CSS rules regardless of specificity.
+
+#### 4.5.5 The light navbar design choice
+
+In dark mode, the navbar uses a light gray background (`#e8ecf1`) instead
+of the dark charcoal approach used by many dark themes. This creates a
+visually striking "floating card" effect — a light bar sitting on the
+black background — that:
+
+- Clearly delineates the navigation area from page content.
+- Maintains high contrast for nav text (dark slate on light gray).
+- Preserves the Berkeley Blue brand colour for the active page indicator.
+- Complements the overall aesthetic without clashing with the dark theme.
+
+The nav text switches to dark colours (`#1e293b` for regular items,
+`#003262` for the active item) since the background is now light.
 
 ---
 
@@ -358,6 +454,7 @@ A small, self-contained script:
 
     toggle.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
+        document.documentElement.classList.toggle('dark-mode');
         var theme = document.body.classList.contains('dark-mode')
             ? 'dark' : 'light';
         localStorage.setItem('theme', theme);
@@ -375,15 +472,49 @@ A small, self-contained script:
 3. When the button is clicked:
    - `document.body.classList.toggle('dark-mode')` adds or removes the
      `dark-mode` class on `<body>`.
+   - `document.documentElement.classList.toggle('dark-mode')` does the same
+     on the `<html>` element — this is essential for the anti-flash system
+     (see §5.4) to keep `<html>` and `<body>` in sync.
    - The user's choice (`'dark'` or `'light'`) is saved to
      **`localStorage`**, a browser-side key-value store that persists across
      page reloads and sessions.
    - The aria-label/title is updated again.
 
-### 5.4 Flash-prevention inline script
+### 5.4 Two-tier anti-flash system
 
-Right after the `<body>` tag in every page, a tiny inline script runs
-**before** any content is rendered:
+When a user in dark mode clicks a nav link, the browser loads a brand-new
+HTML document. During the split second before CSS and scripts execute, the
+browser would paint the default white background — causing a jarring white
+flash. The site prevents this with **two inline scripts** working together:
+
+#### Tier 1: `<head>` script (fires earliest possible)
+
+Inside `<head>`, **before** any `<link>` stylesheets or the `</head>` tag:
+
+```html
+<script>
+  if(localStorage.getItem('theme')==='dark'){
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+```
+
+This adds `dark-mode` to the `<html>` element (`document.documentElement`).
+Because `<html>` exists as soon as the browser starts parsing the document,
+this runs **before** `<body>` even exists. Combined with the CSS rule:
+
+```css
+html.dark-mode {
+    background-color: #000000;
+}
+```
+
+…the browser's very first paint is already black, not white. This is the
+critical fix — without it, there is always a white flash between pages.
+
+#### Tier 2: `<body>` script (applies full dark mode styling)
+
+Right after the `<body>` tag:
 
 ```html
 <script>
@@ -392,10 +523,23 @@ if(localStorage.getItem('theme')==='dark')
 </script>
 ```
 
-This checks `localStorage` immediately and applies the `dark-mode` class
-*before* the browser paints the page. Without this, a user who selected dark
-mode would see a brief white flash (called "FOUC" — Flash of Unstyled Content)
-every time they navigated to a new page.
+This adds `dark-mode` to `<body>`, which activates all the detailed dark
+mode CSS rules (text colour, navbar, links, icons, etc.).
+
+#### Why both are needed
+
+- **Tier 1 alone** sets `html` background to black but can't style `<body>`
+  content (headings, text, navbar) because `<body>` doesn't exist yet when
+  the `<head>` script runs.
+- **Tier 2 alone** would set body dark mode correctly, but the `<html>`
+  element would still be white during the brief moment between first paint
+  and body script execution — causing a flash.
+- **Together**, Tier 1 ensures no white flash, and Tier 2 ensures all content
+  styling is correct.
+
+The `darkmode.js` script (loaded at the end of `<body>`) also toggles the
+class on **both** `document.documentElement` and `document.body` when the
+user clicks the toggle button, keeping them in sync.
 
 ---
 
@@ -500,6 +644,9 @@ items.
 - `<img class="img-responsive">` makes the profile photo scale on small
   screens.
 - Social icons are plain `<img>` elements inside `<a>` tags, floated right.
+  In dark mode, each icon gets a white pill-shaped backdrop via CSS
+  (`background-color`, `border-radius`, `padding`) so it stays visible on
+  the black background.
 - The email address uses `{firstname} (dot) {lastname}` as a simple
   anti-spam measure.
 
@@ -555,6 +702,10 @@ elements:
 </dl>
 ```
 
+The `#C4820E` gold colour is overridden to a brighter `#f5b942` in dark
+mode via an attribute selector in `darkmode.css`, since the darker gold
+would lack sufficient contrast on a black background.
+
 ### 7.4 misc.html
 
 Three sections: Accomplishments, Professional Service, Selected Invited Talks.
@@ -566,9 +717,13 @@ without `<dt>`/`<dd>` children — a historical HTML quirk in this site).
 
 Features:
 - `<blockquote>` elements with `style="background:#eff"` for the Bertrand
-  Russell and Aristotle quotes.
-- A long `<p>` with the dissertation abstract.
-- A tag-cloud image (`img/tag_cloud_phd.png`).
+  Russell and Aristotle quotes. In dark mode, the background is overridden
+  to `#111827` (very dark navy) via `!important`.
+- A long `<p>` with the dissertation abstract, using `<br>` tags to create
+  paragraph-like spacing within the single `<p>` element.
+- A tag-cloud image (`img/tag_cloud_phd.png`). In dark mode, this image
+  gets a white background with rounded corners and padding to ensure
+  readability.
 
 ### 7.6 academics.html
 
@@ -788,15 +943,23 @@ When a user zooms in, the browser increases the root font size, and the
 button grows proportionally — staying usable without overlapping content.
 
 In light mode the button has a Berkeley-blue border on a light background.
-In dark mode it flips to a gold border on a dark background.
-Hovering applies a subtle `transform: scale(1.08)` for tactile feedback.
+In dark mode it switches to a dark navy background (`#111827`) with a
+sky-blue border (`#60a5fa`) that matches the link colour, and a subtle
+blue glow (`box-shadow`). Hovering inverts this — the background becomes
+blue and the icon turns black — with a `transform: scale(1.08)` for
+tactile feedback.
 
 ### 9.3 How it persists across pages
 
-1. User clicks the toggle → JS saves `localStorage.setItem('theme', 'dark')`.
-2. User navigates to another page → the inline `<script>` in `<body>` reads
-   `localStorage.getItem('theme')` and applies the class immediately.
-3. The CSS rules for `body.dark-mode` take effect → dark colours render.
+1. User clicks the toggle → JS saves `localStorage.setItem('theme', 'dark')`
+   and toggles `dark-mode` on both `<html>` and `<body>`.
+2. User navigates to another page → two inline scripts fire in sequence:
+   - The `<head>` script adds `dark-mode` to `<html>` **before first paint**,
+     preventing any white flash (see §5.4).
+   - The `<body>` script adds `dark-mode` to `<body>`, activating all
+     detailed dark-mode CSS overrides.
+3. The CSS rules for `html.dark-mode` and `body.dark-mode` take effect →
+   dark colours render seamlessly without any flash.
 
 `localStorage` is per-origin (per-domain), so `ssomesh.github.io` shares
 the same storage across all its pages. The preference survives browser
@@ -804,19 +967,47 @@ restarts.
 
 ### 9.4 How to modify dark mode colours
 
-All dark-mode colours live in `css/darkmode.css`. To change the dark
-background, for example:
+All dark-mode colours live in `css/darkmode.css`, under the
+`DARK MODE OVERRIDES` section. A colour palette reference is included at
+the top of that section as a CSS comment for quick reference.
+
+To change the dark background, for example:
 
 ```css
 body.dark-mode {
-    background-color: #0d0d0d;  /* ← change this value */
+    background-color: #000000;  /* ← change this value */
 }
 ```
 
-Standard colour formats:
+To change the link colour in dark mode:
+
+```css
+body.dark-mode a,
+body.dark-mode a:link,
+body.dark-mode a:visited {
+    color: #60a5fa;  /* ← change this value */
+}
+```
+
+To change the navbar background in dark mode:
+
+```css
+body.dark-mode .navbar {
+    background: #e8ecf1;  /* ← change this value */
+}
+```
+
+When choosing colours, ensure sufficient **contrast** against the
+background. The WCAG (Web Content Accessibility Guidelines) recommend a
+contrast ratio of at least 4.5:1 for normal text and 3:1 for large text.
+Free tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+can verify your choices.
+
+Standard colour formats in CSS:
 - Hex: `#1a1a2e` (red=1a, green=1a, blue=2e)
 - RGB: `rgb(26, 26, 46)`
 - HSL: `hsl(240, 28%, 14%)`
+- RGBA: `rgba(255, 255, 255, 0.92)` (with alpha/transparency)
 
 ---
 
@@ -912,12 +1103,14 @@ page's `<head>`.
 |---------|-------|-----|
 | Hamburger menu doesn't work on mobile | `jquery.js` not loaded, or loaded after `bootstrap.min.js` | Ensure jQuery `<script>` comes before Bootstrap's |
 | Abstract doesn't expand when clicked | `id` mismatch between the `<a href="#...">` and the `<p id="...">` | Make them match exactly |
-| Dark mode resets on page change | `localStorage` script missing from `<body>` | Add the inline `<script>` right after `<body>` |
+| Dark mode resets on page change | `localStorage` script missing from `<body>` or `<head>` | Add both inline `<script>` blocks: one in `<head>` (for `<html>`) and one right after `<body>` (see §5.4) |
 | Content shifts when navigating | Missing `overflow-y: scroll` on `html`, or broken nav nesting | Check `darkmode.css` is loaded; verify `</nav>` comes before `</div>` for the container |
 | Wrong page highlighted in navbar | `class="active"` on wrong `<li>` | Each page must have `class="active"` on its own `<li>` and its name as the `.navbar-brand` text (see §8) |
 | Page looks different in different browsers | `normalize.css` not loaded | Ensure it's the first stylesheet |
 | Inline styles not overridden in dark mode | Inline styles have highest specificity | Use `!important` in `darkmode.css` with attribute selectors |
-| FOUC (white flash) in dark mode | Inline script missing or JS error | Check the `<script>` right after `<body>` |
+| Icons invisible in dark mode | No light background behind icons | Add `background-color: rgba(255,255,255,0.92)` with `border-radius` and `padding` to the icon's dark-mode CSS rule |
+| White flash when navigating pages | `<head>` anti-flash script missing, or `html.dark-mode` CSS rule absent | Ensure the `<head>` script sets `dark-mode` on `<html>` and `darkmode.css` has `html.dark-mode { background-color: #000000; }` (see §5.4) |
+| `</br>` appears in HTML source | Legacy invalid syntax | Replace with `<br>` (a void element with no closing tag) |
 
 ---
 
@@ -937,7 +1130,8 @@ page's `<head>`.
 | **CDN** | Content Delivery Network — a globally distributed server network for fast delivery of libraries (used for Academicons). |
 | **SVG** | Scalable Vector Graphics — an XML-based image format that scales without pixelation, used for the sun/moon toggle icons. |
 | **Semantic element** | An HTML element that conveys meaning (e.g., `<nav>`, `<article>`) vs. a generic one (`<div>`, `<span>`). |
-| **Void element** | An HTML element that cannot have children and has no closing tag (e.g., `<br>`, `<hr>`, `<img>`). |
+| **Void element** | An HTML element that cannot have children and has no closing tag (e.g., `<br>`, `<hr>`, `<img>`). Writing `</br>` is invalid — browsers tolerate it, but the correct form is `<br>`. |
+| **`rgba`** | Red, Green, Blue, Alpha — a colour format with a transparency channel. `rgba(255, 255, 255, 0.92)` is white at 92% opacity. Used for icon pill backgrounds in dark mode. |
 | **Attribute selector** | A CSS selector like `[style*="color:black"]` that matches elements based on their HTML attributes. |
 | **`rem`** | "Root em" — a CSS unit equal to the root element's font size (typically 16px). Unlike `px`, `rem` scales with browser zoom, making UI elements responsive to user preferences. |
 | **Bootstrap grid** | A 12-column layout system where `.col-*-N` spans N columns at a given breakpoint. |
@@ -945,4 +1139,4 @@ page's `<head>`.
 
 ---
 
-*Document generated for ssomesh.github.io. Last updated: April 2026.*
+*Document generated for ssomesh.github.io. Last updated: April 28, 2026.*

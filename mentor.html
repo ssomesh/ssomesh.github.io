@@ -30,6 +30,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Anti-flash: set bg color before first paint -->
+    <script>
+      if(localStorage.getItem('theme')==='dark'){
+        document.documentElement.classList.add('dark-mode');
+      }
+    </script>
+
       <!-- Adding a favicon -->
 <!--	<link rel="shortcut icon" href="img/favicon_IIT-M.png" type="image/x-icon" /> 
 	<link rel="shortcut icon" href="img/favicon_s_blue.png" type="image/x-icon" /> -->
