@@ -151,7 +151,7 @@ Every HTML page should begin with:
 | `<img src="...">` | Image | Profile photo, icons |
 | `<ul>` / `<ol>` | Unordered / ordered list | Accomplishments in misc.html |
 | `<li>` | List item (child of `<ul>`/`<ol>`) | Each accomplishment |
-| `<dl>` / `<dt>` / `<dd>` | Definition list / term / description | Coursework items in academics.html |
+| `<dl>` / `<dt>` / `<dd>` | Definition list / term / description | -- |
 | `<nav>` | Semantic navigation container | The top navbar |
 | `<div>` | Generic block container | Layout wrappers (`.container`, `.row`) |
 | `<span>` | Generic inline container | Float-right dates |
@@ -721,11 +721,6 @@ Features:
   gets a white background with rounded corners and padding to ensure
   readability.
 
-### 7.6 academics.html
-
-Not linked from the current navbar (commented out). Contains coursework and
-TA listings using `<dl>`/`<dt>`/`<dd>`.
-
 ---
 
 ## 8. The Navigation Bar
@@ -802,7 +797,6 @@ Each page sets two things:
 | `mentor.html` | mentoring | mentoring |
 | `misc.html` | miscellaneous | miscellaneous |
 | `phddissertation.html` | research (parent page) | research |
-| `academics.html` | academics | academics |
 
 ### 8.4 Navbar structure (example: research.html)
 
