@@ -56,8 +56,6 @@ ssomesh.github.io/
 ├── mentor.html             ← Mentoring: M.Tech project, interns
 ├── misc.html               ← Accomplishments, service, talks
 ├── phddissertation.html    ← PhD dissertation abstract & tag cloud
-├── academics.html          ← Coursework & TA (older page, not in nav)
-├── index_bk.html           ← Backup of an older index.html (unused)
 ├── README.md               ← GitHub repository readme
 │
 ├── css/                    ← All stylesheets
