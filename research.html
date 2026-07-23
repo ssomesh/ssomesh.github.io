@@ -26,6 +26,17 @@
     <!-- Dark Mode CSS -->
     <link href="css/darkmode.css" rel="stylesheet">
 
+    <!-- MathJax -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -194,7 +205,7 @@ Efficient Parallel Sparse Tensor Contraction*
 </p>
 
 <p class="collapse" id="tr-hal" style="font-size: 11pt">
-We investigate the performance of algorithms for sparse tensor-sparse tensor multiplication (SpGETT). This operation, also called sparse tensor contraction, is a higher order analogue of the sparse matrix-sparse matrix multiplication (SpGEMM) operation. Therefore, SpGETT can be performed by first converting the input tensors into matrices, then invoking high performance variants of SpGEMM, and finally reconverting the resultant matrix into a tensor. Alternatively, one can carry out the scalar operations underlying SpGETT in the realm of tensors without matrix formulation. We discuss the building blocks in both approaches and formulate a <em>hashing-based method</em> to avoid costly search or redirection operations. We present performance results with the current state-of-the-art SpGEMM-based approaches, existing SpGETT approaches, and a carefully implemented SpGETT approach with a new fine-tuned hashing method, proposed in this paper. We evaluate the methods on real world tensors by contracting a tensor with itself along varying dimensions. Our proposed hashing-based method for SpGETT consistently outperforms the state-of-the-art method, achieving a 25% reduction in sequential execution time on average and a 21% reduction in parallel execution time on average across a variety of input instances.
+We investigate the performance of algorithms for sparse tensor-sparse tensor multiplication (SpGETT). This operation, also called sparse tensor contraction, is a higher order analogue of the sparse matrix-sparse matrix multiplication (SpGEMM) operation. Therefore, SpGETT can be performed by first converting the input tensors into matrices, then invoking high performance variants of SpGEMM, and finally reconverting the resultant matrix into a tensor. Alternatively, one can carry out the scalar operations underlying SpGETT in the realm of tensors without matrix formulation. We discuss the building blocks in both approaches and formulate a <em>hashing-based method</em> to avoid costly search or redirection operations. We present performance results with the current state-of-the-art SpGEMM-based approaches, existing SpGETT approaches, and a carefully implemented SpGETT approach with a new fine-tuned hashing method, proposed in this paper. We evaluate the methods on real world tensors by contracting a tensor with itself along varying dimensions. Our proposed hashing-based method for SpGETT consistently outperforms the state-of-the-art method, achieving a \(25\%\) reduction in sequential execution time on average and a \(21\%\) reduction in parallel execution time on average across a variety of input instances.
 </p>
 
 
@@ -216,7 +227,7 @@ BANG: Billion-Scale Approximate Nearest Neighbour Search using a Single GPU
 </p>
 
 <p class="collapse" id="tbd25" style="font-size: 11pt">
-Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU, leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe interconnect. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets, that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimised GPU kernels and proceeds in phases that run concurrently on the GPU and CPU, taking advantage of their architectural specificities. Furthermore, it enables overlapping communication with computation that results in efficient data transfer between the CPU and GPU. Using a single NVIDIA Ampere A100 GPU, BANG achieves throughputs 50&times;-400&times; higher than the competing methods for a recall of 0.9 on three popular billion-scale datasets.
+Approximate Nearest Neighbour Search (ANNS) is a subroutine in algorithms routinely employed in information retrieval, pattern recognition, data mining, image processing, and beyond. Recent works have established that graph-based ANNS algorithms are practically more efficient than the other methods proposed in the literature. The growing volume and dimensionality of data necessitates designing scalable techniques for ANNS. To this end, the prior art has explored parallelizing graph-based ANNS on GPU, leveraging its massive parallelism. The current state-of-the-art GPU-based ANNS algorithms either (i) require both the dataset and the generated graph index to reside entirely in the GPU memory, or (ii) partition the dataset into small independent shards, each of which can fit in GPU memory, and perform the search on these shards on the GPU. While the first approach fails to handle large datasets due to the limited memory available on the GPU, the latter delivers poor performance on large datasets due to high data traffic over the low-bandwidth PCIe interconnect. We introduce BANG, a first-of-its-kind technique for graph-based ANNS on GPU for billion-scale datasets, that cannot entirely fit in the GPU memory. BANG stands out by harnessing a compressed form of the dataset on a single GPU to perform distance computations while efficiently accessing the graph index kept on the host memory, enabling efficient ANNS on large graphs within the limited GPU memory. BANG incorporates highly optimised GPU kernels and proceeds in phases that run concurrently on the GPU and CPU, taking advantage of their architectural specificities. Furthermore, it enables overlapping communication with computation that results in efficient data transfer between the CPU and GPU. Using a single NVIDIA Ampere A100 GPU, BANG achieves throughputs \(50\times\)-\(400\times\) higher than the competing methods for a recall of \(0.9\) on three popular billion-scale datasets.
 </p>
 
 
@@ -268,7 +279,7 @@ Effective Parallelization of the Vehicle Routing Problem
 </p>
 
 <p class="collapse" id="gecco23" style="font-size: 11pt">
-Capacitated Vehicle Routing Problem (CVRP) is an important combinatorial optimization problem, which is also NP-hard. A wide array
+Capacitated Vehicle Routing Problem (CVRP) is an important combinatorial optimization problem, which is also \(\text{NP}\)-hard. A wide array
 of heuristics have been proposed in the literature to obtain an approximate solution to CVRP. To improve the execution time, parallel
 methods have been developed for accelerating metaheuristics-based algorithms, genetic algorithms, and evolutionary algorithms for
 CVRP. Despite these advances, our experiments with the state-of-the-art parallel solutions indicate that their run times are too high
@@ -276,7 +287,7 @@ to be practically useful. The combinatorial explosion is so high that the execut
 In this work, we propose a novel technique which combines <em>local search</em> and <em>randomization</em> for solving CVRP faster with reasonable accuracy, even on large
 problem instances. Our usage of randomization enables searching a large space of candidate solutions.
 We experimentally compare our proposed method with the state-of-the-art GPU implementations on diverse input instances and demonstrate the efficacy of our
-approach. Our sequential and shared-memory parallel implementations are on an average 36&times;-1189&times; faster than the state-of-the-art GPU-parallel genetic algorithms while also achieving a superior
+approach. Our sequential and shared-memory parallel implementations are on an average \(36\times\)-\(1189\times\) faster than the state-of-the-art GPU-parallel genetic algorithms while also achieving a superior
 solution quality. Furthermore, our reported solutions are close to the current best-known solutions from CVRPLIB.
 </p>
 
@@ -333,7 +344,7 @@ We experimentally compare the resulting parallel algorithms with the state-of-th
 
 
 <h3 style="font-size: 16pt">
-ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on GPU
+ParTBC: Faster Estimation of Top-\(k\) Betweenness Centrality Vertices on GPU
 </h3>
 <h4 style="font-size: 13pt"><i><u>Somesh Singh</u>,&#32;Tejas Shah,&#32;Rupesh Nasre,</i></h4>
 <h4 style="font-size: 13pt">in ACM Transactions on Design Automation of Electronic Systems (TODAES), 2021. </h4>
@@ -347,8 +358,8 @@ ParTBC: Faster Estimation of Top-<em>k</em> Betweenness Centrality Vertices on G
 </p>
 
 <p class="collapse" id="todaes21" style="font-size: 11pt">
-Betweenness centrality (BC) is a popular centrality measure, based on shortest paths, used to quantify the importance of vertices in networks. It is used in a wide array of applications including social network analysis, community detection, clustering, biological network analysis, and several others. The state-of-the-art Brandes' algorithm for computing BC has time complexities of O( |V|&#183;|E| ) and O( |V|&#183;|E| + |V|<sup>2</sup>&#183;log|V| ) for unweighted and weighted graphs, respectively. Brandes' algorithm has been successfully parallelized on multicore and manycore platforms. However, the computation of vertex BC continues to be time-consuming for large real-world graphs. Often, in practical applications, it suffices to identify the most important vertices in a network; that is, those having the highest BC values. Such applications demand only the top vertices in the network as per their BC values but do not demand their actual BC values. In such scenarios, not only
-is computing the BC of all the vertices unnecessary but also exact BC values need not be computed. In this work, we attempt to marry controlled approximations with parallelization to estimate the k-highest BC vertices faster, without having to compute the exact BC scores of the vertices. We present a host of techniques to determine the top-k vertices faster, with a small inaccuracy, by computing approximate BC scores of the vertices. Aiding our techniques is a novel vertex-renumbering scheme to make the graph layout more structured, which results in faster execution of parallel Brandes' algorithm on GPU. Our experimental results, on a suite of real-world and synthetic graphs, show that our best performing technique computes the top-k vertices with an average speedup of 2.5&times; compared to the exact parallel Brandes' algorithm on GPU, with an error of less than 6%. Our techniques also exhibit high precision and recall, both in excess of 94%.
+Betweenness centrality (BC) is a popular centrality measure, based on shortest paths, used to quantify the importance of vertices in networks. It is used in a wide array of applications including social network analysis, community detection, clustering, biological network analysis, and several others. The state-of-the-art Brandes' algorithm for computing BC has time complexities of \(O(|V| \cdot |E|)\) and \(O(|V| \cdot |E| + |V|^{2} \cdot \log|V|)\) for unweighted and weighted graphs, respectively. Brandes' algorithm has been successfully parallelized on multicore and manycore platforms. However, the computation of vertex BC continues to be time-consuming for large real-world graphs. Often, in practical applications, it suffices to identify the most important vertices in a network; that is, those having the highest BC values. Such applications demand only the top vertices in the network as per their BC values but do not demand their actual BC values. In such scenarios, not only
+is computing the BC of all the vertices unnecessary but also exact BC values need not be computed. In this work, we attempt to marry controlled approximations with parallelization to estimate the \(k\)-highest BC vertices faster, without having to compute the exact BC scores of the vertices. We present a host of techniques to determine the top-\(k\) vertices faster, with a small inaccuracy, by computing approximate BC scores of the vertices. Aiding our techniques is a novel vertex-renumbering scheme to make the graph layout more structured, which results in faster execution of parallel Brandes' algorithm on GPU. Our experimental results, on a suite of real-world and synthetic graphs, show that our best performing technique computes the top-\(k\) vertices with an average speedup of \(2.5\times\) compared to the exact parallel Brandes' algorithm on GPU, with an error of less than \(6\%\). Our techniques also exhibit high precision and recall, both in excess of \(94\%\).
 </p>
 
 <h3 style="font-size: 16pt">
@@ -370,10 +381,10 @@ Graffix: Efficient Graph Processing with a Tinge of GPU-Specific Approximations
 Parallelizing graph algorithms on GPUs is challenging due to the irregular memory accesses involved in graph traversals. In particular,
 three important GPU-specific aspects affect performance: memory coalescing, memory latency, and thread divergence. In this work,
 we attempt to tame these challenges using approximate computing. We target graph applications on GPUs that can tolerate some degradation in the quality of the output, for obtaining the result in short order. We propose three techniques for boosting the performance
-of graph processing on the GPU by injecting approximations in a controlled manner. The first one creates a graph isomorph that
-brings relevant nodes nearby in memory and adds controlled replica of nodes to improve coalescing. The second reduces memory latency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing
-well-connected subgraphs iteratively inside shared memory. The third technique normalizes degrees across nodes assigned to a warp
-to reduce thread divergence. Each of the techniques offers notable performance benefits, and provides a knob to control the amount of
+of graph processing on the GPU by injecting approximations in a controlled manner. The first creates a graph isomorph that
+brings relevant nodes nearby in memory and adds controlled replicas of nodes to improve coalescing. The second reduces memory latency by facilitating the processing of subgraphs inside shared memory by adding edges among specific nodes and processing
+well-connected subgraphs iteratively inside shared memory. The third normalizes degrees across nodes assigned to a warp
+to reduce thread divergence. Each technique offers notable performance benefits, and provides a knob to control the amount of
 inaccuracy added to an execution. We demonstrate the effectiveness of the proposed techniques using a suite of five large graphs with
 varied characteristics and five popular graph algorithms.
 </p>
@@ -398,7 +409,7 @@ varied characteristics and five popular graph algorithms.
 
  <p class="collapse" id="ijmpa" style="font-size: 11pt">
 SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC) and the Super Proton Synchrotron (SPS) simulations.
-The code is based on a 6D symplectic tracking engine, which is optimized for long-term tracking simulations and delivers fully reproducible results on several platforms.
+The code is based on a \(6\)D symplectic tracking engine, which is optimized for long-term tracking simulations and delivers fully reproducible results on several platforms.
 It also includes multiple scattering engines for beam–matter interaction studies, as well as facilities to run the integrated simulations with external particle matter interaction codes.
 These features differentiate SixTrack from general-purpose, optics-design software.
 The code recently underwent a major restructuring to merge the advanced features into a single branch, such as multiple ion species, interface with external codes and high-performance input/output.
@@ -430,7 +441,7 @@ graph traversals. In this work, we tame these challenges by injecting approximat
 coalescing by renumbering and replicating nodes, memory latency by adding edges among specific nodes brought into
 shared memory, and thread-divergence by normalizing degrees across nodes assigned to a warp. Using a suite of graphs
 with varied characteristics and five popular algorithms, we demonstrate the effectiveness of our proposed techniques.
-Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of 1.3&times;, 1.41&times; and 1.06&times; achieving accuracies of 83&percnt;, 78&percnt; and 84&percnt;, respectively.
+Our approximations for coalescing, memory latency and thread-divergence lead to mean speedups of \(1.3\times\), \(1.41\times\) and \(1.06\times\) achieving accuracies of \(83\%\), \(78\%\) and \(84\%\), respectively.
 </p>
 
 <h3 style="font-size: 16pt">
@@ -452,7 +463,7 @@ Our approximations for coalescing, memory latency and thread-divergence lead to 
 
  <p class="collapse" id="icap" style="font-size: 11pt">
 SixTrack is a single-particle tracking code for high-energy circular accelerators routinely used at CERN for the Large Hadron Collider (LHC), its luminosity upgrade (HL-LHC), the Future Circular Collider (FCC), and the Super Proton Synchrotron (SPS) simulations.
-The code is based on a 6D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms.
+The code is based on a \(6\)D symplectic tracking engine, which is optimised for long-term tracking simulations and delivers fully reproducible results on several platforms.
 It also includes multiple scattering engines for beam-matter interaction studies, as well as facilities to run integrated simulations with FLUKA and GEANT4.
 These features differentiate SixTrack from general-purpose, optics-design software like MAD-X.
 The code recently underwent a major restructuring to merge advanced features into a single branch, such as multiple ion species, interface with external codes, and high-performance input/output (XRootD, HDF5).

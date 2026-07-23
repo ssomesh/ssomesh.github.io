@@ -15,6 +15,7 @@ This document is intended to serve as a guide for me to maintain the webpage.
 4. [CSS — The Skin](#4-css--the-skin)
 5. [JavaScript — The Muscles](#5-javascript--the-muscles)
 6. [Bootstrap 3 — The Framework](#6-bootstrap-3--the-framework)
+   - [6.5 MathJax - Mathematical Typesetting](#65-mathjax--mathematical-typesetting)
 7. [Page-by-Page Breakdown](#7-page-by-page-breakdown)
 8. [The Navigation Bar](#8-the-navigation-bar)
 9. [The Dark / Light Mode Toggle](#9-the-dark--light-mode-toggle)
@@ -615,6 +616,63 @@ Applied to the navbar text. In Bootstrap 3 this makes text slightly smaller
 and uppercase-able. Here it just adds a subtle stylistic touch to the nav
 items.
 
+### 6.5 MathJax - Mathematical Typesetting
+
+**MathJax** is a client-side JavaScript library that renders LaTeX-style
+mathematical notation in the browser. It is loaded on `research.html` only,
+since that is the only page with mathematical content in its abstracts.
+
+#### How it is configured
+
+Two `<script>` elements are added to the `<head>` of `research.html`, after
+the CSS links and before the HTML5 shim:
+
+```html
+<!-- MathJax -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+```
+
+The first script sets the **configuration object** before MathJax loads.
+The second script loads MathJax v3 asynchronously from the jsDelivr CDN.
+
+#### Delimiters
+
+| Delimiter pair | Mode | Example |
+|----------------|------|---------|
+| `\(` ... `\)` | Inline (within a line of text) | `\(25\%\)` renders as 25% in math font |
+| `\[` ... `\]` | Display (centred, on its own line) | Not currently used |
+
+**Dollar sign delimiters (`$...$`) are intentionally not enabled.** The page
+contains currency text like `$1000` in the Other Projects section, which
+would be misinterpreted as inline math if dollar delimiters were active.
+
+#### LaTeX commands used
+
+| Command | Renders as | Used for |
+|---------|-----------|----------|
+| `\times` | the multiplication sign | Speedup factors (e.g., `\(50\times\)`) |
+| `\%` | percent sign | Percentages inside math mode |
+| `\cdot` | centred dot | Dot product in complexity expressions |
+| `\log` | "log" in upright font | Logarithm in big-O notation |
+| `\text{NP}` | upright "NP" | NP-hardness |
+| `^{2}` | superscript | Exponents in complexity expressions |
+| `|V|`, `|E|` | pipe-delimited letters | Graph vertex/edge set cardinality |
+
+#### How MathJax interacts with dark mode
+
+MathJax inherits text colour from its parent element. Because the dark mode
+CSS sets `color` on `body.dark-mode`, MathJax-rendered text automatically
+switches to the dark mode text colour without any extra configuration.
+
 ---
 
 ## 7. Page-by-Page Breakdown
@@ -687,6 +745,8 @@ items.
   characters.
 - `<i class="ai ai-dblp-square">` uses the **Academicons** icon font
   (loaded from a CDN) for the DBLP and Google Scholar icons.
+- **MathJax v3** is loaded on this page only, rendering LaTeX notation in
+  abstracts (see §6.5).
 
 ### 7.3 mentor.html
 
@@ -1084,6 +1144,24 @@ new page's filename (see §8 for details).
 Replace `img/me.jpg` with a new image file of the same name, or update the
 `src` attribute in `index.html`.
 
+### Using MathJax in new abstracts
+
+When adding a new publication to `research.html`, you can use LaTeX notation
+in the abstract text. Wrap inline math in `\(` and `\)`:
+
+```html
+<p class="collapse" id="new-paper" style="font-size: 11pt">
+  Our best performing technique computes the top-\(k\) vertices with an
+  average speedup of \(2.5\times\) compared to the exact parallel Brandes'
+  algorithm on GPU, with an error of less than \(6\%\). Our techniques also
+  exhibit high precision and recall, both in excess of \(94\%\).
+</p>
+```
+
+Do **not** use `$...$` delimiters - they are disabled to avoid conflicts
+with currency text elsewhere on the page. See §6.5 for the full list of
+LaTeX commands already in use.
+
 ### Updating the favicon
 
 Replace `img/favicon.ico` or update the `<link rel="shortcut icon">` in each
@@ -1105,6 +1183,8 @@ page's `<head>`.
 | Icons invisible in dark mode | No light background behind icons | Add `background-color: rgba(255,255,255,0.92)` with `border-radius` and `padding` to the icon's dark-mode CSS rule |
 | White flash when navigating pages | `<head>` anti-flash script missing, or `html.dark-mode` CSS rule absent | Ensure the `<head>` script sets `dark-mode` on `<html>` and `darkmode.css` has `html.dark-mode { background-color: #000000; }` (see §5.4) |
 | `</br>` appears in HTML source | Legacy invalid syntax | Replace with `<br>` (a void element with no closing tag) |
+| MathJax equations not rendering | MathJax script missing from `<head>`, or wrong delimiters used | Ensure both the config `<script>` and the CDN `<script>` are in `<head>` (see §6.5). Use `\(` `\)` delimiters, not `$`. |
+| Dollar amounts render as math | Dollar-sign delimiters enabled in MathJax config | Remove `['$', '$']` from the `inlineMath` array in the config (see §6.5) |
 
 ---
 
@@ -1130,5 +1210,7 @@ page's `<head>`.
 | **`rem`** | "Root em" — a CSS unit equal to the root element's font size (typically 16px). Unlike `px`, `rem` scales with browser zoom, making UI elements responsive to user preferences. |
 | **Bootstrap grid** | A 12-column layout system where `.col-*-N` spans N columns at a given breakpoint. |
 | **Collapse** | A Bootstrap plugin that toggles the visibility of an element with a slide animation. |
+| **MathJax** | A JavaScript library that renders LaTeX mathematical notation in the browser. Loaded from a CDN, configured per-page. |
+| **LaTeX** | A typesetting system widely used in academia for mathematical notation. MathJax understands a subset of LaTeX commands like `\times`, `\log`, `\text{}`. |
 
 ---
