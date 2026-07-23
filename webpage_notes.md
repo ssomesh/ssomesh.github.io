@@ -9,13 +9,13 @@ This document is intended to serve as a guide for me to maintain the webpage.
 
 ## Table of Contents
 
-1. [How a Web Page Works — The 30-Second Version](#1-how-a-web-page-works)
+1. [How a Web Page Works - The 30-Second Version](#1-how-a-web-page-works)
 2. [Directory Layout](#2-directory-layout)
-3. [HTML — The Skeleton](#3-html--the-skeleton)
-4. [CSS — The Skin](#4-css--the-skin)
-5. [JavaScript — The Muscles](#5-javascript--the-muscles)
-6. [Bootstrap 3 — The Framework](#6-bootstrap-3--the-framework)
-   - [6.5 MathJax - Mathematical Typesetting](#65-mathjax--mathematical-typesetting)
+3. [HTML - The Skeleton](#3-html---the-skeleton)
+4. [CSS - The Skin](#4-css---the-skin)
+5. [JavaScript - The Muscles](#5-javascript---the-muscles)
+6. [Bootstrap 3 - The Framework](#6-bootstrap-3---the-framework)
+   - [6.5 MathJax - Mathematical Typesetting](#65-mathjax---mathematical-typesetting)
 7. [Page-by-Page Breakdown](#7-page-by-page-breakdown)
 8. [The Navigation Bar](#8-the-navigation-bar)
 9. [The Dark / Light Mode Toggle](#9-the-dark--light-mode-toggle)
@@ -38,7 +38,7 @@ Every web page is built from three technologies that do different jobs:
 
 When a browser loads a page it:
 
-1. Reads the **HTML** to build a tree of elements (the *DOM* — Document Object
+1. Reads the **HTML** to build a tree of elements (the *DOM* - Document Object
    Model).
 2. Reads the **CSS** to decide how each element looks.
 3. Runs any **JavaScript** to wire up interactive behaviour.
@@ -104,7 +104,7 @@ ssomesh.github.io/
 
 ---
 
-## 3. HTML — The Skeleton
+## 3. HTML - The Skeleton
 
 ### 3.1 Document boilerplate
 
@@ -138,7 +138,7 @@ Every HTML page should begin with:
 |------|---------|
 | `<!DOCTYPE html>` | Tells the browser this is an HTML5 document. Without it the browser may enter "quirks mode" and render things incorrectly. |
 | `<html lang="en">` | Root element. `lang="en"` tells screen readers and search engines the content is English. |
-| `<meta charset="utf-8">` | Character encoding — lets you use special characters (é, ü, ç, ×, etc.) safely. |
+| `<meta charset="utf-8">` | Character encoding - lets you use special characters (é, ü, ç, ×, etc.) safely. |
 | `<meta name="viewport" ...>` | Makes the page responsive on phones and tablets by setting the viewport width to the device width. |
 | `<title>` | The text shown on the browser tab. |
 
@@ -181,7 +181,7 @@ Every HTML page should begin with:
 
 ---
 
-## 4. CSS — The Skin
+## 4. CSS - The Skin
 
 CSS rules have the form:
 
@@ -227,10 +227,10 @@ the same everywhere.
 
 The CSS part of the **Bootstrap 3** framework. Provides:
 
-* **Grid system** — `.container`, `.row`, `.col-sm-*`, `.col-lg-*`
-* **Navbar** — `.navbar`, `.navbar-inverse`, `.navbar-static-top`
-* **Collapse** — `.collapse` for expandable sections (abstracts)
-* **Responsive utilities** — media queries for different screen widths
+* **Grid system** - `.container`, `.row`, `.col-sm-*`, `.col-lg-*`
+* **Navbar** - `.navbar`, `.navbar-inverse`, `.navbar-static-top`
+* **Collapse** - `.collapse` for expandable sections (abstracts)
+* **Responsive utilities** - media queries for different screen widths
 
 ### 4.4 mystylesheet.css
 
@@ -252,7 +252,7 @@ a:hover, a:link, a:visited {
 }
 
 .navbar-inverse .navbar-brand {
-    color: #FDB515;            /* California Gold — indicates the active/current page */
+    color: #FDB515;            /* California Gold - indicates the active/current page */
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -285,11 +285,11 @@ visible label on mobile (see §8).
 
 This file does five things:
 
-1. **Fixes the page shift** — `html { overflow-y: scroll; }` (see §10).
-2. **Prevents white flash** — `html.dark-mode { background-color: #000000; }`
+1. **Fixes the page shift** - `html { overflow-y: scroll; }` (see §10).
+2. **Prevents white flash** - `html.dark-mode { background-color: #000000; }`
    works with the `<head>` script to set the background before first paint
    (see §5.4).
-3. **Styles the toggle button** — positions it, makes it circular, colours it.
+3. **Styles the toggle button** - positions it, makes it circular, colours it.
 4. **Overrides colours when `body` has class `dark-mode`**.
 5. **Adds light pill backgrounds behind small icons** so they remain clearly
    visible on the black background.
@@ -303,14 +303,14 @@ background.  The colours were chosen for comfort and readability:
 | Role | Hex value | Colour name / description |
 |------|-----------|--------------------------|
 | Background | `#000000` | True black |
-| Body text | `#b0b0b0` | Soft gray — easy on the eyes, lower contrast than pure white |
+| Body text | `#b0b0b0` | Soft gray - easy on the eyes, lower contrast than pure white |
 | Headings | `#e0e0e0` | Near-white, gentle |
 | Bold text | `#d0d0d0` | Brighter for emphasis |
-| Links | `#4dd0e1` | Bright cyan — pops on black, distinct from body text |
-| Link hover | `#ffd54f` | Warm gold — clear visual feedback |
-| Navbar background | `#e8ecf1` | Light cool gray — creates a "floating bar" effect |
+| Links | `#4dd0e1` | Bright cyan - pops on black, distinct from body text |
+| Link hover | `#ffd54f` | Warm gold - clear visual feedback |
+| Navbar background | `#e8ecf1` | Light cool gray - creates a "floating bar" effect |
 | Navbar text | `#1e293b` | Dark slate |
-| Navbar active item | `#003262` | Berkeley Blue — maintains brand identity |
+| Navbar active item | `#003262` | Berkeley Blue - maintains brand identity |
 | Navbar hover | `#2563eb` | Bright blue |
 | Horizontal rules | `#282828` | Dark gray (Cyborg-style) |
 | Section underlines | `#3c3c3c` | Mid gray |
@@ -328,13 +328,13 @@ background.  The colours were chosen for comfort and readability:
 | `#333` (dark text) | `#b0b0b0` (soft gray) | Body text |
 | `#222` (heading colour) | `#e0e0e0` (near-white) | Headings |
 | Bootstrap blue links | `#4dd0e1` (bright cyan) | All hyperlinks |
-| — | `#ffd54f` (warm gold) | Link hover colour |
+| - | `#ffd54f` (warm gold) | Link hover colour |
 | `#003262` (navbar bg) | `#e8ecf1` (light gray) | Navbar background |
 | `#fff` (navbar text) | `#1e293b` (dark slate) | Navbar link text |
 | `#FDB515` (navbar active) | `#003262` (Berkeley Blue) | Active nav item |
 | `1px solid black` (borders) | `1px solid #3c3c3c` | Section header underlines |
 | `#eff` (blockquote bg) | `#0d0d0d` (near-black) | Blockquote backgrounds |
-| `—` | `#282828` | Horizontal rules |
+| `-` | `#282828` | Horizontal rules |
 | `#23007d` (ACM badge) | `#80deea` (light cyan) | ACM badge text |
 | `#C4820E` (mentor gold) | `#f5b942` (bright gold) | Mentor topic labels |
 
@@ -346,7 +346,7 @@ The dark mode CSS solves this by adding a **tight white backdrop** behind
 each icon using `background-color` with `border-radius` and minimal `padding`:
 
 ```css
-/* Image-based icons — tight white backdrop */
+/* Image-based icons - tight white backdrop */
 body.dark-mode img[src*="github.png"],
 body.dark-mode img[src*="linkedin"],
 body.dark-mode img[src*="orcid"] {
@@ -355,7 +355,7 @@ body.dark-mode img[src*="orcid"] {
     padding: 1px;
 }
 
-/* Font-based icons (Academicons) — tight white backdrop */
+/* Font-based icons (Academicons) - tight white backdrop */
 body.dark-mode i.ai {
     background-color: rgba(255, 255, 255, 0.92);
     border-radius: 3px;
@@ -364,7 +364,7 @@ body.dark-mode i.ai {
 }
 ```
 
-The `rgba(255, 255, 255, 0.92)` is white with 92% opacity — slightly
+The `rgba(255, 255, 255, 0.92)` is white with 92% opacity - slightly
 translucent to blend naturally. The padding is kept minimal (`1px` for
 images, `1px 2px` for font-icons) so the backdrop hugs the icon tightly
 without adding visual bulk. The `border-radius` rounds the corners just
@@ -398,11 +398,11 @@ external CSS rules regardless of specificity.
 
 In dark mode, the navbar uses a light gray background (`#e8ecf1`) instead
 of the dark charcoal approach used by many dark themes. The dark mode CSS
-explicitly sets `border: 1px solid #cbd5e1` and `border-radius: 5px` —
-matching the light mode's `border-radius: 5px` from `mystylesheet.css` —
+explicitly sets `border: 1px solid #cbd5e1` and `border-radius: 5px` -
+matching the light mode's `border-radius: 5px` from `mystylesheet.css` -
 so the rounded corners are visible against the black page background.
-This creates a visually striking "floating card" effect — a light bar
-sitting on the black background — that:
+This creates a visually striking "floating card" effect - a light bar
+sitting on the black background - that:
 
 - Clearly delineates the navigation area from page content.
 - Maintains high contrast for nav text (dark slate on light gray).
@@ -414,12 +414,12 @@ The nav text switches to dark colours (`#1e293b` for regular items,
 
 ---
 
-## 5. JavaScript — The Muscles
+## 5. JavaScript - The Muscles
 
 ### 5.1 jQuery (`js/jquery.js`)
 
 jQuery is a library that simplifies working with the DOM. Bootstrap 3 depends
-on it — without jQuery, the collapsible navbar (hamburger menu on mobile) and
+on it - without jQuery, the collapsible navbar (hamburger menu on mobile) and
 the expandable abstracts would not work.
 
 jQuery is loaded **before** Bootstrap's JS because Bootstrap's code calls
@@ -429,7 +429,7 @@ jQuery functions.
 
 Provides the interactive parts of Bootstrap components:
 
-* **Collapse plugin** — powers `data-toggle="collapse"` on the abstract
+* **Collapse plugin** - powers `data-toggle="collapse"` on the abstract
   (abstract) links and the mobile navbar hamburger.
 * **Dropdown, modal, tooltip** plugins (not used here, but included in the
   bundle).
@@ -474,7 +474,7 @@ A small, self-contained script:
    - `document.body.classList.toggle('dark-mode')` adds or removes the
      `dark-mode` class on `<body>`.
    - `document.documentElement.classList.toggle('dark-mode')` does the same
-     on the `<html>` element — this is essential for the anti-flash system
+     on the `<html>` element - this is essential for the anti-flash system
      (see §5.4) to keep `<html>` and `<body>` in sync.
    - The user's choice (`'dark'` or `'light'`) is saved to
      **`localStorage`**, a browser-side key-value store that persists across
@@ -485,7 +485,7 @@ A small, self-contained script:
 
 When a user in dark mode clicks a nav link, the browser loads a brand-new
 HTML document. During the split second before CSS and scripts execute, the
-browser would paint the default white background — causing a jarring white
+browser would paint the default white background - causing a jarring white
 flash. The site prevents this with **two inline scripts** working together:
 
 #### Tier 1: `<head>` script (fires earliest possible)
@@ -511,7 +511,7 @@ html.dark-mode {
 ```
 
 …the browser's very first paint is already black, not white. This is the
-critical fix — without it, there is always a white flash between pages.
+critical fix - without it, there is always a white flash between pages.
 
 #### Tier 2: `<body>` script (applies full dark mode styling)
 
@@ -534,7 +534,7 @@ mode CSS rules (text colour, navbar, links, icons, etc.).
   the `<head>` script runs.
 - **Tier 2 alone** would set body dark mode correctly, but the `<html>`
   element would still be white during the brief moment between first paint
-  and body script execution — causing a flash.
+  and body script execution - causing a flash.
 - **Together**, Tier 1 ensures no white flash, and Tier 2 ensures all content
   styling is correct.
 
@@ -544,7 +544,7 @@ user clicks the toggle button, keeping them in sync.
 
 ---
 
-## 6. Bootstrap 3 — The Framework
+## 6. Bootstrap 3 - The Framework
 
 ### 6.1 The grid system
 
@@ -741,7 +741,7 @@ switches to the dark mode text colour without any extra configuration.
 ```
 
 - `<u>` underlines the author's own name.
-- `&#32;` is a Unicode space, `&#231;` is ç, etc. — HTML entities for special
+- `&#32;` is a Unicode space, `&#231;` is ç, etc. - HTML entities for special
   characters.
 - `<i class="ai ai-dblp-square">` uses the **Academicons** icon font
   (loaded from a CDN) for the DBLP and Google Scholar icons.
@@ -771,7 +771,7 @@ would lack sufficient contrast on a black background.
 Three sections: Accomplishments, Professional Service, Selected Invited Talks.
 
 Each uses a `<ul>` with `<li>` items. The items use `<dl>` for layout (even
-without `<dt>`/`<dd>` children — a historical HTML quirk in this site).
+without `<dt>`/`<dd>` children - a historical HTML quirk in this site).
 
 ### 7.5 phddissertation.html
 
@@ -845,7 +845,7 @@ In `mystylesheet.css`:
 ```
 
 The gold colour matches the original `.navbar-brand` colour, so the desktop
-appearance is visually identical to having the brand visible — the active
+appearance is visually identical to having the brand visible - the active
 page is always the gold item on the left.
 
 ### 8.3 Per-page configuration
@@ -994,13 +994,13 @@ On smaller screens (< 768px), the button shrinks slightly:
 
 Using `rem` (root-em) units means the button scales with browser zoom.
 When a user zooms in, the browser increases the root font size, and the
-button grows proportionally — staying usable without overlapping content.
+button grows proportionally - staying usable without overlapping content.
 
 In light mode the button has a Berkeley-blue border on a light background.
 In dark mode it switches to a near-black background (`#0d0d0d`) with a
 cyan border (`#4dd0e1`) that matches the link colour, and a subtle
-cyan glow (`box-shadow`). Hovering inverts this — the background becomes
-cyan and the icon turns black — with a `transform: scale(1.08)` for
+cyan glow (`box-shadow`). Hovering inverts this - the background becomes
+cyan and the icon turns black - with a `transform: scale(1.08)` for
 tactile feedback.
 
 ### 9.3 How it persists across pages
@@ -1192,22 +1192,22 @@ page's `<head>`.
 
 | Term | Definition |
 |------|-----------|
-| **DOM** | Document Object Model — the browser's internal tree representation of the HTML. |
+| **DOM** | Document Object Model - the browser's internal tree representation of the HTML. |
 | **CSS specificity** | The algorithm browsers use to decide which CSS rule wins when multiple rules target the same element. Inline styles > IDs > classes > element selectors. |
 | **`!important`** | A CSS declaration that overrides normal specificity rules. Used sparingly for cases like inline-style overrides. |
 | **Viewport** | The visible area of the browser window. |
 | **Responsive design** | Design that adapts to different screen sizes using flexible grids and media queries. |
 | **Media query** | A CSS technique (`@media (max-width: 767px) { ... }`) that applies styles only at certain screen widths. |
 | **`localStorage`** | A browser API for storing key-value pairs persistently on the client side (survives page reloads and browser restarts). |
-| **FOUC** | Flash of Unstyled Content — a brief flicker of default styles before CSS is applied. |
+| **FOUC** | Flash of Unstyled Content - a brief flicker of default styles before CSS is applied. |
 | **Minified** (`.min.css`, `.min.js`) | Files with whitespace and comments removed to reduce file size for faster loading. |
-| **CDN** | Content Delivery Network — a globally distributed server network for fast delivery of libraries (used for Academicons). |
-| **SVG** | Scalable Vector Graphics — an XML-based image format that scales without pixelation, used for the sun/moon toggle icons. |
+| **CDN** | Content Delivery Network - a globally distributed server network for fast delivery of libraries (used for Academicons). |
+| **SVG** | Scalable Vector Graphics - an XML-based image format that scales without pixelation, used for the sun/moon toggle icons. |
 | **Semantic element** | An HTML element that conveys meaning (e.g., `<nav>`, `<article>`) vs. a generic one (`<div>`, `<span>`). |
-| **Void element** | An HTML element that cannot have children and has no closing tag (e.g., `<br>`, `<hr>`, `<img>`). Writing `</br>` is invalid — browsers tolerate it, but the correct form is `<br>`. |
-| **`rgba`** | Red, Green, Blue, Alpha — a colour format with a transparency channel. `rgba(255, 255, 255, 0.92)` is white at 92% opacity. Used for icon pill backgrounds in dark mode. |
+| **Void element** | An HTML element that cannot have children and has no closing tag (e.g., `<br>`, `<hr>`, `<img>`). Writing `</br>` is invalid - browsers tolerate it, but the correct form is `<br>`. |
+| **`rgba`** | Red, Green, Blue, Alpha - a colour format with a transparency channel. `rgba(255, 255, 255, 0.92)` is white at 92% opacity. Used for icon pill backgrounds in dark mode. |
 | **Attribute selector** | A CSS selector like `[style*="color:black"]` that matches elements based on their HTML attributes. |
-| **`rem`** | "Root em" — a CSS unit equal to the root element's font size (typically 16px). Unlike `px`, `rem` scales with browser zoom, making UI elements responsive to user preferences. |
+| **`rem`** | "Root em" - a CSS unit equal to the root element's font size (typically 16px). Unlike `px`, `rem` scales with browser zoom, making UI elements responsive to user preferences. |
 | **Bootstrap grid** | A 12-column layout system where `.col-*-N` spans N columns at a given breakpoint. |
 | **Collapse** | A Bootstrap plugin that toggles the visibility of an element with a slide animation. |
 | **MathJax** | A JavaScript library that renders LaTeX mathematical notation in the browser. Loaded from a CDN, configured per-page. |
