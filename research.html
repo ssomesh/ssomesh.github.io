@@ -186,6 +186,7 @@ BP-MDS: Million-Scale Approximate CVRP in Minutes via Parallel Divide-and-Conque
 </p>
 
 <p class="collapse" id="icpp26" style="font-size: 11pt">
+The Capacitated Vehicle Routing Problem (CVRP) is a classical NP-hard combinatorial optimization problem central to logistics and transportation planning. A rich body of heuristic approaches has been developed to compute high-quality feasible solutions. However, prior work has predominantly targeted small- to medium-scale instances comprising up to a few thousand customers. As real-world problem sizes grow, there is a compelling need for scalable CVRP solvers. Existing state-of-the-art heuristics suffer from prohibitive run time and memory footprint when applied to large instances, rendering them impractical beyond moderate scale. We propose BP-MDS, a parallel divide-and-conquer framework for large-scale approximate CVRP, designed to operate at million-customer scale. BP-MDS partitions the problem into independent subproblems solved concurrently, achieving near-linear time complexity with respect to instance size and strong parallel scaling across threads. Experimental evaluation demonstrates that BP-MDS attains \(20\times\)-\(60\times\) speedups over the parallel solver ParMDS and up to \(2300\times\) over the sequential solver HGS-CVRP. BP-MDS solves million-customer instances within minutes, advancing the tractability frontier of CVRP.
 </p>
 
 <h3 style="font-size: 16pt">
